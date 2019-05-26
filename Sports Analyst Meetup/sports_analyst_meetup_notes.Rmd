@@ -1,0 +1,160 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "February 24, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sports Analytics - u++
+
+
+## LT
+
+
+kentaro_matsumoto_0716 	ゴルフはっは～ん、こうやってゴルフボールは飛ぶのか。と知ったかぶるためのLT（仮） 	
+- golf simulation (GDR) game data
+- how does a golf ball fly? analyze data from 115 hits from simulator game!
+- picking the right club for the right distance...
+- difference in swing radius/angle == affect distance traveled 
+- 遠心力
+- Magnus effect
+- spin == elevation, too much == too high and not much distance, too little == very small distance traveled
+- angle + backspin == very important in total distance traveled!
+
+
+shinichi_arimasu 	自転車 	自転車競技におけるデータドリブンなアプローチ手法と実例 	
+
+- measure performance via calculating how the cyclists velocity can generate Watts???
+- Power (W): torque (Nm) x angular velocity (rad / s)
+- critical power / functional threshold power
+- very easy to take a data-driven approach to competitive cycling!
+
+
+icebee__ 	登山 	登山って、つらくない？ ～標高とコースタイムから見るつらみ～ 	
+
+- TKO-based metrics: base climbing difficulty system on Mount Takao as base (== 1)
+- Z = elevation, time == course time
+- Mount Fuji is 22 times more difficult on the TKO-based system!
+-
+
+Kumakichi 	F1 	なんちゃってF1ラップタイム分析（仮） 	
+
+- each team creates a "formula" specified racing car >>> 2 drivers >>> race in around 20 races per year
+- divided into qualification + finals: each car == time attack style, decide the starting position for the final race
+- around 50-80 rounds, ~300 km
+- different race tracks provide different challenges >>> aerodynamics + length of car comse into play!
+- different strategies and problems for curves and straight tracks 
+- every car has its advantages + disadvantages 
+- 因子分析 (factor analysis)
+- mercedes, ferrari, redbull left out as COMPLETELY outrank the other 7 teams....!!
+- different abilities ranked by straight, speed, acceleration, curve 
+- rate the strength and weaknesses of each team's drivers and racers: 
+-- ex. renault is very balanced, besides (acceleration), haas is very good at long straight runs
+- 
+
+
+SH 	フィギュアスケート 	題材：フィギュアスケート 	
+
+- how to mark a jump? base score + GOE
+- not just landing, how well spinning?
+- create own spin data from competition impagery
+- separate out spinning clip into separate frames for analysis
+- use SVM
+- uneven distriution of scores 
+-- MOST of the data is ZERO (no score demerits), so ML just scores everything as 0... so very high accuracy
+- solutions: downsampling
+- output: confusion matrix
+-
+
+
+
+tukola 	バスケ 	バスケットボールにおける選手の評価指標 	
+
+- basic stats: "Box score", shooting percentage, assist, turnovers, rebounds, steals, etc. 
+- "box score": merits/demerits
+- Efficiency: POS - NEG, basically subtract negative plays from the positive plays
+-- a bit too simplisitic???
+- does block and steals have the SAME impact, should they be weighed similary? 
+-- Player Efficiency Rating 
+-- easy to record, demirits: stuff that is NOT calculated is not considered at all....
+- Screening a player who makes a 3-pointer ... BUT WHAT AOBUT THE GUY WHO MADE THE SCREEN?
+- Solutions: simply increase the number of events to record?
+-- bottom-up approach vs. top-bottom approach 
+- reverse engineer statistics from overall game stats? 
+- RPM: Real Plus-Minus
+- finding players who are not stand-outs statistcally but are contributing greatly to the team (earning points-wise)
+- 
+-
+-
+-
+
+
+yakiunoojisan 	野球 	よくわかる「フラレボ」 	
+
+- mapping for data analysis 
+- network analysis
+- ふられぼ
+- hit fly balls > grounders ??
+- barrel classification >>> visualize what hits are classified under this thingy
+- what angle to swing a bat to get ^ velocity on a hit?
+- too much data analysis + granularity... >>> sports == boring? :(
+- ex. icnrease in low-scoring games due to improvement in sports analytics in european football
+
+tsuyupon 	野球 	大◯半端ないって！ 	
+
+- Shohei Otani (Anaheim Angels)
+- every month there's some new headlien about him...! #ShoTime
+- performance as pitcher + batter? 
+- Otani Shift >>> batting percentage goes down in July
+- analytics necessary more BEFORE the game: physical fitness, timing for raising leg to bat, etc. 
+-
+-
+
+
+flaty 	テニス 	データキャラはどうして負けるのか 	
+
+- top 50 players: keep percentage == ~80%, break percentage == ~28%, keep/break ^ = ^better player
+- Big 4: Nadal, Federer, Djokovic, Murray
+- Nadal dominance on clay courts
+- 
+-
+-
+-
+
+
+Fanalyst 	サッカー 	「アナリスト」が日本のサッカーを変える、のか︎ 	
+
+- within-team <<>> outside researchers + fans/media
+- rise in prominence of specialiszed analyssts in soccer 
+- image-editing, Data x Output x Realtime x Adjust (Doraemon)
+-
+-
+-
+-
+
+
+cute_na_cat 	サッカー 	優勝予測からサッカーW杯・アジアカップを振り返る 	
+
+- prediction via simulations
+- ~42% predicted to advance to next round
+- predictions pre-tournament: Brazil,  Germany, Spain, France... 
+-- slowly starts changing as matches are played! updates with new information 
+-
+
+
+katoken0602 	サッカー 	トラのアナ
+
+- soccer tracking data 
+- wearable GPS device, tracking system (pitch side cameras)
+- LARGE data set ... need to place inside a database first...
+- available: time-series movement >>> necessary to combine with actual events to make a good analysis
+- play data + trackign movement data
+- analyzing space >>> create polygons and voronoi diagrams to judge open spaces 
+- heatmap: 
+-
+
+

@@ -1,0 +1,142 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "5/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+https://tokyor.connpass.com/event/130254/
+
+# Main Talks
+
+16:20 - 16:45 	@tanakafreelance 	Radiantによるデータ分析入門 	
+
+- data analysis using Radiant (platform independent browser interface for business analytics)
+- Shiny based GUI for EDA and reproducible reaserch 
+-- used by MBA course at UCSD
+- EDA: John Tukey
+- install from CRAN! >>> Radiant website for dev version
+- launch using `radiant::launcher()` !
+- live code demo...
+-- import data, plot data... modeling!
+-- helpful tabs
+-- create dashboards
+-- knit report via RMarkdown
+
+16:45 - 17:10 	@kotaku08 	R実務徹底活用な話（社内Rパッケージの話とか） 	
+
+- Using R in teams (intra-company R packages)
+- engineer SE/SI more rather than data analysts >>> skillset for starting a data analytics pipeline in a company!
+- problems: 
+-- tasks / tool mismatch
+-- NO reproducibility!
+-- 
+- Converting everyone to using R at VALUES
+-- difficulty connecting to ODBC directly... other security problems...
+-- new entry employees with NO programming experience >> R workshops!
+-- 3 months of hard work >>> tidyverse usage!
+- 80% of company employees can now use R!!
+- 
+-
+
+17:10 - 17:35 	@neronkai 	Rでの軽量なPDFの作成について 	
+- Creating pdf documents with R! >>> NOT WITH RMARKDOWN!
+- utilizing Cairo graphics device
+- grid pkg >>> `grid.raster()`
+- can't zoom... long processing time (~ 3 seconds)
+- can't use Japanese...
+- use `grid::grid.text()`
+- just use RMarkdown lol...
+- Cairo/grid vs. rmarkdown: Pros and Cons...
+-- `Cairo()` parameters...
+
+17:35 - 18:00 	@tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations)
+
+- loops in R? >>> create own ad-hoc functions to automate tasks
+- VECTORIZE code and apply function to process vectors, matrices and lists ^^ efficiently
+- PASS functions to other languages, esp. C++ with Rcpp
+-- NO Copy-paste
+-- only use loops when needed
+-- AVOID premature optimization >>> code first THEN speed up later if needed
+-- parallel computing with `snow` package
+- `makeCluster()` to set number of cores to use... set for less cores than your total
+- time needed to set up the clusters >>> ONLY use it if you have lots of complex tasks!
+- if make cluster bigger than your machine, clusters compete with eachother and make the code runs slower!
+- 
+
+# Sponsor
+
+三井住友海上火災保険株式会社
+
+- data science at insurance companies >>> actuarial science
+- areas of operation: automobiles/fires/earthquakes/travelers'/transportation/event insurance
+- LOTS of data available for analysis!  
+- car accidents increasing in worldwide >>> 130000/year
+- deep learning algorithm to analyze health status of injured person on ambulance
+
+# LTs
+
+@don_du_maru: Levenshtein distance 
+
+- can't remember the region name of where i live....
+- create a levenshtein distance list of region names
+-- NItori <> tori, etc.
+- use RMeCab data
+- usage for product names and people's names
+- 
+
+@GotaMorishita 	The origin of importance weight approach for covariate shift correction 	
+- social media analytics: conversion rate >>> predict??
+-- click rate 
+-- display advertisements <> ad exchange auction, context from user data
+- difficulties with CVR prediction: LOW conversion rates, delayed feedback
+- TRUE data vs. OBSERVED data >>> only see 10% from actual 20% conversions ex.
+- Feedback shift:
+-- similar to covariate shift 
+-- `Criteo` company data set
+- use xgboost 
+
+@ill_identified 	モンテカルロ法の実践ガイド 	
+
+- Monte Carlo simulation guide with `bayesplot` package
+-- traceplot: 
+- R^: potential scale reduction factor (PSRF)   // Gelman-Rubin 
+- 
+-
+
+@Atsushi776 	May I felp you? 	
+
+- extremely annoying searching for documentation for a function by putting ? mark at the front of the function THEN deleting it 
+- `felp()` package and function >>>>
+-- put ? at the END 
+-- ? as S3 object
+- prettycode: syntax highlight
+-- `saveHistory()`
+- mask `?` as well!!!
+- `p?dplyr` for PACKAGE documentation
+- ?iris >> documentation + str() 
+-- use `?.`
+
+
+@saltcooky 	統計的ネットワーク分析の話 	
+
+- network analysis
+- clothing brand network
+- `statnet` pkg
+
+@0_u0 	マーケティングサイエンスとRについて 	
+
+- marketing science with R! 
+- "data driven"
+- what is marketing???
+- KKD: domain knowledge, intuition
+- Using R as a non-technical person >>> Excel? 
+- 
+-
+-
+
+

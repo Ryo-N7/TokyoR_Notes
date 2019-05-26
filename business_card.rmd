@@ -1,0 +1,29 @@
+---
+phone: "080-4052-5400"
+email: "ryonakagawara@gmail.com"
+url: www.ryo-n7.github.io
+logo: "businesscard2.png"
+person: 
+  - name: Ryo Nakagawara
+    title: Junior Data Scientist
+    repeat: 4
+# googlefonts: "Righteous" # feel free to try other fonts at https://fonts.google.com
+paperwidth: 8.5in
+paperheight: 11in
+cols: 4
+rows: 3
+output: pagedown::business_card
+---
+
+<!-- if you prefer black text on white background, set eval=TRUE on the chunk below -->
+
+```{css, eval=FALSE}
+.wrapper {
+  color: black;
+  background-color: white;
+  border: 1px dotted black;
+}
+.coordinates {
+  color: #333;
+}
+```

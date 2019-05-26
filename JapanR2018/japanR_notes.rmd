@@ -1,0 +1,255 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "December 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+### 14:00~14:05 	オープニングトーク(会場案内など) 	@gepuro 	 	
+
+### 14:05~14:25 	R によるシステム開発入門 	@kos59125 
+
+- to support data analytics >>> need a IT infrastructure that supports it!
+- R & IT infrastructure: 
+->> Advantages: data handling, visualization
+->> Disadvantages: performance (speed)
+- batch vs. realtime
+- batch: R CMD batch, run Rscripts, littler (faster than Rscript.)
+- for UI: Shiny
+- non-UI: plumber
+- shiny: web application
+- plumber: support deployment of web applications like Shiny, make R functions available as API endpoints!
+- logging package: http://logging.r-forge.r-project.org/, https://github.com/mfrasca/r-logging
+
+### 14:25~14:45 	R Markdownテンプレートの作り方 	@kazutan 	 	
+## Creating Rmarkdown templates
+
+- personalize your Rmarkdown experience!
+- need knowledge of CSS, JS, Pandoc to get the best out of using Rmarkdown
+- `render()`: knit to .md >>> Pandoc to html, docs, pdf! 
+- template: set through Pandoc, therefore it is important to create a template with options that can be utilized with Pandoc!
+- making one from scratch is DIFFICULT!
+- use a existing template and edit it to your liking!
+- use the `zousan` package! >>> zousan_document
+- goal: image pops out when you click on it
+- possible if use the lightbox JS library
+- insert the pandoc template code into default.html of Github repo 
+- $if(lightbox)$ >>>> $endif$
+- in pandoc double `$$` to escape the signs
+- create a R script and insert zousan::document() 
+- choose a base_format to output your document
+- create output_format() >>> knitr, pandoc, keep_md, base_format, and other options that you want Pandoc to process for your template
+- create skeleton
+- template.yaml for description
+- Expert Edition: use fullpagejs package to create webpage through RMD
+- xaringan: uses remark.js in markdown
+-
+- Disadvantages: 
+->> pandoc is really finicky with different builds/versions
+->> 
+->>
+
+
+
+### 14:45~15:05 	GUIで簡単！モダンなデータ解析 	@efprime_jp 	 	
+
+- create GUI for data analytics (R AnalyticFlow)
+- created in Java, Windows/Mac/Linux OS compatible
+- nodes and edges >>> represent workflow in window
+- multiple languages: English, Japanese, Chinese, etc... 
+- downloaded in ~146 countries, 1/3 of all downloads in Japan
+- first version back in 2007
+- mouse-click to run R analyses!
+- input R script file as a node >>> able to edit script inside GUI as well!
+- past direction: 
+->> using base-R as much as possible
+->> 
+- problems:
+->> a lot of modern R data analyses rely heavily on packages such as the tidyverse!
+->> a lot of modern predictive modeling are also reliant on packages
+->> had thought that more 
+->> Japanese encoding problems in Windows >>> have been fixed recently!
+- new direction:
+->> implementing ggplot2, dplyr, tidyr
+->> implementing the new predictive modeling packages
+- make analytics easy for non-R users but still use the power for R!
+- great way to show the power of R and then slowly indoctrinate them.... 
+- http://r.analyticflow.com/en/
+
+
+
+### 15:05~15:25 	Shiny 完全に理解した 	@Med_KU 	 	(lots of examples and live coding)
+- using ggplot2, googleVis, plotly with SHINY!
+- Shiny homepage: Interact - Analyze - Communicate
+- Shiny + htmlwidgets = POWERFUL ANALYSIS Web App!
+- reveal.js for presentations? ... not compatible with Shiny runtime :(
+- app.R + ui.R >>> RStudio already has the template ready for you! 
+- show reactive elements of Shiny app >>> moveable bar
+- showcase GoogleVis >>> html based (in RMD, results = "asis" to show html)
+- googleVis calendar!
+- plotly + Shiny >>> Vaccination + pandemic simulator heatmap 
+- >>> animation ! ~ 51 days       (cool but a bit morbid)
+- shinyapps.io: 5 FREE apps for deployment!
+- publish through RStudio and Connect! EASY
+
+
+### 15:25~15:45 	休憩 	LT発表者はプロジェクターの接続チェックをお願いします
+
+## LIGHTNING TALKS!
+
+### 15:45~15:50 	gepuro task views 2nd 	@gepuro 	 	
+
+- Github r packages list!
+- dreams for JapanR: all participants to do a LT!! (Guiness World Record for R Conference speakers?)
+-
+-
+
+### 15:50~15:55 	条件付き相互作用の分析 	太田博三 	 	
+- social interaction analysis (?)
+->> language acquisition for foreigners > Japanes and Japanese > foreign 
+- conversation database of japanese learners
+-
+
+### 15:55~16:00 	DID分析の説明 	やぎべゑ 	 	
+- difference-in-differences analysis
+- studying the differential effect of a treatment on a treatment group vs. a control group 
+- improvement from treatment OR other factors???
+->> need data for treatment group IF not had gotten treatment
+- difference between DID vs. AB testing
+- example: subsidies, training program, etc. 
+- isolate the impact FROM the treatment in beta3
+- 
+
+
+### 16:00~16:05 	contextualパッケージでバンディットアルゴリズムの検証 	@housecat442 	 	
+- use contextual package to implement bandit algorithm 
+- https://github.com/Nth-iteration-labs/contextual/tree/master/R
+- probability of website clicks
+
+### 16:05~16:10 	スポーツチームでのR活用の可能性(ラグビーでの実例を通して) 	Koichi Kinoshita 	 
+- using R for rugby analytics
+- rugby performance analyst
+- origin: video coordinator
+- tackle success rate?
+- if ^ tackles than prevent line-breaks? ~ 0.3 
+- if unsucessful/missed tackles == ^ correlation with line breaks
+- use of percentages? or just use absolute number values? 
+(we will watch your career with great interest.gif)
+
+
+### 16:10~16:15 	分析屋が福岡に移住して２年経った話 	@doradora09 	 	
+- observations from Fukuoka R users
+- realities of data analytics industry in Fukuoka
+-
+
+### 16:15~16:20 	SagemakeR 	@hiratake55 	 	
+- Amazon SageMaker >>> Use data analytics environment through AWS 
+- 
+-
+-
+-
+
+### 16:20~16:25 	Rによる分位点処置効果推定の話 	Yusuke Kaneko 	 	
+- RCT and ATE for on-the-job training
+->> difference in salary?
+- problem: only effective on people who are already ^intelligent + ^motivated ?
+->> how to separate the impact of salary increase?
+- Quantile Treatment Effect (QTE) >>> qte package
+- 
+
+### 16:25~16:30 	なんかやる（高速化周りかも） 	かんこれ 	 	
+-
+
+### 16:30~16:35 	アラサーエンジニア シティボーイ化計画  - 都会のお得物件を統計的に探してみる - 	@hana_orin 	 	
+- finding the best real estate in Tokyo
+- center around train stations
+- ggpairs
+- leaflet: mark out the best houses
+->> reality: construction work, dirty, safety, living with landlord???
+- do some real field work in addition to analytics!
+
+### 16:35~16:55 	休憩と時間調整 			
+
+### 16:55~17:00 	みんなのRcpp 35.4 (仮題) 	@heavywatal 
+- Rcpp for Everyone! 
+- how to use with external C++ libraries??
+- Advangates/Disadvantages of various ways to incorporate C/C++ libraries
+->> Find and use installed libraries >>> fail if not found
+->> keep source code copies 
+->>
+->>
+->> 
+- how to share knowledge??
+- Windows users?
+
+### 17:00~17:05 	digdagでRをバッチり回す 	chengvt 	 	
+- creator of movingBubbles package
+- adhoc analysis >>> batch, automate the process
+- used to use CRON (server) but now digdag workflow engine
+- install digdag >>> create dig file 
+-
+
+### 17:05~17:10 	 	@igjit 	 	
+- writing a R compiler in R!
+- nrc package
+- compile("1+2") >>> assemble >>> execute
+- use variables: "a <- 2; a + 40"
+- R == class 1 functions, difference in scoping
+- tokenize
+
+### 17:10~17:15 	（仮）深層学習か画像認識で何かやります 	nakamichi 	 	
+- 
+-
+
+### 17:15~17:20 	関数魔改造講座 (formals編) 	atusy 	 	
+- use `formals()` to peek inside function code for arguments 
+- `alist()`
+-
+-
+-
+
+### 17:20~17:25 	(仮)テニスに関する分析で何かやります 	shrrt 	 	
+- tennis player ratings
+- hard to evaluate due to different styles of play (offensive? defensive?)
+- Elo rating
+- PlayerRatings package
+- Kei Nishikori was really good in 2014!!
+
+### 17:25~17:30 	量子化学(フラグメント分子軌道法)でもRしたい(薬) 	川嶋裕介 	なし 	
+- ~~quantum chemistry~~
+-
+-
+-
+-
+
+### 17:30~17:35 	ぼくの町の不安定 	tanaka_marimo 	なし 	
+- uncertainties~
+- precipitation in Tokyo
+- 不安定降水
+- K-Index
+
+### 17:35~17:40 	このIRのグラフがすごい!上場企業2018 	@ito_yan 	なし 	
+- Investor Relations graphs
+- examples of bad visualizations!
+- misuse of colors, misleading labels, etc. 
+- badly labeled axes, obfuscating trends with comments
+- I still don't know what the title means, is it some kind of reference? (probably...)
+
+### 17:40~17:45 	LINE Corp.
+- 
+-
+-
+-
+
+
+
+
+
+
+

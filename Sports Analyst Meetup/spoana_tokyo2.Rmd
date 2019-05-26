@@ -1,0 +1,131 @@
+---
+title: "Sports Analytics Tokyo #2"
+author: "RN7"
+date: "5/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Main Talks
+
+### 1
+
+合同会社アヘッドスポーツエンジニアリング
+小山 浩之 様
+「遺伝的アルゴリズムを用いたエンデュランス競技の最適ペース探索と、アスリートへの提示方法」
+【参考】https://sportsengineering.co.jp/
+
+- CP (critical power) & W-Prime >>> endurance training + modelling endurance
+- measuring bicycle power (bicycle power meter)
+- genetic algorithm: 
+
+
+### 2: Using soccer analytics to support the blind Japanese national football team
+データスタジアム株式会社
+加藤 健太 様
+「ブラインドサッカー日本代表チームのデータ分析サポートについて」
+
+- 5 v 5: 4 field players, futsal-size field, goalkeepers only allowed to be inside their zone, bell inside ball, spectators must be quiet, 20 min halves
+- manager on sidelines + "guide" behind goal
+- more physical/ less fouls called due to blindness
+- dribble between legs >>> defenders focus on attacker >> stop / slalom to other side
+- sound stop == ball going the other way? 
+- data analysis support start ~ 2014
+- BEFORE: diamond-shape defensive formation >>> player that retrives ball goes up by himself to attack, other 3 players stay behind on defense
+- >>> NOT effective offensively..
+- NEW MANAGER: implement more offensive strategy
+- 3 lanes x 3 areas >>> 9 possession zones
+- ^ aggresive defending: faster pressuring + decreasing the space between the defenders + defenders and the ball
+- ATTACK: Have one player on opposite side lane (from player with the ball)+ 1 player 1 zone BEHIND for support
+- DEFENSE: create screens, quick passes out from the back + goalkeeper, force offensive players toward a certain side + BALL RECOVERY of loose balls!!
+- DATA ANALYSIS: team's matches, rival team's strategies
+-- data gathering:
+-- proposals + 
+-- dribbling data: course/direction, possession time, # players dribbled past
+--- success/fail? what zones did the dribbler pass through?
+-
+- 105: average number of times a 50/50 ball occurs in a match
+- 31.%: average percentage of time that the ball is loose during a match
+-- compared to regular soccer, both teams do NOT have possession as much!!
+- perception > decision > movement > control > action == ^^speed of this process!!
+-
+- Japan '14 vs. Japan '18 vs. France: 32% > 69% take possession of loose balls
+-- vs. Iran: 36% > 51%
+-- vs. Argentina: 29% > 43%
+- PERCEPTION, sensory acuity!! visualizing space + 
+-
+
+## DataStadium
+
+- data for media  content >> magazines, tv shows, etc..
+- player/team support
+- sports imagery/visual: DVD packages, live-broadcasting
+- consulting services: infrastructure + development
+-- main sports: soccer, table tennis, basketball, rugby, baseball
+- web apps, data streams
+- in-house analytics == former players + lack experience with software/analytic tools
+- initiate Sports Analyst Development Program
+-- skills acquisiton + presentation skills, HOW / WHAT to look for?
+
+
+## LTs
+
+
+### 1 	funain 	バドミントン 	戦略シミュレーション分析
+- safe vs. risky shots
+-
+
+### 2 	tomi_ 	相撲 	大相撲優勝決定巴戦に見る不合理な分布
+- 
+-
+
+### 3 	fujit33 	セーリング 	高校セーリング部のための「データ活用ツール」制作秘話
+- weather data, route, sail size + shape, 
+- winds change BY THE SECOND! >>> need more granular data sources than regular weather services!!
+- main difficulty: difference due to skill or natural causes (wind direction + speed)
+- can not simply make decisions based on speed of course completion
+-
+
+### 4 	e-toppo 	卓球 	1年目のTリーグ
+- 
+-
+-
+-
+
+### 5 	icebee__ 	登山 	
+-
+-
+
+### 6 	Akira-Yama 	サッカー 	サポーターの熱気を可視化する
+- visualizing supporter/fan emotions 
+-
+-
+
+### 7 	saeeeeru 	サッカー 	ボール保持力・奪取力マップから見るロシアW杯2018
+- formation recognizer, defensive pressure map
+- generalized linear spatial regression modelling
+-
+-
+-
+
+### 8 	gshirato 	サッカー 	ポジショナルプレーの研究がしたいです
+- expanding/limiting space within the field of play
+- >>> topology: voronoi shapes!!
+-
+-
+
+### 9 	konakalab 	バスケットボール,ハンドボール,ホッケー,バレーボール,水球 	
+リオオリンピックの球技の結果予測：統一予測モデルの構築について
+- predicting the Olympics >>> medal-winners per country
+- 
+-
+-
+
+### 10 	tetsuroito 	スポーツ全般(部活） 	部活とSports Analysis
+-
+-
+-
+-

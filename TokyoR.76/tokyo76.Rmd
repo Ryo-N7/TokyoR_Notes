@@ -1,0 +1,170 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "March 2, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tokyo.R 76
+
+# Talks
+
+## @kato_kohaku: model-agnostic data explanation
+
+- Interpreable machine learning - chris molnar
+->>> human-friendly explanations! what is an explanation, what is a GOOD explanation
+- DALEX package: P. Biecek
+- describe black box models! 
+- comparison of R models with the iml and dalex packages
+- properties of explanation methods: 
+-- expressive power: 
+-- algorithmic complexity:
+-- translucency: blackbox or linear regression inference available?
+-- portability:
+-- accuracy:
+-- fidelity:
+-- degree of importance: which variables explain the data ? which factors?
+-- novelty:
+-- representattiveness: how well does the explanation explain the ENTIRE model?, does it only explain a part of a model (ex. Shapley value)
+-- consistency: if you run the model numerous times does the explanation stay consistent ? rashomon effect
+- alternate features search: finding an alternative and more interpretable model using LASSO
+- taxonomy of interpretability methods:
+-- intrinsic:
+-- post hoc: 
+-- model-specific:
+-- model-agnostic: >>> explaining black box models!
+-- exampled-based: counterfactual, adversarial, prototypes, etc. 
+- 
+- automate the interpretation process, interchange black box models
+- iml: written using R6 class
+- workflow: create "predictor"
+- dalex: 
+- workflow: create object with "explain()" function 
+- uses mlr metaframe == generic across different modeling packages 
+->> apartment dataset as example
+- define task >>> choose what algorithm SVM, RF, GBM, etc...
+- tune parameters >>> create model with mlr
+- iml: create "predictor" with tuned models
+- DALEX: pass model to explain() function, explainer object
+- model_performance() >>> plot redisuals, goodness of fit, ecdf
+->>> comparison between different models (easier with DALEX), add each explainer object into plot function arguments
+- permutation importance: if shuffle the values of each variable, does the predictive ability drop or stay the same?? 
+- DALEX: variable_importance()
+- find partial dependence , correlation between variables?
+- ceteris paribus plot! for any single observation/feature vs. other observations/features
+- Individual COnditional Expectation (ICE) 
+- DALEX: variable_response(), type = "pdp"
+- disadvantage: takes average of all other ...
+- ALE: accumulated local effects
+- DALEX: variable_response(), type = "ale"
+- LIME: Locally interpretable model-agnostic explanations
+- conditional proportion plot
+- breakdown: suffer same limitations as stepwise 
+- 
+
+## @utaka233 shrinkage estimators
+
+- example problem: web advertisement campaing (CTR: click-through rate)
+- sabermetrics >>> number of CTR / total impressions >> usage for BASEBALL data??
+- use Lahman package's >>> Batting dataset
+->>> number of hits (H) / number at-bat (AB)
+- bias-variance tradeoff
+->>> MSE 
+- James-Stein estimator for baseball: lower MSE BUT BIASED!
+- beta-binomial model?
+- `ebbr` package for empirical bayes shrinkage and estimation methods (high number of success/count data!)
+- 
+-
+
+## @y_mattu: operators in R
+
+- result <- 1 + 2  
+- print(result) >>> print.default()
+- WHAT IS HAPPENING UNDERNEATH THIS SIMPLE CODE?
+- "every function is a R object, every R object is a function"
+- "everything in R is running a function"
+- print >>> function(x, ...) UseMethod("") <environment: namespace:base>
+- `methods()` >>> all the methods of a certain function
+- which methods was dispatched ? >>> `sloop::s3_dispatch()`
+- `+` (1,2) >>>> same as 1 + 2
+- `<-` (a, 1 + 2) >>> same as a <- 1 + 2
+- `pryr` package: in what kind of order are functions being dispatched when run?
+- ORDER depends on environment >>> where is "object"? 
+- always looks in .GlobalEnv first!
+- rlang::env_parents() >>> shows order in which environments are asked if/where "object" exists
+- Ex. where is "+"?    >>>> pryr::where("+") or search() >>>> environment:base
+- .Primitive() >>>> find source code: C >>> pryr::show_c_source()
+- Ex. read/understand what is happening under %>% function
+-
+-
+
+# DeNA
+
+- game/entertainment company >>> lots of other stuff
+->> kaggler, automotive, healthcare, ML analyst, sports analytics, HR, data engineer, marketing researcher
+- lavaan models >>> SEM
+- path analysis
+
+# LTs
+
+## @flaty13: tidy time-series analysis
+
+- tsibble >>> lubridate + dplyr >>>> ggplot2
+- walk/step data from iPhone
+- calculate HOURLY
+- sugarrants >>> calendar plot
+- walking pattern >>> go to work ... go back home LOL
+-
+
+## @saltcooky: R study group in my company!
+
+- PYTHONISTAS vs. 3 R Users... :(
+- want to increase R-users within the company ! >>> mainly data analytics 
+- 1: 1 hour >>> R basics, what can i do with R?
+- 2: tidyverse data handling/processing, hands-on instruction
+- 3: ggplot for visualization!!
+- interesting questions: 
+-- . vs. _ in function/object names???
+-- why are there so many packages/functions with the same functionality?!?
+-- how/why
+- installing R...
+- differences in OS for installation == :(
+- use RStudio Cloud!!
+- some converts! success?
+
+
+## @moratoriamuo271: topic modeling
+
+- create a recommendation engine for cooking recipes!
+- cluster reciples by nutritious value/balance
+- rvest/stringr >>> worldcould >>> RmeCab/tm >>> topicmodels/ldatuning >>> tidytext
+- LDA: latent dirichlet allocation 
+-
+
+
+## @katoshoo: random 
+
+- wishart distribution
+-
+
+
+## @0_u0: open data
+
+- privacy/security vs. open-source data
+- RISKS! 
+- need balance
+- stitch together public and private data to find personal information == BAD END!
+- k-anonymity: grouping ex. age: 20-30, 40-50 instead of ACTUAL age
+- advantages/disadvantages
+- 
+
+
+## Hioki Ryuji: system
+
+- data collection >> which database ?
+- websocket package, bigrquery package
+- 
