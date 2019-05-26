@@ -1,0 +1,235 @@
+---
+date: "April 13, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---- TokyoR #77: The Super-duper Beginners Special Edition Session
+
+As the sakura bloomed in Tokyo, another TokyoR User Meetup was held, this time at SONY City! On April 13th useRs from all over Tokyo (and some even from further afield) flocked to Osaki, Tokyo for a special session focused on BeginneRs. We've had several special "themed" sessions in the past like [TokyoR #69: Bayesian statistics](https://atnd.org/events/97016) in June last year as well as the [TokyoR #70: Hadley Wickham + Joe Rickert Special!](https://tokyor.connpass.com/event/92522/) in July of last year. 
+
+Like my previous round up posts ( [TokyoR #76](https://tokyor.connpass.com/event/120730/) and [JapanR #9](https://japanr.connpass.com/event/105802/)) I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
+
+# BeginneR Session #1
+
+These were the same set of beginner user focused talks that happens at the start of every TokyoR meetup:
+
+- [Basics of R Programming by @kotatyamtema](https://speakerdeck.com/kotatyamtema/tokyor77-beginnerssession2)
+- [Data munging with the tidyverse by @y_mattu](https://ymattu.github.io/TokyoR77/slide.html#/)
+- [Visualization with R by @koriakane](https://speakerdeck.com/nozomi_miyazaki/tokyo-dot-r-number-77-chu-xin-zhe-setusiyon1-ke-shi-hua-pato)
+
+
+# BeginneR Session #2 
+
+Since this was a special BeginneR session, the main talks were all focused on even more introductory stuff on top of the usual beginner's session in the previous section. 
+
+## @kilometer00 	Rで楽しむデータ解析（入門編）
+
+- [Slides](https://speakerdeck.com/kilometer/tokyo-dot-r-number-77-beginnersession-data-analysis)
+
+- data analysis with R!
+- code-through of simple cases of linear regression, etc.
+- PCA
+- nested data modeling! group_by() >>> nest()
+-- tidy data analysis and much more organized
+- great graphics + plots + code as usual! 
+-
+- his slides are always in English with LOTS of great visualizations, graphs, tables, figures, etc. that make the material very easy to understand so please check it out!
+
+## @aad34210 (Takashi Minoda) 	RStudioでRを始めよう
+
+- [Slides]()
+
+- rising popularity of big data science + the R language to facilitate it
+- from just the R console >>> RStudio!!
+- IDE: created specifically to aid data analysis in R
+- using R Projects + Git/Github integration 
+- RStudio Server!
+- How to:
+-- install RStudio (from RStudio) AND R (from CRAN)
+- The four main panels:
+- 1. editor/script panel
+- 2. console/terminal panel
+- 3. Environment/history
+- 4. File/Plots/Packages/Help/Viewer
+- (personally my panel setup is completely different from the default...!! the beauty of it is that you can just customize the panels to whatever works best for you!)
+- Global options: CUSTOMIZE~~~~
+-- General
+-- Appearance: font type, font size, color theme
+-- Code
+-- Panel layout: 
+-- etc....
+- RStudio Cheatsheets: Can be found from the Help tab
+
+## @u_ribo 	Rにおけるバージョン管理とプロジェクト運用
+
+- [Slides](https://speakerdeck.com/s_uryu/rstudio-for-team)
+
+- Version maintenance/configurations and running projects in a enclosed environment!
+- HOXOM: analytics for a better society
+- Example: reduce problems with reproducibility!
+- Different version of OS, packages, R itself >>> potential problems
+- Using R within teams
+- Using git and file/package version control 
+- Docker: similar environment for ALL 
+- R STUDIO:: .Rproj
+-- File >> New Project   // `usethis::create_project()`
+-- "NO, NO, YES" >>> .Rdata restore workspace? Save workspace? Always save history? 
+-- here::here(), lintr/styler, assertr, etc...
+- coding demonstration using `usethis::use_course()`
+- .gitignore: NOT upload certain files up to Github
+- DOCKER:
+-- build docker image
+-- pass packages
+-- edit DOckerfile (so everything is built in the same environment)
+-- commit to git with other files
+- open everything up in RStudio server
+-- open + run the workflow script
+-- drake
+
+## @niszet 	R Markdownを使った再現的レポーティング
+
+- [Slides]()
+
+- reproducible reporting with RMarkdown!
+- Member of Pandoc User Organization!
+- "Create a Word document with RMarkdown" mini-book #1
+- "Create a PowerPoint presentation with RMarkdown" mini-book #2
+- create a document/any output >>> produce it again for "future" me!
+- "where did my data go?", "how did i pre-process the data?", etc. etc.
+- from data analysis to report creation >>> run the same, EVERY TIME! 
+- Renders in a completely clean environment each time so the results should NOT change !
+-- raw data, data pre-processing/modeling/viz code
+-- the actual report/documentation write-up
+-- other misc. files
+- Output options: html, markdown, slides, business cards (pagedown pkg) etc.
+- RMarkdown components
+-- YAML header: the "how" or the RMD, title, template, output dir, output type, etc. 
+-- Code chunk: just regular code, chunk options (include, eval, etc.), chunk name, programming language
+-- markdown text: use inline code as well as just regular text
+- short cut keys: Ctrl + Shift + K
+- Green triangle button: code is run in the CONSOLE!
+-
+
+## SONY
+
+- [Slides]()
+
+- Est. 1946
+- 70% of sales are foreign exports!!
+- design (creativity) + engineering (technology)
+- bridge terminal >>> community space for Sony employees...
+- millions of subsidiary companies: they do literally EVERYTHING!! 
+
+# LTs
+
+## @AsaKiriSun 	Rbinom(n=10 size, prob)でsizeとprobが未知なのに「size」を推定する
+
+- [Slides](https://www.slideshare.net/toirenomitorizudesu/rbinomn10-size-probsizeprobsize)
+
+- probabilibty with `rbinom()`
+- focus on SIZE rather than probability for coin flips??
+- no prior work done.... so it's up to me ! 
+- ONLY 3 research studies done...!! wtf
+- moment method estimation for binomial distribution
+- how about with a Bayesian method?? 
+- 1000 simulations: not bad/not really good still ...
+- very slow execution.. maybe just the limits of my coding ability...??
+- there's no DATA! 
+- use ship accident data to estimate TOTAL number of boats! 
+- too small.. definintely NOT right!?
+
+
+## @GotaMorishita 	Rでお買い得物件を探せ
+
+- [Slides](https://speakerdeck.com/morishita/rdeomai-ide-wu-jian-wotan-se)
+
+- 3 days into learning R!!!
+- I want to live by myself... >>> need to find a cheap place to live!
+- Maybe there is a way to use R and ML to search for an optimally priced 
+- predict housing prices based on certain variables
+- web-scrap >> data pre-process >>> split: train/test >>> model 
+- not enough data to split into train/test data... 
+- covariate shift:
+- IW: importance weight
+- certain parameters: certain locations wnat to live in + certain price threshold
+- modelling process:  GBDT boost
+- result: RMSE
+- RMSE is smaller with IW used
+
+
+## @ao053934144 	R事情のヘルスケア界隈
+
+- [Slides]()
+
+- teaching his kid MATH >>> 
+- R in healthcare/pharmaceutical industry
+- bad rep recently... :(
+- process of creating a new medication... lots of pitfalls and traps :9
+- maybe try simulating our models?? how does certain medication impact the body? 
+- field of pharmacokinetics: what happens to medication substances after they enter living organism?
+- use NONNEM (FORTTRAN) to create models >>> use R instead? probably better?
+- use Shiny apps to check simulations
+
+## @sk_bono36 	RとTwitterではじめるマーケティング入門
+
+- [Slides](https://www.slideshare.net/shinjikikuchi2/1904-r-twitter-140696864)
+
+- webmarketing dude
+- use R and Twitter for marketing
+- creating a "persona", in marketing terms
+- ex. a twenty-something dude who likes anime
+- `rtweet` package >>> `search_tweets()`
+- example: 自転車
+- wordcloud >>> what kinda people have "bicycle" in their tweets/profiles
+- network graph using bi-grams
+- result: 20~30 years, has roadbike, relatively friendly, does weight-lifting, likes anime
+
+## @igjit 	Rがときめく型付けの魔法
+
+- [Slides](https://igjit.github.io/slides/2019/04/typrr/#/)
+
+@igjit who also presented at Japan.R back in December 
+
+- alotta code, no stats!
+- type checking system with R
+- typr package >>> please star on github!
+- `type_check("foo.R")` >>> checks whether there is a type mis-match in your script file!
+- example: logical + numeric == ERROR
+- in-line error underline shows up!
+- even when input an incorrect argument in a function! 
+- integer/double/logical/character so far...
+- only 1 argument check so far...
+- just creating/coding for fun!
+- people learn from DOING rather than READING >>> JUST DO IT!
+- have fun, enjoy + experiment! good message to all the beginneRs in the audience! 
+
+
+## @hana_orin 	Rでやってみる、階層線形モデルで渋谷区の賃料予測
+
+- [Slides]()
+
+- hierarchical/nested level models
+- `lme4` package 
+- model: log_price >>> log_space, etc. 
+- HLMdiag >>>> Q-Q plot to look at the residuals of the created model
+- explanatory variables: station proximity , log(space)
+-- if ___ then price goes up by ~4600 Yen!
+-
+
+# Food & Drinks
+
+
+SUSHI 
+
+"kampai"
+
+A fun tradition at TokyoR is 
+
+__Rock-Paper-Scissors__ for free data science books!! 
+The prizes for this month was: 
+- A couple copies of "Create a Word document with RMarkdown" mini-book by @niszet-san.
+- 3 copies of the Japanese translation (by [Hoxo-m Inc.](https://hoxo-m.com/)) of "Feature Engineering for Machine Learning" by Alice Zheng and Amanda Casari provided by @uribo-san.

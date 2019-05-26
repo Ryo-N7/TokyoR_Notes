@@ -1,0 +1,565 @@
+---
+title: "gtでテーブルを作ろう！"
+author: 
+  - "Ryo Nakagawara"
+date: '30/10/2018'
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: ["libs/slides.css",  "libs/animate.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      ratio: '16:9'
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: ["libs/jquery/jquery.min.js", "libs/slides.js"]
+---
+class: inverse
+
+```{css, echo=FALSE}
+/* custom.css */
+.left-code {
+  color: #777;
+  width: 48%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 50%;
+  float: right;
+  padding-left: 1%;
+  transform: scale(0.5);
+}
+```
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, width = 120)
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(fontawesome) #devtools::install_github("rstudio/fontawesome")
+library(lubridate)
+library(htmltools)
+library(datasauRus)
+library(gganimate)
+library(tsibble)
+library(plotly)
+library(gt)
+
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, comment = "#>",
+  fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center',
+  fig.width = 12, fig.height = 4, fig.show = 'hold',
+  cache = TRUE, external = TRUE, dev = 'png', dev.args = list(bg = "transparent")
+)
+
+mp4_vid <- function(src){
+  HTML(
+    paste0(
+      '<video autoplay>
+        <source src="', src, '" type="video/mp4">
+      </video>'
+    )
+  )
+}
+
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines)==1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(more, x[lines], more)
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+```
+
+.title[gganimate]
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+## gtパッケージでテーブルを作ろう！
+
+.bottom[
+### Ryo Nakagawara (`r fa("twitter", fill="#1da1f2")`[@R_by_Ryo](https://twitter.com/R_by_Ryo))
+
+### April 13, 2019
+### Slides @ [GitHub | Ryo-N7 | TokyoR_77_gt_presentation](https://github.com/Ryo-N7/TokyoR_77_gt_presentation)
+]
+
+---
+class: inverse
+
+---
+class: inverse
+
+.animated.rubberBand.title[gganimate]
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+---
+class: inverse
+
+.title[gganimate]
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+.animated.rubberBand[
+.desc[The grammar of animation]
+]
+
+---
+class: inverse
+
+.title[gganimate]
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+.desc[The grammar of animation]
+
+.bottom[
+.animated.zoomInDown[
+### Ryo Nakagawara (`r fa("twitter", fill="#1da1f2")`[@R_by_Ryo](https://twitter.com/R_by_Ryo))
+
+### &nbsp;
+### &nbsp;
+]
+]
+
+---
+class: inverse
+
+.title[gganimate]
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+.desc[The grammar of animation]
+
+.bottom[
+### Ryo Nakagawara (`r fa("twitter", fill="#1da1f2")`[@R_by_Ryo](https://twitter.com/R_by_Ryo))
+
+
+.animated.bounceInRight[
+### April 13, 2019
+### Slides @ [GitHub | Ryo-N7 | TokyoR_77_gt_presentation](https://github.com/Ryo-N7/TokyoR_77_gt_presentation)
+]
+]
+
+---
+class: inverse
+
+.animated.hinge.title[gganimate]
+.animated.hinge.sticker-float[![gganimate](resources/gganimate.png)]
+
+.animated.hinge[
+.desc[The grammar of animation]
+]
+
+.animated.hinge.bottom[
+### Ryo Nakagawara (`r fa("twitter", fill="#1da1f2")`[@R_by_Ryo](https://twitter.com/R_by_Ryo))
+
+### April 13, 2019
+### Slides @ [GitHub | Ryo-N7 | TokyoR_77_gt_presentation](https://github.com/Ryo-N7/TokyoR_77_gt_presentation)
+]
+
+---
+
+## What is `gganimate`?
+
+.pull-left[
+An extension to the grammar of graphics for animation.
+
+Specifically allows animations to be added to ggplot2 using a grammar of animation.
+]
+
+.pull-right[
+```{r}
+mp4_vid("resources/gganimate.mp4")
+```
+]
+
+---
+
+## Brief history of `gganimate`
+
+.pull-left[
+.rounded-circle[![David Robinson](gt2.html)]
+
+Author: David Robinson.
+
+Primarily developed in 2016.
+
+Interface featured frame-by-frame animation building.
+]
+
+
+.pull-right[
+![Thomas Lin Pedersen](resources/thomas.jpeg)
+
+Author: Thomas Lin Pedersen.
+
+Reimagined between 2017 and 2018.
+
+Re-built completely to support a grammar of animation with smooth transitions.
+]
+
+
+---
+class: center
+
+
+## Why should I animate?
+
+<hr>
+
+### Improves graphical re-orientation in time and space.
+
+<br>
+
+--
+
+### More compact delivery of information.
+
+<br>
+
+--
+
+### Allows for guided exploration of data, great for talks.
+
+<br>
+
+--
+
+.animated.bounceIn[
+### Attention grabbing. 
+#### (Tired students? Zzz...)
+]
+
+---
+
+## Considerations in making effective animations
+
+<hr>
+
+### Pace: speed of animation
+
+Quick animations may be hard to follow.
+Slow animations are boring and tedious.
+
+--
+
+### Perplex: amount of information
+
+It is easy for animations to be overwhelming and confusing.
+Multiple simple animations can be easier to digest.
+
+--
+
+### Purpose: Usefulness of using animation
+
+Is animation needed? Does it provide additional value?
+
+---
+class: inverse, center, middle
+
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+.title[Your turn]
+
+# Think how you can use animations
+
+---
+
+## A not-so-simple example, the datasaurus dozen
+Again, we first pass in the dataset to ggplot
+
+.left-code[
+```{r plot5, eval=FALSE, echo=TRUE}
+ggplot(datasaurus_dozen)#<<
+```
+]
+.right-plot[
+```{r output5, ref.label="plot5", echo=FALSE, cache=TRUE, fig.height = 10}
+```
+]
+---
+## A not-so-simple example, the datasaurus dozen
+For each dataset we have x and y values, in addition we can map dataset to color
+
+.left-code[
+```{r plot6, eval=FALSE, echo=TRUE}
+ggplot(datasaurus_dozen) +
+  aes(x, y, color=dataset)#<<
+```
+]
+.right-plot[
+```{r output6, ref.label="plot6", echo=FALSE, cache=TRUE, fig.height = 10}
+```
+]
+---
+## A not-so-simple example, the datasaurus dozen
+Trying a simple scatter plot first, but there is too much information
+.left-code[
+```{r plot7, eval=FALSE, echo=TRUE}
+ggplot(datasaurus_dozen) +
+  aes(x, y, color=dataset) +
+  geom_point() #<<
+```
+]
+.right-plot[
+```{r output7, ref.label="plot7", echo=FALSE, cache=TRUE, fig.height = 10}
+```
+]
+---
+## A not-so-simple example, the datasaurus dozen
+We can use facets to split up by dataset, revealing the different distributions
+.left-code[
+```{r plot8, eval=FALSE, echo=TRUE}
+ggplot(datasaurus_dozen) +
+  aes(x, y, color=dataset) +
+  geom_point() +
+  facet_wrap(~dataset)#<<
+```
+]
+.right-plot[
+```{r output8, ref.label="plot8", echo=FALSE, cache=TRUE, fig.height = 10}
+```
+]
+---
+## A not-so-simple example, the datasaurus dozen
+We can just as easily turn it into an animation, transitioning between dataset states! 
+
+.left-code[
+```{r plot9, eval=FALSE, echo=TRUE}
+ggplot(datasaurus_dozen) +
+  aes(x, y) +
+  geom_point() +
+  transition_states(dataset, 3, 1) + #<<
+  labs(title = "Dataset: {closest_state}") #<<
+```
+]
+.right-plot[
+```{r output9, ref.label="plot9", echo=FALSE, cache=TRUE, fig.height = 10}
+```
+]
+
+---
+## Let's try `gt` now!
+Use everybody's favorite: `mtcars` dataset!
+
+```{r remedy001, echo=TRUE, eval=TRUE}
+order_countries <- c("Germany", "Italy", "United States", "Japan")
+
+gtcaroo <- gtcars %>%
+  group_by(ctry_origin) %>%
+  top_n(., n = 2) %>%
+  ungroup() %>%
+  filter(ctry_origin != "United Kingdom") %>%
+  arrange(factor(ctry_origin, levels = order_countries), mfr, desc(msrp)) %>%
+  mutate(car = paste(mfr, model)) %>%
+  select(-mfr, -model) %>%
+  group_by(ctry_origin)
+```
+
+---
+## Let's try `gt` now!
+First use `gt()` to create a `gt` object from your dataframe!
+.left-code[
+```{r gt1, eval=F, echo=T, out.width = 5}
+gtcaroo %>%
+  gt(rowname_col = "car") #<<
+```
+]
+.right-plot[
+```{r output1,  eval=T, echo=F, out.width = 5}
+htmltools::includeHTML("gt2.html")
+```
+]
+---
+## Let's try `gt` now!
+Use `col_hide` to hide certain columns we don't need.
+.left-code[
+```{r gt2, eval=F, echo=T}
+gtcaroo %>%
+  gt(rowname_col = "car") %>%
+  cols_hide(columns = vars(drivetrain, #<<
+                           bdy_style)) #<<
+```
+]
+.right-plot[
+```{r output2, ref.label="gt2", eval=T, echo=F, out.width = 5}
+```
+]
+---
+## Let's try `gt` now!
+Use `col_move` to move certain columns into a specific order you want...
+.left-code[
+```{r gt3, eval=F, echo=T}
+gtcaroo %>%
+  gt(rowname_col = "car") %>%
+  cols_hide(columns = vars(drivetrain, 
+                           bdy_style)) %>%
+  cols_move(columns = vars(trsmn, mpg_c, #<<
+                           mpg_h), #<<
+            after = vars(trim)) #<<
+```
+]
+.right-plot[
+```{r output3, ref.label="gt3", eval=T, echo=F, cache=TRUE, out.width = 5}
+```
+]
+---
+## Let's try `gt` now!
+Tons of other `cols_*()` stuff blahblah
+.left-code[
+```{r gt4, eval=F, echo=T, out.width = 5}
+gtcaroo %>%
+  gt(rowname_col = "car") %>%
+  cols_hide(columns = vars(drivetrain, 
+                           bdy_style)) %>%
+  cols_move(columns = vars(trsmn, mpg_c, 
+                           mpg_h), 
+            after = vars(trim)) %>%
+  cols_merge(col_1 = vars(mpg_c), #<<
+             col_2 = vars(mpg_h), #<<
+             pattern = "{1}c<br>{2}h") %>% #<<
+  cols_merge(col_1 = vars(hp), #<<
+             col_2 = vars(hp_rpm), #<<
+             pattern = "{1}<br>@{2}rpm") %>% #<<
+  cols_merge(col_1 = vars(trq), #<<
+             col_2 = vars(trq_rpm), #<<
+             pattern = "{1}<br>@{2}rpm") %>% #<<
+  cols_label(mpg_c = "MPG", hp = "HP", #<<
+             trq = "Torque", year = "Year", #<<
+             trim = "Trim", trsmn = "Transmission", msrp = "MSRP") %>% #<<
+  cols_align(align = "center", #<<
+             columns = vars(mpg_c, hp, trq)) #<<
+```
+]
+.right-plot[
+```{r output4, ref.label="gt4", eval=T, echo=F, out.width = 5}
+```
+]
+---
+## Let's try `gt` now!
+Use `fmt_currency` to change the `msrp` column to use USD symbol!
+.left-code[
+```{r gt5, eval=F, echo=T}
+gtcaroo %>%
+  gt(rowname_col = "car") %>%
+  cols_hide(columns = vars(drivetrain, 
+                           bdy_style)) %>%
+  cols_move(columns = vars(trsmn, mpg_c, 
+                           mpg_h), 
+            after = vars(trim)) %>%
+  cols_merge(col_1 = vars(mpg_c), 
+             col_2 = vars(mpg_h), 
+             pattern = "{1}c<br>{2}h") %>% 
+  cols_merge(col_1 = vars(hp), 
+             col_2 = vars(hp_rpm), 
+             pattern = "{1}<br>@{2}rpm") %>% 
+  cols_merge(col_1 = vars(trq), 
+             col_2 = vars(trq_rpm), 
+             pattern = "{1}<br>@{2}rpm") %>% 
+  cols_label(mpg_c = "MPG", hp = "HP", 
+             trq = "Torque", year = "Year", 
+             trim = "Trim", trsmn = "Transmission", msrp = "MSRP") %>% 
+  cols_align(align = "center", 
+             columns = vars(mpg_c, hp, trq)) %>% 
+  fmt_currency(columns = vars(msrp), #<<
+               currency = "USD", decimals = 0) #<<
+```
+]
+.right-plot[
+```{r output5, ref.label="gt5", eval=T, echo=F, cache=TRUE, out.width = 5}
+```
+]
+---
+## Let's try `gt` now!
+Use the `tab_*()` functions:
+.left-code[
+```{r gt6, eval=F, echo=T}
+gtcaroo %>%
+  gt(rowname_col = "car") %>%
+  cols_hide(columns = vars(drivetrain, 
+                           bdy_style)) %>%
+  cols_move(columns = vars(trsmn, mpg_c, 
+                           mpg_h), 
+            after = vars(trim)) %>%
+  cols_merge(col_1 = vars(mpg_c), 
+             col_2 = vars(mpg_h), 
+             pattern = "{1}c<br>{2}h") %>% 
+  cols_merge(col_1 = vars(hp), 
+             col_2 = vars(hp_rpm), 
+             pattern = "{1}<br>@{2}rpm") %>% 
+  cols_merge(col_1 = vars(trq), 
+             col_2 = vars(trq_rpm), 
+             pattern = "{1}<br>@{2}rpm") %>% 
+  cols_label(mpg_c = "MPG", hp = "HP", 
+             trq = "Torque", year = "Year", 
+             trim = "Trim", trsmn = "Transmission", msrp = "MSRP") %>% 
+  cols_align(align = "center", 
+             columns = vars(mpg_c, hp, trq)) %>% 
+  fmt_currency(columns = vars(msrp), 
+               currency = "USD", decimals = 0) %>% 
+  tab_spanner(label = md("*Performance*"),                                  #<<
+              columns = vars(mpg_c, mpg_h, hp, hp_rpm, trq, trq_rpm)) %>%   #<<
+  tab_style(style = cells_styles(text_size = px(12)),                       #<<
+            locations = cells_data( #<<
+              columns = vars(trim, trsmn, mpg_c, hp, trq))) %>% #<<
+  tab_source_note( #<<
+    source_note = "Source: mtcars dataset (included in base R)") #<<
+```
+]
+.right-plot[
+```{r output6, ref.label="gt6", eval=T, echo=F, out.width = 5}
+```
+]
+---
+class: center
+
+## Other animation libraries to check out
+
+<br>
+
+### [D3.js](https://d3js.org/)
+### [Vega](https://vega.github.io/vega/) / [Vega-lite](https://vega.github.io/vega-lite/)
+### [Highcharts](https://www.highcharts.com/)
+### [Bokeh](https://bokeh.pydata.org/en/latest/)
+### [Seaborn](https://seaborn.pydata.org/)
+
+<br>
+
+This is not exhaustive - there are a lot of animation libraries!
+---
+
+class: inverse, top
+
+.sticker-float[![gganimate](resources/gganimate.png)]
+
+.title[Thanks! `r fa("comments", fill = "white")`]
+
+<br>
+
+.larger[
+`r fa("github", fill = "white")` Learn more on GitHub: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
+
+`r fa("wikipedia-w", fill = "white")` More examples on the wiki: [thomasp85/gganimate/wiki](https://github.com/thomasp85/gganimate/wiki)
+
+`r fa("desktop", fill = "white")` Review slides: [mitchelloharawild.com/wombat-gganimate](https://mitchelloharawild.com/wombat-gganimate)
+
+<br>
+
+.footnote[This work is licensed as `r fa("creative-commons", fill="white")` BY-NC 4.0.]
+]
