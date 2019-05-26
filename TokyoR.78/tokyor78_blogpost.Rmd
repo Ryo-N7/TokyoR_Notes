@@ -19,11 +19,11 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 
 - [Reading in data with R by y_mattu](https://github.com/ymattu/TokyoR78)
 - [Visualization with R by koriakane](https://speakerdeck.com/nozomi_miyazaki/tokyo-dot-r-number-77-chu-xin-zhe-setusiyon1-ke-shi-hua-pato)
-- [Data analysis with R by kilometer00](https://ymattu.github.io/TokyoR77/slide.html#/)
+- [Data analysis with R by kilometer00](https://speakerdeck.com/kilometer/tokyo-dot-r-number-78-beginnersession-data-analysis)
 
 # Main Talks
 
-## @tanakafreelance 	Radiantによるデータ分析入門 	
+## @tanakafreelance 	Radiantによるデータ分析入門 	[](https://www.slideshare.net/ssuser5aee94/78th-tokyor-radiant)
 
 - data analysis using Radiant (platform independent browser interface for business analytics)
 - Shiny based GUI for EDA and reproducible reaserch 
@@ -37,7 +37,14 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 -- create dashboards
 -- knit report via RMarkdown
 
-## @kotaku08 	R実務徹底活用な話（社内Rパッケージの話とか） 	
+https://radiant-rstats.github.io/docs/
+https://cran.r-project.org/web/packages/radiant.data/readme/README.html
+
+## @kotaku08 	R実務徹底活用な話（社内Rパッケージの話とか） 	[](https://speakerdeck.com/kosshi/r-package-for-a-team)
+
+https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d
+
+https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091
 
 - Using R in teams (intra-company R packages)
 - engineer SE/SI more rather than data analysts >>> skillset for starting a data analytics pipeline in a company!
@@ -53,18 +60,10 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 - 
 -
 
-## @neronkai 	Rでの軽量なPDFの作成について 	
-- Creating pdf documents with R! >>> NOT WITH RMARKDOWN!
-- utilizing Cairo graphics device
-- grid pkg >>> `grid.raster()`
-- can't zoom... long processing time (~ 3 seconds)
-- can't use Japanese...
-- use `grid::grid.text()`
-- just use RMarkdown lol...
-- Cairo/grid vs. rmarkdown: Pros and Cons...
--- `Cairo()` parameters...
+https://github.com/ThinkR-open/companies-using-r
 
-## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations)
+
+## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations) [](https://github.com/TomKellyGenetics/TokyoR78)
 
 - loops in R? >>> create own ad-hoc functions to automate tasks
 - VECTORIZE code and apply function to process vectors, matrices and lists ^^ efficiently
@@ -77,6 +76,12 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 - time needed to set up the clusters >>> ONLY use it if you have lots of complex tasks!
 - if make cluster bigger than your machine, clusters compete with eachother and make the code runs slower!
 - 
+
+http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html
+the classic [R Inferno book](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf), specifically Chapters 3 & 4
+http://www.win-vector.com/blog/2019/01/what-does-it-mean-to-write-vectorized-code-in-r/
+https://www.jimhester.com/2018/04/12/vectorize/
+
 
 # Sponsor
 
@@ -97,20 +102,12 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 -- NItori <> tori, etc.
 - use RMeCab data
 - usage for product names and people's names
-- 
 
-## @GotaMorishita 	The origin of importance weight approach for covariate shift correction 	
-- social media analytics: conversion rate >>> predict??
--- click rate 
--- display advertisements <> ad exchange auction, context from user data
-- difficulties with CVR prediction: LOW conversion rates, delayed feedback
-- TRUE data vs. OBSERVED data >>> only see 10% from actual 20% conversions ex.
-- Feedback shift:
--- similar to covariate shift 
--- `Criteo` company data set
-- use xgboost 
+https://github.com/markvanderloo/stringdist
+https://amunategui.github.io/stringdist/
+https://towardsdatascience.com/measure-distance-between-2-words-by-simple-calculation-a97cf4993305
 
-## @ill_identified 	モンテカルロ法の実践ガイド 	
+## @ill_identified 	モンテカルロ法の実践ガイド 	[](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
 
 - Monte Carlo simulation guide with `bayesplot` package
 -- traceplot: 
@@ -118,7 +115,14 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 - 
 -
 
-## @Atsushi776 	May I felp you? 	
+https://cran.r-project.org/web/packages/bayesplot/vignettes/plotting-mcmc-draws.html
+https://www.tjmahr.com/bayesplot-satrdays-2019/#/
+https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/markov-chain-monte-carlo.html
+https://twitter.com/tjmahr/status/1131238604922138624
+https://github.com/tjmahr/bayesplot-satrdays-2019
+
+
+## @Atsushi776 	May I felp you? 	[](https://presentation.atusy.net/20190525-tokyor76-felp/#/)
 
 - extremely annoying searching for documentation for a function by putting ? mark at the front of the function THEN deleting it 
 - `felp()` package and function >>>>
@@ -131,12 +135,11 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 - ?iris >> documentation + str() 
 -- use `?.`
 
+https://felp.atusy.net/
+https://stackoverflow.com/questions/15289995/how-to-get-help-in-r
+https://stackoverflow.com/questions/21469812/how-to-create-help-for-my-functions-written-by-in-r
+http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming
 
-## @saltcooky 	統計的ネットワーク分析の話 	
-
-- network analysis
-- clothing brand network
-- `statnet` pkg
 
 ## @0_u0 	マーケティングサイエンスとRについて 	
 
