@@ -5,22 +5,6 @@ output:
     variant: markdown_github
 ---
 
-<img src="../assets/2019-04-24-tokyoR-77_files/tokyorlogo.PNG" style="display: block; margin: auto;" width = "350" />
-
-EXTRA TALK SESSION
-
-With the arrival of summer, another [TokyoR User Meetup](https://tokyor.connpass.com/event/130254/)!  On May 25th, useRs from all over Tokyo (and some even from further afield - including Kan Nishida of [Exploratory](https://exploratory.io/), all the way from California!) flocked to Jimbocho, Tokyo for a jam-packed session of #rstats.
-
-Like my previous round up posts (for [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/) and [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
-
-# BeginneR Session #1
-
-Beginner user focused talks that happen at the start of every [TokyoR](http://tokyor.connpass.com/) meetup:
-
-- [Reading in data with R by y_mattu](https://github.com/ymattu/TokyoR78)
-- [Visualization with R by koriakane](https://speakerdeck.com/nozomi_miyazaki/tokyo-dot-r-number-77-chu-xin-zhe-setusiyon1-ke-shi-hua-pato)
-- [Data analysis with R by kilometer00](https://ymattu.github.io/TokyoR77/slide.html#/)
-
 # Main Talks
 
 ## @tanakafreelance 	Radiantによるデータ分析入門 	
@@ -132,7 +116,7 @@ Beginner user focused talks that happen at the start of every [TokyoR](http://to
 -- use `?.`
 
 
-## @saltcooky 	統計的ネットワーク分析の話 	
+## @saltcooky 	統計的ネットワーク分析の話 	https://speakerdeck.com/saltcooky12/sutoritosunatupudetani-tong-ji-de-netutowakufen-xi-falseshi-yong-woshi-mita
 
 - network analysis
 - clothing brand network
