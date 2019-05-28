@@ -27,7 +27,9 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## @tanakafreelance 	Radiantによるデータ分析入門 	[](https://www.slideshare.net/ssuser5aee94/78th-tokyor-radiant)
+## @tanakafreelance 	Radiantによるデータ分析入門 	
+
+- [Slides](https://www.slideshare.net/ssuser5aee94/78th-tokyor-radiant)
 
 `@tanakafreelance` talked about [Radiant](https://radiant-rstats.github.io/), which is a platform-independent browser-based GUI for business analytics that was developed by [Vincent Nijs](). It is a tool for business analytics purposes and is based on `Shiny`. After installation from CRAN you can launch it via using `radiant::launcher()`. Most of this presentation was a live demo by `@tanakafreelance` show a lot of the functionality offered by Radiant such as creating reproducible reports with RMarkdown, writing your own R code to use within the GUI, creating and evaluating models (linear/logistic regression, neural networks, naive bayes, and more), and design of experiments (DOE)!
 
@@ -38,11 +40,11 @@ You can run it from a variety of set ups from online, offline, on shinyapps.io, 
 - [Radiant website](https://radiant-rstats.github.io/docs/)
 - [Radiant Github](https://github.com/radiant-rstats/radiant)
 
-## @kotaku08 	R実務徹底活用な話（社内Rパッケージの話とか） 	[](https://speakerdeck.com/kosshi/r-package-for-a-team)
+## @kotaku08 	Using and Spreading R at VALUES 	
+
+- [Slides](https://speakerdeck.com/kosshi/r-package-for-a-team)
 
 https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d
-
-https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091
 
 - Using R in teams (intra-company R packages)
 - engineer SE/SI more rather than data analysts >>> skillset for starting a data analytics pipeline in a company!
@@ -58,48 +60,32 @@ https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091
 - 
 -
 
-- [List of Companies Using R](https://github.com/ThinkR-open/companies-using-r)
+Some other resources:
 
+- [List of Companies Using R!](https://github.com/ThinkR-open/companies-using-r)
+- [Scaling knowledge at AirBnB](https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091)
 
-## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations) [](https://github.com/TomKellyGenetics/TokyoR78)
+## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations) 
 
-`@tomkxy` presented in English (he's a Kiwi that works for RIKEN!) on vectorizing your code and parallel computing with R. In direct response to a lot of the accusations that "R is slow", Tom talked about different techniques to use to make your R code faster along with some demonstrations.
+- [Slides](https://github.com/TomKellyGenetics/TokyoR78)
 
-"Code first, optimize later!"
+`@tomkxy` presented in English (he's a Kiwi that works for RIKEN!) on vectorizing your code and parallel computing with R. In direct response to a lot of the accusations that "R is slow", Tom talked about different techniques to use to make your R code faster along with some some demonstrations (the RMD can be found [here](https://github.com/TomKellyGenetics/TokyoR78/blob/master/demo.Rmd)).
 
-The newly developed "Jobs" pane in RStudio
+![]()
 
+One of my key take-aways from this talk was, "Code first, optimize later!". In that it's important to not get stuck doing premature optimization, especially if you might not actually need to use the code again anyways! Sometimes parallel computing may not always be the fastest solution due to overhead costs associated with setting up clusters and communication between clusters.
 
-- loops in R? >>> create own ad-hoc functions to automate tasks
-- VECTORIZE code and apply function to process vectors, matrices and lists ^^ efficiently
-- PASS functions to other languages, esp. C++ with Rcpp
--- NO Copy-paste
--- only use loops when needed
--- AVOID premature optimization >>> code first THEN speed up later if needed
--- parallel computing with `snow` package
-- `makeCluster()` to set number of cores to use... set for less cores than your total
-- time needed to set up the clusters >>> ONLY use it if you have lots of complex tasks!
-- if make cluster bigger than your machine, clusters compete with eachother and make the code runs slower!
-- 
+![]()
 
-Demonstration code [here](https://github.com/TomKellyGenetics/TokyoR78/blob/master/demo.Rmd)
+In addition, the newly developed "Jobs" pane in RStudio 1.2, [released last month](https://blog.rstudio.com/2019/04/30/rstudio-1-2-release/), means you can keep being productive even while you have your scripts running in the background. A great resource for those interested is the CRAN Task View for high performance and parallel computing available [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
 
+A few other resources:
 
-http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html
-the classic [R Inferno book](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf), specifically Chapters 3 & 4
-http://www.win-vector.com/blog/2019/01/what-does-it-mean-to-write-vectorized-code-in-r/
-https://www.jimhester.com/2018/04/12/vectorize/
-
-
-# Sponsor
-
-三井住友海上火災保険株式会社
-
-- data science at insurance companies >>> actuarial science
-- areas of operation: automobiles/fires/earthquakes/travelers'/transportation/event insurance
-- LOTS of data available for analysis!  
-- car accidents increasing in worldwide >>> 130000/year
-- deep learning algorithm to analyze health status of injured person on ambulance
+- [Vectorization in R - Noam Ross](http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html)
+- Chapters 3 & 4 on vectorization of the classic: [R Inferno - Patrick Burns](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf)
+- ["What does it mean to write 'vectorized' code in R?" - Win-Vector](http://www.win-vector.com/blog/2019/01/what-does-it-mean-to-write-vectorized-code-in-r/)
+- The [functionals](http://adv-r.had.co.nz/Functionals.html) and [Optimizing code](http://adv-r.had.co.nz/Profiling.html) sections of [Advanced R - Hadley Wickham](http://adv-r.had.co.nz/)
+- [Using RStudio Jobs for training many models in parallel - Edwin Thoen](https://edwinth.github.io/blog/parallel-jobs/)
 
 # LTs
 
@@ -115,13 +101,27 @@ https://github.com/markvanderloo/stringdist
 https://amunategui.github.io/stringdist/
 https://towardsdatascience.com/measure-distance-between-2-words-by-simple-calculation-a97cf4993305
 
-## @ill_identified 	モンテカルロ法の実践ガイド 	[](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
+## @ill_identified 	Guide to MCMC with the `bayesplot` package!
 
-- Monte Carlo simulation guide with `bayesplot` package
--- traceplot: 
-- R^: potential scale reduction factor (PSRF)   // Gelman-Rubin 
-- 
+- [Slides](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
+
+`@ill_identified` presented on using Markov chain Monte Carlo (MCMC) with R, specifically using the `bayesplot` package. MCMC are a series of methods that contain algorithms for sampling from a probability distribution. To draw samples randomly from the target distributions using one of these algorithms (such as Metropolis-Hastings algorithm, reversible jump, HMC, etc.) then we attempt to construct a Markov chain such that its equilibrium probability distrubution is as close to our target distribution as possible by iterating the chain many times.
+
+For those unfamiliar, `@ill_identified` provided a nice list of books to get you started:
+
+- [Bayesian Data Analysis - Gelman et al.]()
+- [Introduction to Bayesian Statistics with R - ]()
 -
+-
+
+The first 
+traceplot: if it looks like a caterpillar, then you're on the right track!
+
+![]()
+
+
+
+- [CRAN Task View: Bayesian Inference](https://cran.r-project.org/web/views/Bayesian.html)
 
 https://cran.r-project.org/web/packages/bayesplot/vignettes/plotting-mcmc-draws.html
 https://www.tjmahr.com/bayesplot-satrdays-2019/#/
@@ -130,9 +130,11 @@ https://twitter.com/tjmahr/status/1131238604922138624
 https://github.com/tjmahr/bayesplot-satrdays-2019
 
 
-## @Atsushi776 	May I felp you? 	[](https://presentation.atusy.net/20190525-tokyor76-felp/#/)
+## @Atsushi776 	May I felp you? 	
 
-Annoyed that he can't look at the source code when looking at the help files of a function as well as the added annoyance of having to jump back to the start of the function to type `?` back in AND deleting it once you're done `@Atsushi776` created a new package called [felp](https://github.com/atusy/felp).
+- [Slides](https://presentation.atusy.net/20190525-tokyor76-felp/#/)
+
+`@Atsushi776` created a new package called [felp](https://github.com/atusy/felp) as he was annoyed that he couldn't look at the source code while looking at the help files of a function as well as the added annoyance of having to jump back to the start of the function to type `?` back in AND deleting it once you're done.
 
 ```{r eval=FALSE}
 source("https://install-github.me/atusy/felp")
@@ -162,11 +164,7 @@ iris?. ## also opens "Help" page for the dataset
 
 In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?` altogether and wants to work on using a prefix `p?` in front of a package like `dplyr` to bring up the documentation for an entire package.
 
-https://felp.atusy.net/
-https://stackoverflow.com/questions/15289995/how-to-get-help-in-r
-https://stackoverflow.com/questions/21469812/how-to-create-help-for-my-functions-written-by-in-r
-http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming
-
+- [felp website](https://felp.atusy.net/)
 
 ## @0_u0 	マーケティングサイエンスとRについて 	
 
@@ -175,9 +173,8 @@ http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming
 - what is marketing???
 - KKD: domain knowledge, intuition
 - Using R as a non-technical person >>> Excel? 
-- 
 -
--
+
 
 # Other Talks
 
