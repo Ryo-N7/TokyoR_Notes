@@ -35,35 +35,57 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 ![](https://i.ytimg.com/vi/7L3hDpLw53I/maxresdefault.jpg)
 
-You can run it from a variety of set ups from online, offline, on shinyapps.io, shiny server, and even on the cloud service such as AWS via a customized Docker container. For a comprehensive introduction to Radiant's full capabilities you can check out its awesome website [here](https://radiant-rstats.github.io/docs/index.html) full of videos and vignettes!
+You can run it from a variety of set ups from online, offline, on shinyapps.io, shiny server, and even on a cloud service like AWS via a customized Docker container. For a comprehensive introduction to Radiant's full capabilities you can check out its awesome website [here](https://radiant-rstats.github.io/docs/index.html) full of videos and vignettes!
 
 - [Radiant website](https://radiant-rstats.github.io/docs/)
 - [Radiant Github](https://github.com/radiant-rstats/radiant)
 
-## @kotaku08 	Using and Spreading R at VALUES 	
+## @kotaku08 	Transitioning a company to use R!
 
 - [Slides](https://speakerdeck.com/kosshi/r-package-for-a-team)
 
-https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d
+`@kotaku08` talked about his experiences in data analytics and ways he pushed for the usage of R at his company, VALUES. One of the first things he realized upon entering the company was how the skillset of the team was more of that of data/system engineers rather than data analysts. After some time he found three big problems with his working environment that he wanted to solve:
 
-- Using R in teams (intra-company R packages)
-- engineer SE/SI more rather than data analysts >>> skillset for starting a data analytics pipeline in a company!
-- problems: 
--- tasks / tool mismatch
--- NO reproducibility!
--- 
-- Converting everyone to using R at VALUES
--- difficulty connecting to ODBC directly... other security problems...
--- new entry employees with NO programming experience >> R workshops!
--- 3 months of hard work >>> tidyverse usage!
-- 80% of company employees can now use R!!
-- 
--
+1. Mismatch between the tool used and the task needed done
+  - easy data manipulation with PHP.
+  - complicated data manipulation with Excel.
+
+2. What was this again?! (Illegible! Non-reproducible! Non-reusable!)
+  - Extremely convoluted Excel formulas that look like they could be banned by the `Malleus Maleficarum`.
+  - Only have the **results** in an Excel sheet.
+  - If it was a visualization task, it was all done in Tableau...
+
+3. Data extraction being a painful process...
+  - Connecting to `Redshift` is a pain!
+
+While pondering these problems, he came across [this article](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d) from AirBnB that highlighted their transition to building R tools and teaching R across the company. The key takeaways that `@kotaku08` took from the article was:
+
+- Most analysts at AirBnB use R.
+- Intracompany package: `Rbnb`.
+- Efforts put into R education and conducting workshops.
+- Data analysis is both efficient AND reproducible!
+
+Taking these lessons to heart he decided to implement #rstats learning sessions as well as create a company R package! One of the main functionalities of VALUES' main R package is being able to access data from Redshift and in tandem with the various packages in the `cloudyr` project has made getting data much more easier for `@kotaku08` and his team.
+
+Another big step was educating fellow employees about #rstats. 
+
+For __existing__ employees:
+1. Spread rumors about how accessing data is much easier with R...
+2. Those skilled in other scripting languages organically come over to check R out!
+
+For __new__ employees:
+- Emphasize how R is __THE__ standard at the company, 
+- "Graduate hires", most of whom have no programming experience, are put into R bootcamps
+- After 3 months of hard work, able to use the `tidyverse` for analytical tasks!
+
+As a result of these efforts 80% of employees can now use R and the internal company package has two new maintainers (both graduate hires!) to work alongside `kotaku08`.
 
 Some other resources:
 
-- [List of Companies Using R!](https://github.com/ThinkR-open/companies-using-r)
-- [Scaling knowledge at AirBnB](https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091)
+- [List of Companies Using R! (With explanatory blogposts/articles)](https://github.com/ThinkR-open/companies-using-r)
+- [Scaling Knowledge at AirBnB](https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091)
+- [Enterprise Web Services with Neural Networks Using R and Tensorflow](https://opensource.t-mobile.com/blog/posts/r-tensorflow-api/)
+- ["Putting empathy in action: Building a 'community of practice' for analytics in a global corporation" - JD Long (at RStudio::Conf 2019)](https://resources.rstudio.com/rstudio-conf-2019/putting-empathy-in-action-building-a-community-of-practice-for-analytics-in-a-global-corporation)
 
 ## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations) 
 
@@ -89,46 +111,29 @@ A few other resources:
 
 # LTs
 
-## @don_du_maru: Levenshtein distance 
-
-- can't remember the region name of where i live....
-- create a levenshtein distance list of region names
--- NItori <> tori, etc.
-- use RMeCab data
-- usage for product names and people's names
-
-https://github.com/markvanderloo/stringdist
-https://amunategui.github.io/stringdist/
-https://towardsdatascience.com/measure-distance-between-2-words-by-simple-calculation-a97cf4993305
-
 ## @ill_identified 	Guide to MCMC with the `bayesplot` package!
 
 - [Slides](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
 
-`@ill_identified` presented on using Markov chain Monte Carlo (MCMC) with R, specifically using the `bayesplot` package. MCMC are a series of methods that contain algorithms for sampling from a probability distribution. To draw samples randomly from the target distributions using one of these algorithms (such as Metropolis-Hastings algorithm, reversible jump, HMC, etc.) then we attempt to construct a Markov chain such that its equilibrium probability distrubution is as close to our target distribution as possible by iterating the chain many times.
-
-For those unfamiliar, `@ill_identified` provided a nice list of books to get you started:
-
-- [Bayesian Data Analysis - Gelman et al.]()
-- [Introduction to Bayesian Statistics with R - ]()
--
--
-
-The first 
-traceplot: if it looks like a caterpillar, then you're on the right track!
+`@ill_identified` presented on using Markov chain Monte Carlo (MCMC) with R, specifically using the `bayesplot` package. MCMC are a series of methods that contain algorithms for sampling from a probability distribution. These methods involve drawing random samples from a target distributions using an algorithms (such as Metropolis-Hastings algorithm, reversible jump, HMC, etc.) then we attempt to construct a Markov chain such that its equilibrium probability distrubution is as close to our target distribution as possible by iterating the chain many times.
 
 ![]()
 
+As I'm not familiar with MCMC very much I won't go into too much detail here, however for others unfamiliar with MCMC and bayesian inference,`@ill_identified` provided a nice list of books to get you started:
 
+- [Bayesian Data Analysis - Gelman et al.]()
+- [Introduction to Bayesian Statistics with R (Japanese) - Okumura et al.](https://github.com/okumuralab/bayesbook)
+- [Bayesian Modeling with Stan & R (Japanese) - Matsuura et al.](https://github.com/MatsuuraKentaro/RStanBook)
+
+Just recently [TJ Mahr](), one of the authors of `bayesplot`, presented on the package at Chicago SatRDays. You can check out the slides out [here](https://www.tjmahr.com/bayesplot-satrdays-2019). The new version of `bayesplot`, 1.7.0, will also support tidyselect:
+
+![]()
+
+Other resources: 
 
 - [CRAN Task View: Bayesian Inference](https://cran.r-project.org/web/views/Bayesian.html)
-
-https://cran.r-project.org/web/packages/bayesplot/vignettes/plotting-mcmc-draws.html
-https://www.tjmahr.com/bayesplot-satrdays-2019/#/
-https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/markov-chain-monte-carlo.html
-https://twitter.com/tjmahr/status/1131238604922138624
-https://github.com/tjmahr/bayesplot-satrdays-2019
-
+- [bayesplot vignette: Plotting MCMC draws](https://cran.r-project.org/web/packages/bayesplot/vignettes/plotting-mcmc-draws.html)
+- [Statistical Rethinking with brms, ggplot2, and the tidyverse - Solomon Kurz](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/markov-chain-monte-carlo.html)
 
 ## @Atsushi776 	May I felp you? 	
 
@@ -167,6 +172,8 @@ In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?
 - [felp website](https://felp.atusy.net/)
 
 ## @0_u0 	マーケティングサイエンスとRについて 	
+
+- [Slides](https://8-u8.github.io/TokyoR/20190525/Presentation.html#1)
 
 - marketing science with R! 
 - "data driven"

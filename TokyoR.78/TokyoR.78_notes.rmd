@@ -83,6 +83,10 @@ output:
 - usage for product names and people's names
 - 
 
+https://github.com/markvanderloo/stringdist
+https://amunategui.github.io/stringdist/
+https://towardsdatascience.com/measure-distance-between-2-words-by-simple-calculation-a97cf4993305
+
 ## @GotaMorishita 	The origin of importance weight approach for covariate shift correction 	
 - social media analytics: conversion rate >>> predict??
 -- click rate 
