@@ -13,7 +13,7 @@ library(printr)
 
 With the arrival of summer, another [TokyoR User Meetup](https://tokyor.connpass.com/event/130254/)!  On May 25th, useRs from all over Tokyo (and some even from further afield - including Kan Nishida of [Exploratory](https://exploratory.io/), all the way from California!) flocked to Jimbocho, Tokyo for another jam-packed session of #rstats hosted by [Mitsui Sumitomo Insurance Group](https://www.ms-ins.com/english/).
 
-<img src="../assets/2019-04-24-tokyoR-77_files/tokyorlogo.PNG" style="display: block; margin: auto;" width = "350" />
+<img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
 
 Like my previous round up posts (for [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/) and [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
 
@@ -37,11 +37,11 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 - [Slides](https://www.slideshare.net/ssuser5aee94/78th-tokyor-radiant)
 
-`@tanakafreelance` talked about [Radiant](https://radiant-rstats.github.io/), which is a platform-independent browser-based GUI for business analytics that was developed by [Vincent Nijs](). It is a tool for business analytics purposes and is based on `Shiny`. After installation from CRAN you can launch it via using `radiant::launcher()`. Most of this presentation was a live demo by `@tanakafreelance` show a lot of the functionality offered by Radiant such as creating reproducible reports with R Markdown, writing your own R code to use within the GUI, creating and evaluating models (linear/logistic regression, neural networks, naive Bayes, and more), and design of experiments (DOE)!
+`@tanakafreelance` talked about [Radiant](https://radiant-rstats.github.io/), which is a platform-independent browser-based GUI for business analytics that was developed by [Vincent Nijs](). It is a tool for business analytics purposes and is based on `Shiny`. After installation from CRAN you can launch it via using `radiant::launcher()`. Most of this presentation was a live demo by `@tanakafreelance` showing a lot of the functionality offered by Radiant such as creating reproducible reports with R Markdown, writing your own R code to use within the GUI, creating and evaluating models (linear/logistic regression, neural networks, naive Bayes, and more), and design of experiments (DOE)!
 
 ![](https://i.ytimg.com/vi/7L3hDpLw53I/maxresdefault.jpg)
 
-You can run it from a variety of set ups from online, offline, on shinyapps.io, shiny server, and even on a cloud service like AWS via a customized Docker container. For a comprehensive introduction to Radiant's full capabilities you can check out its awesome website [here](https://radiant-rstats.github.io/docs/index.html) full of videos and vignettes!
+You can run it from a variety of set ups from online, offline, on `shinyapps.io`, Shiny server, and even on a cloud service like AWS via a customized Docker container. For a comprehensive introduction to Radiant's full capabilities you can check out its awesome website [here](https://radiant-rstats.github.io/docs/index.html), full of videos and vignettes!
 
 - [Radiant website](https://radiant-rstats.github.io/docs/)
 - [Radiant Github](https://github.com/radiant-rstats/radiant)
@@ -53,16 +53,16 @@ You can run it from a variety of set ups from online, offline, on shinyapps.io, 
 `@kotaku08` talked about his experiences in data analytics and ways he pushed for the usage of R at his company, VALUES. One of the first things he realized upon entering the company was how the skill set of the team was more of that of data/system engineers rather than data analysts. After some time he found three big problems with his working environment that he wanted to solve:
 
 1. Mismatch between the tool used and the task needed done
-  - easy data manipulation with PHP.
-  - complicated data manipulation with Excel.
+    - easy data manipulation with PHP.
+    - complicated data manipulation with Excel.
 
 2. What was this again?! (Illegible! Non-reproducible! Non-reusable!)
-  - Extremely convoluted Excel formulas that look like they could be banned by the `Malleus Maleficarum`.
-  - Only have the **results** in an Excel sheet.
-  - If it was a visualization task, it was all done in Tableau...
+    - Extremely convoluted Excel formulas that look like they could be banned by the `Malleus Maleficarum`.
+    - Excel sheets only contain the __results__.
+    - If it was a visualization task, it was all done in Tableau...
 
 3. Data extraction being a painful process...
-  - Connecting to `Redshift` is a pain!
+    - Connecting to `Redshift` is a pain!
 
 While pondering these problems, he came across [this article](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d) from AirBnB that highlighted their transition to building R tools and teaching R across the company. The key takeaways that `@kotaku08` took from the article was:
 
@@ -76,10 +76,12 @@ Taking these lessons to heart he decided to implement #rstats learning sessions 
 Another big step was educating fellow employees about #rstats. 
 
 For __existing__ employees:
+
 1. Spread rumors about how accessing data is much easier with R...
 2. Those skilled in other scripting languages organically come over to check R out!
 
 For __new__ employees:
+
 - Emphasize how R is __THE__ standard at the company, 
 - "Graduate hires", most of whom have no programming experience, are put into R boot camps
 - After 3 months of hard work, able to use the `tidyverse` for analytical tasks!
@@ -98,15 +100,15 @@ Some other resources:
 
 - [Slides](https://github.com/TomKellyGenetics/TokyoR78)
 
-`@tomkxy` presented in English (he's a Kiwi that works for RIKEN!) on vectorizing your code and parallel computing with R. In direct response to a lot of the accusations that "R is slow", Tom talked about different techniques to use to make your R code faster along with some some demonstrations (the RMD can be found [here](https://github.com/TomKellyGenetics/TokyoR78/blob/master/demo.Rmd)).
+`@tomkxy` presented in English (he's a Kiwi that works for RIKEN!) on vectorizing your code and parallel computing with R. In response to a lot of the accusations that "R is slow", Tom talked about different techniques to use to make your R code faster along with some some demonstrations (the RMD can be found [here](https://github.com/TomKellyGenetics/TokyoR78/blob/master/demo.Rmd)).
 
 ![](https://i.imgur.com/KxNrMZN.png)
 
-One of my key take-aways from this talk was, "Code first, optimize later!". In that it's important to not get stuck doing premature optimization, especially if you might not actually need to use the code again anyways! Sometimes parallel computing may not always be the fastest solution due to overhead costs associated with setting up clusters and communication between clusters.
+One of my key take-aways from this talk was, "Code first, optimize later!". In that it's important to not get stuck doing premature optimization, especially if you might not actually need to use the code again anyways! Also, sometimes parallel computing may not always be the fastest solution due to overhead costs associated with setting up clusters and communication between clusters.
 
 ![](https://i.imgur.com/dVmhXgE.png)
 
-In addition, the newly developed "Jobs" pane in RStudio 1.2, [released last month](https://blog.rstudio.com/2019/04/30/rstudio-1-2-release/), means you can keep being productive even while you have your scripts running in the background. A great resource for those interested is the CRAN Task View for high performance and parallel computing available [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
+In addition, the newly developed "Jobs" pane in RStudio 1.2, [released last month](https://blog.rstudio.com/2019/04/30/rstudio-1-2-release/), means you can keep being productive even while you have your scripts running in the background. A great resource for those interested is the CRAN Task View for high performance and parallel computing available [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html).
 
 A few other resources:
 
@@ -122,7 +124,7 @@ A few other resources:
 
 - [Slides](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
 
-`@ill_identified` presented on using Markov chain Monte Carlo (MCMC) with R, specifically using the `bayesplot` package. MCMC are a series of methods that contain algorithms for sampling from a probability distribution. These methods involve drawing random samples from a target distributions using an algorithms (such as Metropolis-Hastings algorithm, reversible jump, HMC, etc.) then we attempt to construct a Markov chain such that its equilibrium probability distribution is as close to our target distribution as possible by iterating the chain many times.
+`@ill_identified` presented on using Markov chain Monte Carlo (MCMC) with R, specifically using the `bayesplot` package. MCMC are a series of methods that contain algorithms for sampling from a probability distribution. These methods involve drawing random samples from a target distributions using algorithms (such as Metropolis-Hastings algorithm, reversible jump, HMC, etc.) then we attempt to construct a Markov chain such that its equilibrium probability distribution is as close to our target distribution as possible by iterating the chain many times.
 
 ![](https://i.imgur.com/yuwkwO2.png)
 
@@ -164,17 +166,18 @@ felp("help")
 ```
 
 ```{r}
-## Source code is nicely highlighted:
+## Source code is nicely highlighted by `prettycode`:
+## Output shortened for brevity...
 grep()?.
 ```
 
-Short for __f__ unctional h __elp__, he got this to work by turning the `?` into a S3 object and using `prettycode` for the syntax highlighting. You can also use the `?` on data set objects to return what you'll normally get from a `str()` call in addition the the help page.
+Short for __f__ unctional h __elp__, he got this to work by modifying the `?` operator to show the inner structure of a function along with the help page. This works for both a function as seen above and on packages by `package_name?p`. You can also use the `?` on data set objects to return what you'll normally get from a `str()` call in addition the the help page.
 
 ```{r}
 iris?. ## also opens "Help" page for the dataset
 ```
 
-In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?` altogether and wants to work on using a prefix `p?` in front of a package like `dplyr` to bring up the documentation for an entire package. Go `felp` yourself by taking a look at the [package website](https://felp.atusy.net/)!
+In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?` altogether and wants to work on using a prefix `p?` in front of the package name to bring up the documentation for an entire package. Go `felp` yourself by taking a look at the [package website](https://felp.atusy.net/)!
 
 ## [0_u0](https://twitter.com/0_u0): Marketing Science & R!
 
@@ -184,32 +187,32 @@ In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?
 
 Most of the work being done for customers by his company is __descriptive__ statistics. Nothing fancy or A.I. or even simple linear regression. As such, a lot of the problems that are given to his department can be solved by tables and `ggplot`s. As a consequence he had been fighting an uphill battle as the company standard is to just use Excel for ... well literally everything. 
 
-Trying to find some niche to use R and Python to make his workflow easier >>
-Use the `tidyverse` to simplify data cleaning processes!
+Trying to find some way to incorporate R and Python to make his workflow easier `Kinuito` started using the `tidyverse` to simplify the data cleaning processes!
 
-![]()
+![](https://i.imgur.com/tjNyIMv.png)
 
 Key takeaways:
 
-- Reduce overtime by using the `tidyverse` to clean data and automate a lot of the grunt work involved with marketing data.
+- Reduce overtime by using the `tidyverse` to clean data and automate a lot of the grunt work involved with cleaning and transforming marketing data.
 - Not have to open up extraordinarily large Excel files (as much as before...).
-- Great success in using `ggplot2` and `DiagrammeR` for informative output.
+- Great success in using `ggplot2` and `DiagrammeR` for creating informative output.
 - Start with descriptive statistics, you can't do anything more advanced unless you have the infrastructure to do so!
 
 `Kinuito` also highlighted some things he wanted to do in the near future: 
 
 - Document R and Python tips for new graduate hires using R Markdown!
 - Consolidate the company's R environment: 
-  - Currently version control is a mess as everybody is still only working in their own local environments
+  - Currently version control is a mess as everybody is still only working in their own local environments.
   - Solution: Docker?
   
 Along with `@kotaku08`'s talk it was great to get more insight into how R is used at various companies. I've personally only heard things from an American or English company's point of view (from the various R conferences/meetups I've been to) so it was nice to hear about the differences and similarities in the challenges faced by Japanese corporations at this month's `TokyoR`!
 
 # Other Talks
 
+- [don_du_maru](https://twitter.com/don_du_maru): [Levenshtein distance for remembering the name of the city that I live in!]()
 - [saltcooky](https://twitter.com/saltcooky): [Statistical Network Analysis with R](https://speakerdeck.com/saltcooky12/sutoritosunatupudetani-tong-ji-de-netutowakufen-xi-falseshi-yong-woshi-mita)
 - [GotaMorishita](https://twitter.com/GotaMorishita): [The origin of importance weight approach for covariate shift correction]()
-- [neronkai](https://twitter.com/AsaKiriSun): [Creating pdf documents with R](https://www.slideshare.net/toirenomitorizudesu/rbinomn10-size-probsizeprobsize)
+- [neronkai](): [Creating pdf documents with R](https://www.slideshare.net/toirenomitorizudesu/rbinomn10-size-probsizeprobsize)
 
 # Food, Drinks, and Conclusion
 
