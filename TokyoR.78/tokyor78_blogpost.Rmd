@@ -17,7 +17,13 @@ With the arrival of summer, another [TokyoR User Meetup](https://tokyor.connpass
 
 Like my previous round up posts (for [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/) and [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
 
-# BeginneR Session #1
+Unlike most R Meetups a lot of people present using just their Twitter handles so I'll mostly be referring to them by those instead. I've been going to events here in Japan for a bit over a year but even now sometimes I'm like, "Whoahh that's what `@very_recognizable_twitter_handle_in_the_japan_r_community` actually looks like?!"
+
+Anyways...
+
+Let's get started!
+
+# BeginneR Session
 
 As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set of beginner user focused talks:
 
@@ -27,7 +33,7 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## @tanakafreelance 	Radiantによるデータ分析入門 	
+## [tanakafreelance](https://twitter.com/tanaka_marimo): Radiant for Data Analysis!
 
 - [Slides](https://www.slideshare.net/ssuser5aee94/78th-tokyor-radiant)
 
@@ -40,7 +46,7 @@ You can run it from a variety of set ups from online, offline, on shinyapps.io, 
 - [Radiant website](https://radiant-rstats.github.io/docs/)
 - [Radiant Github](https://github.com/radiant-rstats/radiant)
 
-## @kotaku08 	Transitioning a company to use R!
+## [kotaku08](https://twitter.com/kotaku08): Transitioning a Company to Use R!
 
 - [Slides](https://speakerdeck.com/kosshi/r-package-for-a-team)
 
@@ -86,8 +92,9 @@ Some other resources:
 - [Scaling Knowledge at AirBnB](https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091)
 - [Enterprise Web Services with Neural Networks Using R and Tensorflow](https://opensource.t-mobile.com/blog/posts/r-tensorflow-api/)
 - ["Putting empathy in action: Building a 'community of practice' for analytics in a global corporation" - JD Long (at RStudio::Conf 2019)](https://resources.rstudio.com/rstudio-conf-2019/putting-empathy-in-action-building-a-community-of-practice-for-analytics-in-a-global-corporation)
+- [itdepends - A dialogue about dependencies](https://www.tidyverse.org/articles/2019/05/itdepends/)
 
-## @tomkxy 	Making your code faster: Introduction to vectorisation and parallel computing (English with demonstrations) 
+## [tomkxy](https://twitter.com/tomkXY/): Making Your Code Faster - Introduction to Vectorisation and Parallel Computing (English with demonstrations) 
 
 - [Slides](https://github.com/TomKellyGenetics/TokyoR78)
 
@@ -111,7 +118,7 @@ A few other resources:
 
 # LTs
 
-## @ill_identified 	Guide to MCMC with the `bayesplot` package!
+## [ill_identified](https://twitter.com/ill_Identified): Guide to MCMC with the `bayesplot` package!
 
 - [Slides](https://www.slideshare.net/SatoshiKatagiri2/bayesplot)
 
@@ -135,11 +142,11 @@ Other resources:
 - [bayesplot vignette: Plotting MCMC draws](https://cran.r-project.org/web/packages/bayesplot/vignettes/plotting-mcmc-draws.html)
 - [Statistical Rethinking with brms, ggplot2, and the tidyverse - Solomon Kurz](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/markov-chain-monte-carlo.html)
 
-## @Atsushi776 	May I felp you? 	
+## [Atsushi776](https://twitter.com/Atsushi776): May I `felp` you? 	
 
 - [Slides](https://presentation.atusy.net/20190525-tokyor76-felp/#/)
 
-`@Atsushi776` created a new package called [felp](https://github.com/atusy/felp) as he was annoyed that he couldn't look at the source code while looking at the help files of a function as well as the added annoyance of having to jump back to the start of the function to type `?` back in AND deleting it once you're done.
+`@Atsushi776`, known in the Japanese R Community for his "headphones" avatar, created a new package called [felp](https://github.com/atusy/felp) as he was annoyed that he couldn't look at the source code while looking at the help files of a function. Also there was the added annoyance of having to jump back to the start of the function to type `?` back in AND deleting it once you're done.
 
 ```{r eval=FALSE}
 source("https://install-github.me/atusy/felp")
@@ -167,21 +174,36 @@ Short for __f__ unctional h __elp__, he got this to work by turning the `?` into
 iris?. ## also opens "Help" page for the dataset
 ```
 
-In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?` altogether and wants to work on using a prefix `p?` in front of a package like `dplyr` to bring up the documentation for an entire package.
+In the near future `@Atsushi776` wants to get rid of not just the `.` but the `?` altogether and wants to work on using a prefix `p?` in front of a package like `dplyr` to bring up the documentation for an entire package. Go `felp` yourself by taking a look at the [package website](https://felp.atusy.net/)!
 
-- [felp website](https://felp.atusy.net/)
-
-## @0_u0 	マーケティングサイエンスとRについて 	
+## [0_u0](https://twitter.com/0_u0): Marketing Science & R!
 
 - [Slides](https://8-u8.github.io/TokyoR/20190525/Presentation.html#1)
 
-- marketing science with R! 
-- "data driven"
-- what is marketing???
-- KKD: domain knowledge, intuition
-- Using R as a non-technical person >>> Excel? 
--
+`@0_u0` (better known as `きぬいと` or `Kinuito`) talked about his successful attempt to integrate R into his workflow at the marketing department of a very non-technical traditional Japanese company. 
 
+Most of the work being done for customers by his company is __descriptive__ statistics. Nothing fancy or A.I. or even simple linear regression. As such, a lot of the problems that are given to his department can be solved by tables and `ggplot`s. As a consequence he had been fighting an uphill battle as the company standard is to just use Excel for ... well literally everything. 
+
+Trying to find some niche to use R and Python to make his workflow easier >>
+Use the `tidyverse` to simplify data cleaning processes!
+
+![]()
+
+Key takeways and WINS:
+
+- Reduce time at work by using the tidyverse to clean data
+- Not have to open up extraordinarily large Excel files (as much as before...)
+- Using `ggplot2` and `DiagrammeR` for informative output
+- Start with descriptive statistics, nobody knows linear regression here...
+
+`Kinuito` also highlighted some things he wanted to do in the near future: 
+
+- Document R and Python tips for new graduate hires using R Markdown!
+- Consolidate the company's R environment: 
+  - Currently version control is a mess as everybody is still only working in their own local environments
+  - Solution: Docker?
+  
+Along with `@kotaku08`'s talk it was great to get more insight into how R is used at various companies. I've personally only heard things from an American or English company's point of view (from the various R conferences/meetups I've been to) so it was nice to hear about the differences and similarities in the challenges faced by Japanese corporations at this month's `TokyoR`!
 
 # Other Talks
 
