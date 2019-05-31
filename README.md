@@ -18,4 +18,4 @@
 - [Japan.R 2018](https://ryo-n7.github.io/2018-12-06-japanr-conference-roundup-blog-post/)
 - [Tokyo.R #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
 - [Tokyo.R #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)
-- [Tokyo.R #78]()
+- [Tokyo.R #78](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/)
