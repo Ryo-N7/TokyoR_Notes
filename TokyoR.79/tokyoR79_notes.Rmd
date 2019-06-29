@@ -1,7 +1,4 @@
 ---
-title: "Untitled"
-author: "RN7"
-date: "6/29/2019"
 output: html_document
 ---
 
@@ -13,102 +10,143 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## @ill_identified 	再考: お買い得物件を機械学習で見つける方法
 
+- building off of previous LTs and blogposts >>> curiosity = piqued!
+- ? can we really do this? are we using the correct methodology?
+- >> anomaly detection + outlier detection books
+- more LOW rent houses > HIGH rent houses
+- >>> many variables: space, bathroom/shower, heater, fridge, washing machine etc.
+- >>> use RF with XGBoost
+- y ~ p(y | x) 
+- examine linear model fitting <> outliers + noise in data
+- >>> RF and linear regression... not accurate compared to TRUE relationship 
+- can't tell the difference between noise and actual outliers!
+- model vs. outliers? >> infinite loop
+- inablity for comparison, MSE/RMSE are meaningless at this point
+- no labels between outliers and actual values
+- Morishita: importance weighting >>> training data WITHOUT data from the region that want to live in 
 -
 -
 -
+- IS there a correct way?
+- need to have some underlying assumptions/theories about housing market
+- 1. values with large variance == outliers
+- 2. model will follow along the relationship of these outliers and values
+- Use quantile regression forest (Meinshausen)
+- `flexmix` package
+- 1. scraping (rvest)
+- 2. cleaning (tidyverse)
+- 3. predictive modelling mlr/mlrCPO
+- >> quantile regression forest
+- >> gaussian mixture model
+- 4. 
+- `pbardata` progress bar
+- RUN through entire process of a data analysis investigation!! 
+- LOTS of content + steps and thinking about the different steps of the process, comparison of different methods + ideas for predictive modelling housing in Tokyo
 -
--
--
--
--
--
--
-
 
 ## @yutannihilation 	tidyr 1.0.0
+- [Slides](https://speakerdeck.com/yutannihilation/tidyr-pivot)
 
+- spread and gather >>> too confusing! needs to change - Hadley 
+- pivot_longer: LONGER <<< gather
+- pivot_wider: WIDER  <<< spread
 -
+- pivot_longer(columns, ...) 
+- >>> select() helper functions can be used! now need to c() for multiple columns! can still use : and 
+- ANIMATED EXAMPLES
+- ex. data %>% pivot_longer(kokugo:shakai)
+- >>> using names_to + values_to for setting the variable names!!
+- >>> names_prefix = "__", take out prefixes from variable names!!
+- >>> names_ptype = "__"
+- >>> names_pattern = "__"  split by a regex pattern!
+- >>> names_sep = "__"  split by a separator _ or . or etc.
+- ".value" >>> special selector for variable name to be created (??)
+- >>> the name that you WANT each grouping var name 
+- 
+- pivot_wider(columns, ...)
+- names_from: 
+- values_from: 
+- ex. data %>% pivot_wider(names_from = subject, values_from = test_score)
+- values_fill: 
+- names_sep >>> create new colnames using "sep" value to separate names
+- IF multiple values for a certain row + group col 
+- >>> inability to properly wide/longer with spread/gather
+- >>> NOW can wrap up multiple values for a colname using list()!! columns
+- values_fn: list(value = mean()) >> use a function to summarize a set of values in a certain column! (so you dont have lists everywhere...)
+- >> if some value NOT wanted >>> stop()
+- Using `spec` >>> read vignette...
+- release before useR ? or maybe late July? need new vectrs?
+- >>> too complicated? differ from tidyverse style of simple verbs? wayyy tooo mannyyy arguments inside the new pivot functions????
 -
--
--
--
--
--
--
--
--
--
--
--
--
--
--
+
+
 
 # Sponsor: インフォコム株式会社
+
+- KNIME : open source GUI data analytics platform 
+- can use R as well...!
 
 
 # LTs
 
 ## @flaty13 	実務用にRmdの分析テンプレを作った話
+- [Slides](https://docs.google.com/presentation/d/1mDU3VgoaMgljEQj1zHSaDS5J0mzAu-MqlJd5jqHBt5I/edit#slide=id.p)
 
--
--
--
--
--
--
--
--
--
--
--
--
--
+- using R + Rmarkdown at work
+- each person uses their only knowledge/level of RMD so it can be quite difficult to understand due to differences in ability
+- solution: create a TEMPLATE for EVERYBODY to use! 
+- tabset + table of contents! 
+- >> code folding options
+- >> 
+- YAML header:
 
 
 ## @katoshoo 	JTBC
 
+- digital marketing department
+- POS and PV data
+- use data science + "data driven" for marketing... 
+- co-workers: just DO something with data!!     :(   ???
+- difficulty: need industry/domain knowledge, need to have specific GOALS
+- pkgs: urca, vars
+- 
 -
--
--
--
--
--
+
 
 ## @igjit 	Rでできる - ゼロから作るRAW現像
+- [Slides](https://igjit.github.io/slides/2019/06/raw-processing-r/#/)
 
--
--
--
--
--
--
+- igjit again cooking up another interesting way to use R, this time for creating RAW images with R!
+- create RAW images with R
+- RAW: light 
+- bookdown >>> 
+- pkgs: imager, reticulate, tidyverse, rawpy
+- 
+- advantages of using R for RAW: vectorization, NSE, piping
 -
 
 ## @kur0cky_y 	データでモテをhackせよ
+- [Slides](https://speakerdeck.com/kur0cky/detademotewohackseyo-ying-hua-detobian)
 
--
--
--
--
--
--
--
+- strategy for dating...? 
+- movie ratings 
+- extract movie ratings from conversations >>> emotions + message content?
+- Turney & Littman (2003) >>> good/bad 
+- 
 
 ## soriente 	Rのお作法について調べてみた
 
--
--
--
--
--
+- R styling >>> similar code written differently ... 
+- Google's R Style Guide! 
+- >> file name, indentation etc. etc. 
+- double quotes or single quotes?? >>> as PHP person, there IS a difference... >>> but in R it doesn't realllyyy matter...???
+- 
 -
 
-## @0_u0 	kaggleの話または仕事でR使う話 	
-
--
--
--
--
--
+## @0_u0 	negative binomial modeling in marketing
+ 
+- how many chocolates does a person buy in a year?
+- poisson distribution 
+- problem: overdispersion
+- 
 -
