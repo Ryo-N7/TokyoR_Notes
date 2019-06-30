@@ -123,7 +123,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - pkgs: imager, reticulate, tidyverse, rawpy
 - 
 - advantages of using R for RAW: vectorization, NSE, piping
--
+- https://igjit.github.io/posts/2019/06/tokyor-79-raw-processing-r/
 
 ## @kur0cky_y 	データでモテをhackせよ
 - [Slides](https://speakerdeck.com/kur0cky/detademotewohackseyo-ying-hua-detobian)

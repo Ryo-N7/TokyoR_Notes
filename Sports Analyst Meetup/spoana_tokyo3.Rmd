@@ -1,0 +1,112 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "6/30/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+萩元徹（はぎもと・とおる）さま（ダイナミックプラス株式会社）
+「Jリーグ導入事例から見えてきた、ダイナミックプライシングの未来」
+
+プロフィール：
+
+'    早稲田大学卒業後、オレゴン州立大学で応用経済学の博士号を取得。
+    米国最大手のプレイガイドであるTicketmaster社のダイナミックプライシングアルゴリズムを開発したMarketShare社に入社。
+    三井物産株式会社を経て、ダイナミックプラス株式会社に参加。
+    スポーツ・エンターティメントをはじめとした複数の業界でダイナミックプライシングやバリアブルプライシングの導入を支援。
+'
+
+- dynamic pricing
+
+
+1 	yhiss 	バドミントン 	バドミントンでの試合の組み立て方を定量化したい
+
+- 
+-
+-
+-
+-
+-
+
+
+2 	kozzy 	フライングディスク（フリスビー） 	Kinect を用いたフライングディスク投動作のリアルタイム解析フィードバック
+-
+-
+-
+-
+-
+-
+
+3 	ancoo 	オリンピック 	オリンピックの自国開催は、選手をどれだけパワーアップさせるか
+-
+-
+-
+-
+-
+-
+-
+
+4 	Kumakichi 	Magic the Gathering(カードゲーム) 	e-sportsの波に乗りたいカードゲームの世界
+5 	funain 	一般 	Bradley-Terryモデルによる戦闘力測定(仮)
+6 	kur0cky_y 	一般 	レーティングの い・ろ・は♡
+- 	- 	休憩 	-
+7 	flaty 	テニス 	自分の試合のスコアを分析してみた
+8 	K Shoppi 	ラグビー 	未定
+9 	ken_zav 	野球 	Win Probability Addedを用いた戦評文章の自動生成
+10 	nowism_sports 	野球 	采配の心理学-抗えないバイアスとその日米差-
+11 	tsuyupon 	野球 	満塁について本気出して考えてみた
+12 	r.hoshino 	野球 	BeyondMAXが変えた草野球
+- 	- 	休憩 	-
+
+13 	gepuro 	サッカー 	未定
+- how much am I running per game?
+- am I running too much in the first half?
+- buy tracking device (ZeppPlay)
+- connect to smartphone app
+- professional: 10km per 90, 555m per 5
+- sprints, distance ran, sprint distance, kick #
+
+
+14 	Ikuma-uchida 	サッカー 	筑波大学蹴球部データ班の取り組み
+- tsukuba university soccer team data analysis team
+- analyze resulst of control test (fitness)
+- Stats Creator app
+- problems: PC only, long hours to create, can't split work off
+- use SPLYZA Teams app
+
+15 	AtomJamesScott 	サッカー 	https://sportech-sanity.herokuapp.com/の紹介or筑波大での取り組みの紹介（仮）
+- Spatial analysis >>> predict player/ball movement
+- sports science is spread across many disciplines/sub-topics >> many different journals and conventions makes following research difficult!
+- creation of Sporting Sanity! as a central hub for analytics knowledge
+- facial expression/mood state analysis 
+- contribute to Sporting Sanity via GITHUB!!
+
+16 	Fanalyst 	サッカー 	「アナリスト」が日本のサッカーを変える、のか？vol.2
+- DORAE v2
+-
+
+17 	upura 	サッカー 	PK戦の先攻有利は「ABBA方式」で変わるか？
+
+- team going first ... wins ~60% of the time?
+- decision-making >>> captains pick choice shoot first?
+- different psychological profile from 0-0 vs. 0-1 in penalty order
+- maybe switch to ABBA format?
+- create simulation > creating a model
+- MCMC simulation!
+- P (probability scoring), P-r (probabilty scoring when behind)
+- probability of first team winning is reduced to 51.562% from ~60%!
+
+18 	saeeeeru 	サッカー 	未定
+
+- 
+-
+-
+-
+-
+-
+-
