@@ -1,0 +1,182 @@
+---
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As the monsoon rains fall, another [TokyoR User Meetup](https://tokyor.connpass.com/event/130254/)!  On June 29th, useRs from all over Tokyo flocked to Hanzomon, Tokyo for another jam-packed session of #rstats hosted by [Infocom](https://www.infocom.co.jp/en/index.html).
+
+<img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
+
+Like my previous round up posts:
+
+- [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
+- [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) 
+- [TokyoR #78](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/)) 
+
+I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
+
+Unlike most R Meetups a lot of people present using just their Twitter handles so I'll mostly be referring to them by those instead.
+
+Anyways...
+
+Let's get started!
+
+# BeginneR Session
+
+As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set of beginner user focused talks:
+
+- [Reading in data with R by kotatyamtema](https://www.slideshare.net/kotora_0507/tokyor79-beginnerssession1/kotora_0507/tokyor79-beginnerssession1)
+- [Data handling & manipulation by y_mattu](https://ymattu.github.io/TokyoR79/slide.html#/)
+- [Intro to Probability with R by kilometer00](https://speakerdeck.com/kilometer/tokyo-dot-r-number-79-beginnersession-que-lu-falseji-chu)
+
+# Main Talks
+
+## @ill_identified 	再考: お買い得物件を機械学習で見つける方法
+
+- building off of previous LTs and blogposts >>> curiosity = piqued!
+- ? can we really do this? are we using the correct methodology?
+- >> anomaly detection + outlier detection books
+- more LOW rent houses > HIGH rent houses
+- >>> many variables: space, bathroom/shower, heater, fridge, washing machine etc.
+- >>> use RF with XGBoost
+- y ~ p(y | x) 
+- examine linear model fitting <> outliers + noise in data
+- >>> RF and linear regression... not accurate compared to TRUE relationship 
+- can't tell the difference between noise and actual outliers!
+- model vs. outliers? >> infinite loop
+- inablity for comparison, MSE/RMSE are meaningless at this point
+- no labels between outliers and actual values
+- Morishita: importance weighting >>> training data WITHOUT data from the region that want to live in 
+-
+-
+-
+- IS there a correct way?
+- need to have some underlying assumptions/theories about housing market
+- 1. values with large variance == outliers
+- 2. model will follow along the relationship of these outliers and values
+- Use quantile regression forest (Meinshausen)
+- `flexmix` package
+- 1. scraping (rvest)
+- 2. cleaning (tidyverse)
+- 3. predictive modelling mlr/mlrCPO
+- >> quantile regression forest
+- >> gaussian mixture model
+- 4. 
+- `pbardata` progress bar
+- RUN through entire process of a data analysis investigation!! 
+- LOTS of content + steps and thinking about the different steps of the process, comparison of different methods + ideas for predictive modelling housing in Tokyo
+-
+
+## @yutannihilation 	tidyr 1.0.0
+- [Slides](https://speakerdeck.com/yutannihilation/tidyr-pivot)
+
+
+`@yutannihilation`, co-author of `ggplot2`, gave a talk about the new tidyr 1.0.0 version with special focus on the `pivot_longer()` and `pivot_wider()` functions that are to supplant (but not erase) the `gather()` and `spread()` functions respectively.
+
+- spread and gather >>> too confusing! needs to change - Hadley 
+- pivot_longer: LONGER <<< gather
+- pivot_wider: WIDER  <<< spread
+-
+- pivot_longer(columns, ...) 
+- >>> select() helper functions can be used! now need to c() for multiple columns! can still use : and 
+- ANIMATED EXAMPLES
+- ex. data %>% pivot_longer(kokugo:shakai)
+- >>> using names_to + values_to for setting the variable names!!
+- >>> names_prefix = "__", take out prefixes from variable names!!
+- >>> names_ptype = "__"
+- >>> names_pattern = "__"  split by a regex pattern!
+- >>> names_sep = "__"  split by a separator _ or . or etc.
+- ".value" >>> special selector for variable name to be created (??)
+- >>> the name that you WANT each grouping var name 
+- 
+- pivot_wider(columns, ...)
+- names_from: 
+- values_from: 
+- ex. data %>% pivot_wider(names_from = subject, values_from = test_score)
+- values_fill: 
+- names_sep >>> create new colnames using "sep" value to separate names
+- IF multiple values for a certain row + group col 
+- >>> inability to properly wide/longer with spread/gather
+- >>> NOW can wrap up multiple values for a colname using list()!! columns
+- values_fn: list(value = mean()) >> use a function to summarize a set of values in a certain column! (so you dont have lists everywhere...)
+- >> if some value NOT wanted >>> stop()
+- Using `spec` >>> read vignette...
+- release before useR ? or maybe late July? need new vectrs?
+- >>> too complicated? differ from tidyverse style of simple verbs? wayyy tooo mannyyy arguments inside the new pivot functions????
+-
+
+# LTs
+
+## @flaty13 	実務用にRmdの分析テンプレを作った話
+- [Slides](https://docs.google.com/presentation/d/1mDU3VgoaMgljEQj1zHSaDS5J0mzAu-MqlJd5jqHBt5I/edit#slide=id.p)
+
+`@flaty13` who has previously presented at both Tokyo.R and Japan.R gave a presentation on creating RMarkdown templates at his workplace. The usual workflow is that those that use R knit a RMD into a .html file then upload it to their web server to share. However, every team member has a different level of knowledge of RMarkdown and as such it can be difficult for others to understand the structure and flow of another person's report. To remedy this `@flaty13` decided to create a RMarkdown **template** for everybody to use!
+
+The one of the main differences that needed to be standardized was how people loaded packages as well as read in data so after a "Summary" section at the top the next two sections were:
+
+- "Preparation" section: Loaded all the libraries, configured RMD options, and defined any custom functions 
+- "Data Load & Check" sections: Reads in all the data, does the processing and checking as well. This sections makes it clear WHERE the data is coming from.
+
+![]()
+
+He also took advantage of the "Table of Contents", "Code folding", and "Tabset" options to create a report template that is easy to navigate and reduces the amount of clutter. These options were all called in via the template's YAML header:
+
+![]()
+
+As a result of creating a standard template, `@flaty13` found that it became a lot easier to understand other team members' reports and it also became easier for new employees to get integrated into the RMarkdown reports workflow.
+
+Additional resources:
+
+- [Chapter 17: Document Templaes from RMarkdown: The Definitive Guide by Yihui Xie, JJ Allaire, & Garrett Grolemund](https://bookdown.org/yihui/rmarkdown/document-templates.html)
+- [RMarkdown Theme Gallery by Andrew Zieffler](http://www.datadreaming.org/post/r-markdown-theme-gallery/)
+- [{markdowntemplates} package by hrbrmstr](https://github.com/hrbrmstr/markdowntemplates)
+
+
+## @igjit Creating images from RAW data using R!
+- [Slides](https://igjit.github.io/slides/2019/06/raw-processing-r/#/)
+
+- `@igjit` has come to present at Tokyo.R yet again, cooking up another interesting way to use R, this time for creating images from RAW data with R! RAW is a certain file format that captures **all** of the image data recorded by a camera's sensor when you take a photo. As no data is compressed in this format (compared to say, JPEG) you are able to get very high quality images. One advantage of RAW is that it is able to record more levels of brightness ("bits") which means you can make more adjustments in terms of exposure, contrast, and brightness when producing your image. 
+
+To do this `@igjit` primarily used the `{imager}`, `{reticulate}`, `{tidyverse}` packages while also using the Python library `rawpy` to actually load in the RAW data into R.
+
+![]()
+
+After loading in the data you can use functions from `{imager}` to edit and process the image in different ways such as demosaic-ing and white balance editing.
+
+![]()
+
+`@igjit` has created a `bookdown` of the how-to and various tutorials of manipulating RAW images with R which you can find [here](https://igjit.github.io/camera-raw-processing-r/index.html)! 
+
+In conclusion:
+
+- R isn't **JUST** a tool for statistical work and it can be used for other tasks too!
+- Using R for RAW image processing is useful due to R's non-standard evaluation, `%>%`, and the ability to use vector operations on objects.
+
+## soriente 	Rのお作法について調べてみた
+
+At her first Tokyo.R, `@soriente`, talked about different R coding styles. Coming from a PHP background she wondered if there were any "official" or certain guidelines in writing R code. The resource she came across was Google's [Style Guide](). 
+
+![]()
+
+One of the things she noted was that in R it doesn't seem to matter if you wrap characters using single-quotes `'blah'` or double-quotes `"blahblah"` which was odd for her as a PHP person as in that language there is a significant difference. Another style guide many R users maybe familiar with is the [tidyverse style guide](https://style.tidyverse.org/):
+
+![]()
+
+Below are some other resources for coding styles:
+
+- [{lintr}: static code analysis (checks for adherence to specified coding style, syntax errors, etc.) - Jim Hester](https://github.com/jimhester/lintr)
+- [Automatic tools for improving R packages - Maëlle Salmon](https://masalmon.eu/2017/06/17/automatictools/)
+- [{styler}: print R source code adhering to tidyverse (and other style guides) formatting rules](https://github.com/r-lib/styler)
+
+# Other Talks
+
+- [katoshoo](https://twitter.com/kat0_sh00): [Data Science at a JTBC (Japanese Traditional Big Company)!]()
+- [kur0cky_y](https://twitter.com/kur0cky_y): [Get movie dates with R!](https://speakerdeck.com/kur0cky/detademotewohackseyo-ying-hua-detobian)
+- [0_u0](https://twitter.com/0_u0): [Negative binomial modeling in marketing!](https://8-u8.github.io/TokyoR/20190525/Presentation.html#1)
+
+# Food, Drinks, and Conclusion
+
+
+"Booing" incident at the Rock-Paper-Scissors Tournament
