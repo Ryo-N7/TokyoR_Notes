@@ -78,30 +78,56 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 1. `pivot_longer(data, columns, ...)`: Make datasets **longer** (more rows, less columns)
 
-- pivot_longer(columns, ...) 
-- >>> select() helper functions can be used! now need to c() for multiple columns! can still use : and 
-- ex. data %>% pivot_longer(kokugo:shakai)
-- >>> using names_to + values_to for setting the variable names!!
-- >>> names_prefix = "__", take out prefixes from variable names!!
-- >>> names_ptype = "__"
-- >>> names_pattern = "__"  split by a regex pattern!
-- >>> names_sep = "__"  split by a separator _ or . or etc.
-- ".value" >>> special selector for variable name to be created (??)
-- >>> the name that you WANT each grouping var name 
+<p float="left" align="center">
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+</p>
 
+* You can use the various `select()` helper functions to select columns 
+  * ex. `starts_with("col")`, ""
+* For multiple columns, you need to use `c()`
+* Other options such as `col1:col5` and `-col2` still exist as well
+* `names_to = ` argument lets you set the name of the variable that will be created by the function
+* `values_to = ` argument 
+  * if the column name does not already exist in the dataframe you have to wrap them in quotes, `""`
+
+The above are pretty similar to what we had in `gather()` but some new arguments I found interesting were:
+
+* `names_prefix =` argument which lets you remove
+  * Ex. Values in column look like "day1", "day2", "day3", etc., if you set `names_prefix = 'day'` it will remove "day" from the values in the column.
+* `names_ptype = ` argument lets you set the class type of that column
+  * Ex. After taking out "day" from the values in the above example, the number values in the column are still class "character". Set `names_ptype = list(day = integer())` to specify that the column should be an integer class.
+
+<p float="left" align="center">
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+</p>
+
+* `names_pattern =` and `names_sep =` work similarly in that you specify a regex or symbol on which you want to separate the values into the `names_to` columns you want to create.
 
 2. `pivot_wider(columns, ...)`: Make datasets **wider** (less rows, more columns)
 
-- names_from: 
-- values_from: 
-- ex. data %>% pivot_wider(names_from = subject, values_from = test_score)
-- values_fill: 
-- names_sep >>> create new colnames using "sep" value to separate names
-- IF multiple values for a certain row + group col 
-- >>> inability to properly wide/longer with spread/gather
-- >>> NOW can wrap up multiple values for a colname using list()!! columns
-- values_fn: list(value = mean()) >> use a function to summarize a set of values in a certain column! (so you dont have lists everywhere...)
-- >> if some value NOT wanted >>> stop()
+- `names_from = ` and `values_from =` are like in `pivot_longer()` except the opposite way as we combine the column names and specify which column the values for the new column comes from.
+- `values_fill =`: use this argument to specify what each value should be when missing.
+
+<p float="left" align="center">
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+</p>
+
+- `names_sep = ` and `names_prefix = `: Much like their counterparts in `pivot_longer()` except they create new colnames using "sep" value to separate names and add a prefix, respectively
+- When there are multiple values for a certain row/group (see below image) you can now wrap up these values into a list. A definite upgrade from `spread/gather()` where this action was not possible.
+
+<p float="left" align="center">
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+</p>
+
+An alternative to the above is to use `values_fn = ` argument to specify a function to summarize a set of values in a column, this may be the optimal strategy if you do not wnat list-columns everywhere in your data frame.
+
+Read the in-development `tidyr` vignette 
+
+You could also flip through the slides as they give a nice 
 
 As this was only a 20 minute talk he wasn't able to talk about everything such as information regarding `specs` but I've listed resources below that can be of help.
 
@@ -112,7 +138,7 @@ It has been speculated that tidyr 1.0.0 was going to be released by the useR Con
 Additional resources:
 
 - [Pivoting functions vignette on tidyr.tidyverse.org](https://tidyr.tidyverse.org/dev/articles/pivot.html)
-- [Pivoting functions vignette by Atsusy (in Japanese)](https://blog.atusy.net/2019/06/29/pivoting-tidyr-1-0-0/)
+- [Pivoting functions vignette (translated to Japanese by Atsusy)](https://blog.atusy.net/2019/06/29/pivoting-tidyr-1-0-0/)
 
 # LTs
 
@@ -182,9 +208,18 @@ Below are some other resources for coding styles:
 
 # Food, Drinks, and Conclusion
 
+This month's food & drinks was an Italian-themed dinner with an assortment of pasta and pizza available. With a loud rendition of “kampai!”
+(cheers!) R users from all over Tokyo began to talk about their
+successes and struggles with R. A fun tradition at `TokyoR` is a
+**Rock-Paper-Scissors** tournament with the prize being __free__ data
+science books:
+
+- [Introduction to RStudio & the Tidyverse - Yuya Matsumura, Hiroaki Yutani, & Yasunori Kinosada, Kazuhiro Maeda]()
+- [Machine Learning in Python (Japanese version) - Michael Bowles]()
+- A few other titles I didn't quite catch (sorry)
 
 "Booing" incident at the Rock-Paper-Scissors Tournament
 
-Not only was it disrespectful to other Pythonistas at the meetup but also to the person who 
+Not only was it disrespectful to other Pythonistas at the meetup but also to the person who took the time and effort to donate the book.
 
 It was good to see that the organizers and others came out to admonish this kind of behavior. In the time that I've been going to Tokyo.R, the meetup has always been very welcoming of people from all backgrounds including Python and we have had presentations with the usage of Python alongside R via `reticulate`, including a presentation in this session!
