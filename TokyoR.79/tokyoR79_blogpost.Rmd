@@ -35,7 +35,10 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## @ill_identified 	再考: お買い得物件を機械学習で見つける方法
+## [ill_identified](https://twitter.com/ill_Identified): Finding a New Home with Machine Learning: Redux
+- [Slides](https://speakerdeck.com/ktgrstsh/rethink-method-to-find-cheap-rental-houses-by-machine-learning)
+
+Comparing and reviewing the methods used by `Morishita` and `shokosaka` in their presentation/blog post, `@ill_identified`
 
 - building off of previous LTs and blogposts >>> curiosity = piqued!
 - ? can we really do this? are we using the correct methodology?
@@ -71,7 +74,7 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 - LOTS of content + steps and thinking about the different steps of the process, comparison of different methods + ideas for predictive modelling housing in Tokyo
 -
 
-## @yutannihilation 	tidyr 1.0.0
+## [yutannihilation](https://twitter.com/yutannihilation):	tidyr 1.0.0
 - [Slides](https://speakerdeck.com/yutannihilation/tidyr-pivot)
 
 `@yutannihilation`, co-author of `ggplot2`, gave a talk about the new tidyr 1.0.0 version with special focus on the `pivot_longer()` and `pivot_wider()` functions that are to supplant (but not erase) the `gather()` and `spread()` functions respectively.
@@ -142,7 +145,7 @@ Additional resources:
 
 # LTs
 
-## @flaty13 	実務用にRmdの分析テンプレを作った話
+## [flaty13](https://twitter.com/flaty13): RMarkdown Template for Analytics Teams!
 - [Slides](https://docs.google.com/presentation/d/1mDU3VgoaMgljEQj1zHSaDS5J0mzAu-MqlJd5jqHBt5I/edit#slide=id.p)
 
 `@flaty13` who has previously presented at both Tokyo.R and Japan.R gave a presentation on creating RMarkdown templates at his workplace. The usual workflow is that those that use R knit a RMD into a .html file then upload it to their web server to share. However, every team member has a different level of knowledge of RMarkdown and as such it can be difficult for others to understand the structure and flow of another person's report. To remedy this `@flaty13` decided to create a RMarkdown **template** for everybody to use!
@@ -167,7 +170,7 @@ Additional resources:
 - [{markdowntemplates} package by hrbrmstr](https://github.com/hrbrmstr/markdowntemplates)
 
 
-## @igjit Creating images from RAW data using R!
+## [igjit](https://twitter.com/igjit): Creating images from RAW data using R!
 - [Slides](https://igjit.github.io/slides/2019/06/raw-processing-r/#/)
 
 - `@igjit` has come to present at Tokyo.R yet again, cooking up another interesting way to use R, this time for creating images from RAW data with R! RAW is a certain file format that captures **all** of the image data recorded by a camera's sensor when you take a photo. As no data is compressed in this format (compared to say, JPEG) you are able to get very high quality images. One advantage of RAW is that it is able to record more levels of brightness ("bits") which means you can make more adjustments in terms of exposure, contrast, and brightness when producing your image. 
@@ -184,7 +187,7 @@ After loading in the data you can use functions from `{imager}` to edit and proc
 
 In conclusion, `@igjit` talked about how R isn't **JUST** a tool for statistical work and it can be used for other tasks too! Also from pursuing this project he realized that using R for RAW image processing can be quite an advantage due to R's non-standard evaluation for interactive analysis, `%>%`, and the ability to use vector operations on objects.
 
-## soriente 	Rのお作法について調べてみた
+## [soriente](): R Coding Styles
 
 At her first Tokyo.R, `@soriente`, talked about different R coding styles. Coming from a PHP background she wondered if there were any "official" or certain guidelines in writing R code. The resource she came across was Google's [Style Guide](https://google.github.io/styleguide/Rguide.xml). 
 

@@ -44,7 +44,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - LOTS of content + steps and thinking about the different steps of the process, comparison of different methods + ideas for predictive modelling housing in Tokyo
 -
 
-## @yutannihilation 	tidyr 1.0.0
+## [yutannihilation]():	tidyr 1.0.0
 - [Slides](https://speakerdeck.com/yutannihilation/tidyr-pivot)
 
 - spread and gather >>> too confusing! needs to change - Hadley 
