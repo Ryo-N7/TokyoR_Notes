@@ -35,45 +35,6 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## [ill_identified](https://twitter.com/ill_Identified): Finding a New Home with Machine Learning: Redux
-- [Slides](https://speakerdeck.com/ktgrstsh/rethink-method-to-find-cheap-rental-houses-by-machine-learning)
-
-Comparing and reviewing the methods used by `Morishita` and `shokosaka` in their presentation/blog post, `@ill_identified`
-
-- building off of previous LTs and blogposts >>> curiosity = piqued!
-- ? can we really do this? are we using the correct methodology?
-- >> anomaly detection + outlier detection books
-- more LOW rent houses > HIGH rent houses
-- >>> many variables: space, bathroom/shower, heater, fridge, washing machine etc.
-- >>> use RF with XGBoost
-- y ~ p(y | x) 
-- examine linear model fitting <> outliers + noise in data
-- >>> RF and linear regression... not accurate compared to TRUE relationship 
-- can't tell the difference between noise and actual outliers!
-- model vs. outliers? >> infinite loop
-- inablity for comparison, MSE/RMSE are meaningless at this point
-- no labels between outliers and actual values
-- Morishita: importance weighting >>> training data WITHOUT data from the region that want to live in 
--
--
--
-- IS there a correct way?
-- need to have some underlying assumptions/theories about housing market
-- 1. values with large variance == outliers
-- 2. model will follow along the relationship of these outliers and values
-- Use quantile regression forest (Meinshausen)
-- `flexmix` package
-- 1. scraping (rvest)
-- 2. cleaning (tidyverse)
-- 3. predictive modelling mlr/mlrCPO
-- >> quantile regression forest
-- >> gaussian mixture model
-- 4. 
-- `pbardata` progress bar
-- RUN through entire process of a data analysis investigation!! 
-- LOTS of content + steps and thinking about the different steps of the process, comparison of different methods + ideas for predictive modelling housing in Tokyo
--
-
 ## [yutannihilation](https://twitter.com/yutannihilation):	tidyr 1.0.0
 - [Slides](https://speakerdeck.com/yutannihilation/tidyr-pivot)
 
@@ -128,15 +89,9 @@ The above are pretty similar to what we had in `gather()` but some new arguments
 
 An alternative to the above is to use `values_fn = ` argument to specify a function to summarize a set of values in a column, this may be the optimal strategy if you do not wnat list-columns everywhere in your data frame.
 
-Read the in-development `tidyr` vignette 
-
-You could also flip through the slides as they give a nice 
-
-As this was only a 20 minute talk he wasn't able to talk about everything such as information regarding `specs` but I've listed resources below that can be of help.
-
 Some discussion followed on the #TokyoR hashtag as some questioned whether the complicated gamut of arguments to the new `pivot_*()` functions differs from the tidyverse style of simple verbs describing the user's action. Others commented how the very messy nature of real world data necessitates the extra layer of complexity in the spread/gather/pivot functions.
 
-It has been speculated that tidyr 1.0.0 was going to be released by the useR Conference in early July, however more likely it will be the late July if not early August.
+It has been speculated that tidyr 1.0.0 was going to be released by the useR Conference in early July, however more likely it will be the late July if not early August. As this was only a 20 minute talk `@yutannihilation` wasn't able to talk about every change such as information regarding `specs` but I've listed resources for further reading below.
 
 Additional resources:
 
@@ -148,7 +103,7 @@ Additional resources:
 ## [flaty13](https://twitter.com/flaty13): RMarkdown Template for Analytics Teams!
 - [Slides](https://docs.google.com/presentation/d/1mDU3VgoaMgljEQj1zHSaDS5J0mzAu-MqlJd5jqHBt5I/edit#slide=id.p)
 
-`@flaty13` who has previously presented at both Tokyo.R and Japan.R gave a presentation on creating RMarkdown templates at his workplace. The usual workflow is that those that use R knit a RMD into a .html file then upload it to their web server to share. However, every team member has a different level of knowledge of RMarkdown and as such it can be difficult for others to understand the structure and flow of another person's report. To remedy this `@flaty13` decided to create a RMarkdown **template** for everybody to use!
+`@flaty13`, who has previously presented at both `Tokyo.R` and `Japan.R`, gave a presentation on creating RMarkdown templates at his workplace. The usual workflow is that those that use R knit a RMD into a .html file then upload it to their web server to share. However, every team member has a different level of knowledge of RMarkdown and as such it can be difficult for others to understand the structure and flow of another person's report. To remedy this `@flaty13` decided to create a RMarkdown **template** for everybody to use!
 
 The one of the main differences that needed to be standardized was how people loaded packages as well as read in data so after a "Summary" section at the top the next two sections were:
 
@@ -173,7 +128,7 @@ Additional resources:
 ## [igjit](https://twitter.com/igjit): Creating images from RAW data using R!
 - [Slides](https://igjit.github.io/slides/2019/06/raw-processing-r/#/)
 
-- `@igjit` has come to present at Tokyo.R yet again, cooking up another interesting way to use R, this time for creating images from RAW data with R! RAW is a certain file format that captures **all** of the image data recorded by a camera's sensor when you take a photo. As no data is compressed in this format (compared to say, JPEG) you are able to get very high quality images. One advantage of RAW is that it is able to record more levels of brightness ("bits") which means you can make more adjustments in terms of exposure, contrast, and brightness when producing your image. 
+- `@igjit` has come to present at `Tokyo.R` yet again, cooking up another interesting way to use R, this time for processing/editing images from RAW data! RAW is a certain file format that captures **all** of the image data recorded by a camera's sensor when you take a photo. As no data is compressed in this format (compared to say, JPEG) you are able to get very high quality images. One advantage of RAW is that it is able to record more levels of brightness ("bits") which means you can make more adjustments in terms of exposure, contrast, and brightness when producing your image. 
 
 To do this `@igjit` primarily used the `{imager}`, `{reticulate}`, `{tidyverse}` packages while also using the Python library `rawpy` to actually load in the RAW data into R.
 
@@ -205,6 +160,7 @@ Below are some other resources for coding styles:
 
 # Other Talks
 
+- [ill_identified](https://twitter.com/ill_Identified): [(Main Talk #2) Finding a New Rental Home with Machine Learning: Redux](https://speakerdeck.com/ktgrstsh/rethink-method-to-find-cheap-rental-houses-by-machine-learning)
 - [katoshoo](https://twitter.com/kat0_sh00): [Data Science at a JTBC (Japanese Traditional Big Company)!]()
 - [kur0cky_y](https://twitter.com/kur0cky_y): [Get movie dates with R!](https://speakerdeck.com/kur0cky/detademotewohackseyo-ying-hua-detobian)
 - [0_u0](https://twitter.com/0_u0): [Negative binomial modeling in marketing!](https://8-u8.github.io/TokyoR/20190525/Presentation.html#1)
@@ -217,12 +173,10 @@ successes and struggles with R. A fun tradition at `TokyoR` is a
 **Rock-Paper-Scissors** tournament with the prize being __free__ data
 science books:
 
-- [Introduction to RStudio & the Tidyverse - Yuya Matsumura, Hiroaki Yutani, & Yasunori Kinosada, Kazuhiro Maeda]()
-- [Machine Learning in Python (Japanese version) - Michael Bowles]()
-- A few other titles I didn't quite catch (sorry)
+- [Introduction to RStudio & the Tidyverse - Yuya Matsumura, Hiroaki Yutani, & Yasunori Kinosada, Kazuhiro Maeda](https://gihyo.jp/book/2018/978-4-7741-9853-8)
+- [Machine Learning in Python (Japanese version) - Michael Bowles](https://www.kyoritsu-pub.co.jp/bookdetail/9784320124387)
+- A few other titles I didn't quite catch (sorry), including a book on `Rust`
 
-"Booing" incident at the Rock-Paper-Scissors Tournament
+Unfortunately, there was an incident at the Rock-Paper-Scissors Tournament when there was some "booing" heard when the `Python` book was announced as one of the prizes. Although seemingly made in joking manner it was still disrespectful not only to other Pythonistas at the meetup but also to the person who took the time and effort to donate the book for this event. What was good to see was that the organizers and others came out to admonish this kind of behavior. In the time that I've been going to `Tokyo.R`, the meetup has always been very welcoming of people from all backgrounds including Python, Excel (many R users in Japan have been trying to move their companies away from Excel to mixed success...). We have also had presentations with the usage of Python alongside R via `reticulate`, including a presentation in this session!
 
-Not only was it disrespectful to other Pythonistas at the meetup but also to the person who took the time and effort to donate the book.
-
-It was good to see that the organizers and others came out to admonish this kind of behavior. In the time that I've been going to Tokyo.R, the meetup has always been very welcoming of people from all backgrounds including Python and we have had presentations with the usage of Python alongside R via `reticulate`, including a presentation in this session!
+Despite this blip, it was another educational and fun-filled `TokyoR` session where I again lost in the Rock-Paper-Scissors Tournament in the first round... repeatedly. Maybe someday I'll win a book! `TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. Talks in English are also welcome so if you’re ever in Tokyo come join us!

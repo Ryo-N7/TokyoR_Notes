@@ -8,7 +8,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Main Talks
 
-## @ill_identified 	再考: お買い得物件を機械学習で見つける方法
+
+## [ill_identified](https://twitter.com/ill_Identified): Finding a New Home with Machine Learning: Redux
+- [Slides](https://speakerdeck.com/ktgrstsh/rethink-method-to-find-cheap-rental-houses-by-machine-learning)
+
+Comparing and reviewing the methods used by `Morishita` and `shokosaka` in their presentation/blog post, `@ill_identified`
 
 - building off of previous LTs and blogposts >>> curiosity = piqued!
 - ? can we really do this? are we using the correct methodology?
