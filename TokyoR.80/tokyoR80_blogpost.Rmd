@@ -1,0 +1,94 @@
+---
+title: "Untitled"
+always_allow_html: yes
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Within a typhoon, another TokyoR Meetup! ... well not really it turned out to be a false alarm and the weather was a wonderful 30 degrees Celsius with 800% humidity as usual. My gripes with the weather aside this month's meetup was held at [Cresco](), a , in their headquarters in Shinagawa, Tokyo.
+
+<img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
+
+In line with my previous round up posts:
+
+- [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
+- [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) 
+- [TokyoR #78](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/) 
+- [TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)
+
+I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
+
+Anyways...
+
+Let's get started!
+
+# BeginneR Session
+
+As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set of beginner user focused talks:
+
+- [Reading in data with R by kotatyamtema](https://www.slideshare.net/kotora_0507/tokyor79-beginnerssession1/kotora_0507/tokyor79-beginnerssession1)
+- [Data handling & manipulation by y_mattu](https://ymattu.github.io/TokyoR80/slide.html)
+
+# Main Talks
+
+## 16:40 - 17:10 	@ill_identified 	計量経済学と機械学習の関係 	[資料]
+* [Slides](https://speakerdeck.com/ktgrstsh/relation-between-econometrics-and-machine-learning-ai-is-the-plan-the-plan-is-counterfactual)
+
+- Relation between econometrics & machine learning! 
+- Economics == Inference vs. Machine Learning == Prediction
+- https://qiita.com/KanNishida/items/39bee9723c589e669b1e
+- Randomized Control Trials (RCTs)
+- Difference-In-Differences (DID)
+- Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
+- [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
+-- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
+- Susan Athey, Guido Imbens, Viktor Chernozhukov
+- Double/de-biased machine learning (DML) - 2017
+- Susan Athey's [causal tree](https://t.co/OW8VFGtjRr) R package
+- Discrimination and fairness in AI 
+- Statistical discrimination in econometrics
+- causal discovery
+- AlphaGo == AI
+- DeepBlue
+-
+-
+
+## 17:40 - 18:10 	@kilometer00 	R interface to Python 	[資料]
+
+TokyoR organizer and frequent BeginneR session speaker `@kilometer00` talked about using Python with R. 
+
+To familiarize the audience with Python he went over quite a number of slides showing the similarities and differences in syntax between the two languages.
+
+![]()
+
+
+
+- differences in programming with R vs. Python (var assignment, var naming, var type, etc.)
+- {reticulate}
+- isolated + independent environment >>> sandboxed Python in virtual environment 
+-- security + reproducibility
+- `Pipenv` >>> sandboxed python manager 
+-- create virtualenv
+- install.package(reticulate)
+-- attach the python virtualenv! >>> `use_python()`
+-- `py_config()` check your version, other sessionInfo
+- `source_python()` >>> import python source file
+- benchmark test for reading in csv files
+- use Python in RMD: ```{python}   import pandas as pd blahblah ```
+-- share py-object between chunks!
+- import R object to a Python chunk using prefix `r.ObjectName`
+- import python object to R chunk
+- Using python interactively within an R session
+- `reticulate::repl_python()` 
+`>>> a = 1 `
+`>>> import pandas as pd`
+`>>>> df = r.iris`
+`>>> ESC`  escape back to R!
+`>>> import pyper` Run R in Python in R!!
+`>>> r = pyper.R()`
+`>>> r("set.seed(71)")`

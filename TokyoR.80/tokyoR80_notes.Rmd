@@ -1,0 +1,115 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "7/27/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+NEXT TOKYOR: 9/28 SHINY special
+
+## 16:40 - 17:10 	@ill_identified 	計量経済学と機械学習の関係 	[資料]
+* [Slides](https://speakerdeck.com/ktgrstsh/relation-between-econometrics-and-machine-learning-ai-is-the-plan-the-plan-is-counterfactual)
+
+- Relation between econometrics & machine learning! 
+- Economics == Inference vs. Machine Learning == Prediction
+- https://qiita.com/KanNishida/items/39bee9723c589e669b1e
+- Randomized Control Trials (RCTs)
+- Difference-In-Differences (DID)
+- Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
+- [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
+-- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
+- Susan Athey, Guido Imbens, Viktor Chernozhukov
+- Double/de-biased machine learning (DML) - 2017
+- Susan Athey's [causal tree](https://t.co/OW8VFGtjRr) R package
+- Discrimination and fairness in AI 
+- Statistical discrimination in econometrics
+- causal discovery
+- AlphaGo == AI
+- DeepBlue
+-
+-
+
+## 17:40 - 18:10 	@kilometer00 	R interface to Python 	[資料]
+
+- differences in programming with R vs. Python (var assignment, var naming, var type, etc.)
+- {reticulate}
+- isolated + independent environment >>> sandboxed Python in virtual environment 
+-- security + reproducibility
+- `Pipenv` >>> sandboxed python manager 
+-- create virtualenv
+- install.package(reticulate)
+-- attach the python virtualenv! >>> `use_python()`
+-- `py_config()` check your version, other sessionInfo
+- `source_python()` >>> import python source file
+- benchmark test for reading in csv files
+- use Python in RMD: ```{python}   import pandas as pd blahblah ```
+-- share py-object between chunks!
+- import R object to a Python chunk using prefix `r.ObjectName`
+- import python object to R chunk
+- Using python interactively within an R session
+- `reticulate::repl_python()` 
+`>>> a = 1 `
+`>>> import pandas as pd`
+`>>>> df = r.iris`
+`>>> ESC`  escape back to R!
+`>>> import pyper` Run R in Python in R!!
+`>>> r = pyper.R()`
+`>>> r("set.seed(71)")`
+-
+
+## 18:20 - 18:30 	株式会社クレスコ
+- Cresco: "Lead the digital transformation"
+-
+
+## @wkwk_soprano 	Rでグラフつくるの！ 	[資料]
+* [Slides](https://speakerdeck.com/wmichi/rdegurahuzuo-rufalse)
+- network graph
+- looks cool but need data! lol
+- >> I'll just create one myself! 
+- ONE PIECE dataset!!!!!!!!!!
+- character relationships between the pirates etc. 
+- Volume 1-23 >>> 
+- `network` package 
+- graph embedding
+- Large-scale Information Network E (LINE)
+
+## @airspace_nobo 	PythonからもRを使いたい 	[資料]
+
+- cylindrical time series
+- 
+-
+
+## @gepuro tidyverse.orgの翻訳
+* [Slides](https://t.co/xPwQZDMhAN?amp=1)
+
+- translating `tidyverse.org`
+- Maching Learning programming with Python
+- Use new translation experience for tidyverse.org?
+- new `dplyr`, new `ggplot2` etc.
+- Github >>> gitlocalize translation tool
+- LEFT original vs. RIGHT translation
+- Create Review Request >>> PR 
+- 
+
+## kodachan 	Tokyo.R〜Rとボクと、時々、プロキシ〜 	[資料]
+
+- web connection proxy
+- network environment
+- Need proxy environment with R?
+- >>> YES: install packages!
+- `Sys.setenv("HTTP_PROXY")` >>> `Sys.getenv("HTTP_PROXY")`
+- Write in .Rprofile
+-
+-
+
+
+## k871 	R in a JTM 	[資料]
+
+- JTM: Japanese Traditional Manufacturer
+- difficulty in transitioning, digital transformation DX
+-
+-
