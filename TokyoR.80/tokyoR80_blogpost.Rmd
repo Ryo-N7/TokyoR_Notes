@@ -6,10 +6,6 @@ output:
     variant: markdown_github
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 Within a typhoon, another TokyoR Meetup! ... well not really it turned out to be a false alarm and the weather was a wonderful 30 degrees Celsius with 800% humidity as usual. My gripes with the weather aside this month's meetup was held at [Cresco](), a , in their headquarters in Shinagawa, Tokyo.
 
 <img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
@@ -36,17 +32,33 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## 16:40 - 17:10 	@ill_identified 	計量経済学と機械学習の関係 	[資料]
+## `ill_identified`: Econometrics vs. Machine Learning
 * [Slides](https://speakerdeck.com/ktgrstsh/relation-between-econometrics-and-machine-learning-ai-is-the-plan-the-plan-is-counterfactual)
 
 - Relation between econometrics & machine learning! 
 - Economics == Inference vs. Machine Learning == Prediction
 - https://qiita.com/KanNishida/items/39bee9723c589e669b1e
 - Randomized Control Trials (RCTs)
+-
+-
+-
+-
 - Difference-In-Differences (DID)
+-
+-
+-
+-
+
+There was a talk on DID at last year's [Japan.R Conference]() that you can find [here]()!
+
 - Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
 - [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
 -- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
+
+
+[Frank Harrell]()'s blog post on [](https://www.fharrell.com/post/stat-ml/)
+
+
 - Susan Athey, Guido Imbens, Viktor Chernozhukov
 - Double/de-biased machine learning (DML) - 2017
 - Susan Athey's [causal tree](https://t.co/OW8VFGtjRr) R package
@@ -56,17 +68,20 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 - AlphaGo == AI
 - DeepBlue
 -
--
 
-## 17:40 - 18:10 	@kilometer00 	R interface to Python 	[資料]
+## [kilometer00](): R interface to Python
+* [Slides]()
 
 TokyoR organizer and frequent BeginneR session speaker `@kilometer00` talked about using Python with R. 
 
 To familiarize the audience with Python he went over quite a number of slides showing the similarities and differences in syntax between the two languages.
 
-![]()
+<p float="left" align="center">
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
+<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+</p>
 
-
+{reticulate} package
 
 - differences in programming with R vs. Python (var assignment, var naming, var type, etc.)
 - {reticulate}
@@ -92,3 +107,43 @@ To familiarize the audience with Python he went over quite a number of slides sh
 `>>> import pyper` Run R in Python in R!!
 `>>> r = pyper.R()`
 `>>> r("set.seed(71)")`
+
+# LTs
+
+## @wkwk_soprano 	Rでグラフつくるの！ 	[資料]
+* [Slides](https://speakerdeck.com/wmichi/rdegurahuzuo-rufalse)
+- network graph
+- looks cool but need data! lol
+- >> I'll just create one myself! 
+- ONE PIECE dataset!!!!!!!!!!
+- character relationships between the pirates etc. 
+- Volume 1-23 >>> 
+- `network` package 
+- graph embedding
+- Large-scale Information Network E (LINE)
+
+
+## @gepuro tidyverse.orgの翻訳
+* [Slides](https://t.co/xPwQZDMhAN?amp=1)
+
+Organizer of the annual [Japan.R Conference](http://japanr.net/)
+
+After being involved in the Japanese translation of [Feature Engineering for Machine Learning: Principles and Techniques for Data Scientists](), `@gepuro` thought about trying his hand at translating `tidyverse.org` in Japanese!
+
+In recent months there have been big changes in major `tidyverse` packages such as {dplyr} and {ggplot2} with accompanying articles to boot. These articles especially the new pivot functions vignette are the ones `@gepuro` and fellow TokyoR community members such as `@Atsusy` have slowly began work on in the past few weeks.
+
+- new `dplyr`, new `ggplot2` etc.
+- Github >>> gitlocalize translation tool
+- LEFT original vs. RIGHT translation
+- Create Review Request >>> PR 
+- 
+
+Similar to the talk from [useR! 2019]() by Riva Quiroga on translating the "R for Data Science" book and R data sets into Spanish, which is covered in my blogpost  [here](https://ryo-n7.github.io/2019-07-21-user2019-reflections/).
+
+In other news there was an announcement that this year's Japan.R Conference will be on December 7th!
+
+# Food, Drinks, and Conclusion
+
+`TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. We're finally taking a break next month so the next meetup will be on September 28 and it will be a special session in __Shiny__!
+
+Talks in English are also welcome so if you’re ever in Tokyo come join us!
