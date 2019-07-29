@@ -112,15 +112,26 @@ To familiarize the audience with Python he went over quite a number of slides sh
 
 ## @wkwk_soprano 	Rでグラフつくるの！ 	[資料]
 * [Slides](https://speakerdeck.com/wmichi/rdegurahuzuo-rufalse)
-- network graph
-- looks cool but need data! lol
-- >> I'll just create one myself! 
-- ONE PIECE dataset!!!!!!!!!!
-- character relationships between the pirates etc. 
-- Volume 1-23 >>> 
-- `network` package 
-- graph embedding
-- Large-scale Information Network E (LINE)
+
+It's been a while since `@wkwk_soprano` used R (5 years!) but he's come back with aplomb by talking about network graphs at Tokyo.R! Network graphs are used in all sorts of fields of study including physics, chemistry, linguistics, and the social sciences. In industry you might see them as part of a recommendation graph between a customer and products on sale. Frustrated by the fact that he didn't have a fun dataset to use the {network} package on, `@wkwk_soprano` decided to create his own data set based on his favorite manga, One Piece!
+
+By counting up the times a character appeared in one panel of the manga with another he slowly built up a co-occurence matrix of all the characters from Volume 1 to Volume 23. It took him about one hour per volume to create this data set, now that's dedication!
+
+![]()
+
+You can find the gum-gum fruits of his labour [here](https://drive.google.com/file/d/1y0uDbPLsMBoC5KpjT9CDDmQLAuOmZK2N/view).
+
+After creating the data `@wkwk_soprano` wanted to do some analysis on it like graph embedding via DeepWalk or Large-scale Information Network Embedding (LINE). There's actually a R package called [Rline](https://github.com/YosefLab/Rline) to implement this method but he found that it was difficult to install and it hadn't been updated in a while so he went with the original [C++ implementation](https://github.com/tangjianpku/LINE) from Jian Tang et al. The result was an output of the distributed representation of all the characters in the data.
+
+![]()
+
+Lastly, `@wkwk_soprano` wanted to find similarities between One Piece characters so he used cosine similarity using [this code snippet](https://gist.github.com/wmichi/6b60b12543bfeb3205cff32d6adc3995) which allows you to extract top 'N' similar items from network embedding matrices. Taking a look at some popular characters he was somewhat disappointed in the results as from his extensive knowledge of the story he knew some of the character similarities just weren't right!
+
+![]()
+
+More resources on network analysis in R:
+
+* [Intro to Network Analysis with R - Jesse Sadler](https://www.jessesadler.com/post/network-analysis-with-r/)
 
 
 ## @gepuro tidyverse.orgの翻訳
