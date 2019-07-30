@@ -32,22 +32,22 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 # Main Talks
 
-## `ill_identified`: Econometrics vs. Machine Learning
+## [ill_identified](https://twitter.com/ill_Identified): Econometrics vs. Machine Learning
 * [Slides](https://speakerdeck.com/ktgrstsh/relation-between-econometrics-and-machine-learning-ai-is-the-plan-the-plan-is-counterfactual)
+
+
+
+3 Main Topics:
+* A.I. and Causal Inference
+* Evolution of Machine Learning
+* A.I. == Econometrics
 
 - Relation between econometrics & machine learning! 
 - Economics == Inference vs. Machine Learning == Prediction
 - https://qiita.com/KanNishida/items/39bee9723c589e669b1e
 - Randomized Control Trials (RCTs)
 -
--
--
--
 - Difference-In-Differences (DID)
--
--
--
--
 
 There was a talk on DID at last year's [Japan.R Conference]() that you can find [here]()!
 
@@ -55,9 +55,7 @@ There was a talk on DID at last year's [Japan.R Conference]() that you can find 
 - [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
 -- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
 
-
 [Frank Harrell]()'s blog post on [](https://www.fharrell.com/post/stat-ml/)
-
 
 - Susan Athey, Guido Imbens, Viktor Chernozhukov
 - Double/de-biased machine learning (DML) - 2017
@@ -69,8 +67,8 @@ There was a talk on DID at last year's [Japan.R Conference]() that you can find 
 - DeepBlue
 -
 
-## [kilometer00](): R interface to Python
-* [Slides]()
+## [kilometer00](https://twitter.com/kilometer00): R interface to Python
+* [Slides](https://speakerdeck.com/kilometer/tokyo-dot-r-number-80-r-interface-to-python)
 
 TokyoR organizer and frequent BeginneR session speaker `@kilometer00` talked about using Python with R. 
 
@@ -81,36 +79,32 @@ To familiarize the audience with Python he went over quite a number of slides sh
 <img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
 </p>
 
-{reticulate} package
+Next, `@kilometer00` talked about the {reticulate} package which allows you to call Python from R and can provide translation between R and Python objects (such as R and Pandas data frames or R matrices and NumPy arrays). Using {reticulate} he talked about the importance of having an isolated and independent environment, to keep Python in a "sandbox"-ed virtual environment for security and reproducibility. To do this `@kilometer00` likes to use [Pipenv](https://github.com/pypa/pipenv/).
 
-- differences in programming with R vs. Python (var assignment, var naming, var type, etc.)
-- {reticulate}
-- isolated + independent environment >>> sandboxed Python in virtual environment 
--- security + reproducibility
-- `Pipenv` >>> sandboxed python manager 
--- create virtualenv
-- install.package(reticulate)
--- attach the python virtualenv! >>> `use_python()`
--- `py_config()` check your version, other sessionInfo
-- `source_python()` >>> import python source file
-- benchmark test for reading in csv files
-- use Python in RMD: ```{python}   import pandas as pd blahblah ```
--- share py-object between chunks!
-- import R object to a Python chunk using prefix `r.ObjectName`
-- import python object to R chunk
-- Using python interactively within an R session
-- `reticulate::repl_python()` 
-`>>> a = 1 `
-`>>> import pandas as pd`
-`>>>> df = r.iris`
-`>>> ESC`  escape back to R!
-`>>> import pyper` Run R in Python in R!!
-`>>> r = pyper.R()`
-`>>> r("set.seed(71)")`
+![]()
+
+Once you're done with all the set-up, you can install {reticulate} from CRAN and attach your Python virtualenv with `reticulate::use_python()` and then you can finally start doing stuff! But be wary of type errors when you're coding:
+
+![]()
+
+You can also use Python in a R Markdown document by setting the code chunk to run it. With a recent development in RMD you can now also share objects from different languages by putting a prefix on front of the object name!
+
+![]()
+
+Funnily enough you can also run R in Python in R:
+
+![]()
+
+Pythonception!
+
+More resources on {reticulate}:
+* [{reticulate} package website](https://rstudio.github.io/reticulate/index.html)
+* [R or Python? Why not both? Using Anaconda Python within R with {reticulate} - Bruno Rodrigues](https://www.brodrigues.co/blog/2018-12-30-reticulate/)
+* [R and Python: Using reticulate to get the best of both worlds - Manuel Tilgner](https://www.statworx.com/de/blog/r-and-python-using-reticulate-to-get-the-best-of-both-worlds/)
 
 # LTs
 
-## @wkwk_soprano 	Rでグラフつくるの！ 	[資料]
+## [wkwk_soprano](https://twitter.com/wkwk_soprano): Creating network graphs with R!
 * [Slides](https://speakerdeck.com/wmichi/rdegurahuzuo-rufalse)
 
 It's been a while since `@wkwk_soprano` used R (5 years!) but he's come back with aplomb by talking about network graphs at Tokyo.R! Network graphs are used in all sorts of fields of study including physics, chemistry, linguistics, and the social sciences. In industry you might see them as part of a recommendation graph between a customer and products on sale. Frustrated by the fact that he didn't have a fun dataset to use the {network} package on, `@wkwk_soprano` decided to create his own data set based on his favorite manga, One Piece!
@@ -132,26 +126,44 @@ Lastly, `@wkwk_soprano` wanted to find similarities between One Piece characters
 More resources on network analysis in R:
 
 * [Intro to Network Analysis with R - Jesse Sadler](https://www.jessesadler.com/post/network-analysis-with-r/)
+* [Network Centrality in R: An Introduction with {netrankr} - David Schoch](http://blog.schochastics.net/post/network-centrality-in-r-introduction/)
 
 
-## @gepuro tidyverse.orgの翻訳
-* [Slides](https://t.co/xPwQZDMhAN?amp=1)
+## [gepuro](https://twitter.com/gepuro): Translating `tidyverse.org` into Japanese!
+* [Slides](https://www.slideshare.net/gepuro/tidyverseorg)
 
 Organizer of the annual [Japan.R Conference](http://japanr.net/)
 
 After being involved in the Japanese translation of [Feature Engineering for Machine Learning: Principles and Techniques for Data Scientists](), `@gepuro` thought about trying his hand at translating `tidyverse.org` in Japanese!
 
-In recent months there have been big changes in major `tidyverse` packages such as {dplyr} and {ggplot2} with accompanying articles to boot. These articles especially the new pivot functions vignette are the ones `@gepuro` and fellow TokyoR community members such as `@Atsusy` have slowly began work on in the past few weeks.
+In recent months there have been big changes in major `tidyverse` packages such as {dplyr} and {ggplot2} with accompanying articles to boot. These articles, especially the new pivot functions vignette, are the ones `@gepuro` and fellow TokyoR community members such as `@Atsusy` have started working on in the past few weeks. To do the translation there are three key steps:
 
-- new `dplyr`, new `ggplot2` etc.
-- Github >>> gitlocalize translation tool
-- LEFT original vs. RIGHT translation
-- Create Review Request >>> PR 
-- 
+1. Create a Github account
+2. Log into GitLocalize
+3. Access the specific GitLocalize repo where your translation project is located
 
-Similar to the talk from [useR! 2019]() by Riva Quiroga on translating the "R for Data Science" book and R data sets into Spanish, which is covered in my blogpost  [here](https://ryo-n7.github.io/2019-07-21-user2019-reflections/).
+GitLocalize looks like this:
 
-In other news there was an announcement that this year's Japan.R Conference will be on December 7th!
+![]()
+
+Once you're done, you create a "Review Request" which is checked by the maintainer `@gepuro` for any errors. He'll receive the "Review Request" as a Pull Request on the `R Lang Document JA` repo and if everything is OK it'll be merged in!
+
+There are other ways to contribute to the project as well such as: 
+
+* Helping to make the text sound more naturally Japanese
+* Create the blogdown website of the Japanese translation
+* Create a vocab list of common R terminology in Japanese to use as a reference
+* and more!
+
+I enjoyed this talk as it was similar to the talk by Riva Quiroga on translating the "R for Data Science" book and R data sets into Spanish that I heard at user!2019 a few weeks ago (the talk is covered in my [blogpost here](https://ryo-n7.github.io/2019-07-21-user2019-reflections/)). [here](https://ryo-n7.github.io/2019-07-21-user2019-reflections/). If you're good at English and Japanese you can join the #translation channel on the Tokyo.R slack!
+
+In other news, there was an announcement that this year's [Japan.R Conference](http://japanr.net/) will be on December 7th!
+
+## Other Talks
+
+* [airspace_nobo: Use Python from R!](https://speakerdeck.com/airspace_nobo/use-r-from-python)
+* [kodachan: Proxy authentication with R!]()
+* [k871: R in a Traditional Japanese Manufacturing Company!]()
 
 # Food, Drinks, and Conclusion
 
