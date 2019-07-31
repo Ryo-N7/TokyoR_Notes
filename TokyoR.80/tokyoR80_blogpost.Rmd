@@ -35,31 +35,44 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [ill_identified](https://twitter.com/ill_Identified): Econometrics vs. Machine Learning
 * [Slides](https://speakerdeck.com/ktgrstsh/relation-between-econometrics-and-machine-learning-ai-is-the-plan-the-plan-is-counterfactual)
 
+`ill_identified` gave a talk on a more general industry topic rather than specifically about R about the differences between econometrics and machine learning/A.I. To start off he listed some good resources (in English) to read from the economics/econometrics side of the discussion:
 
+* [Machine Learning: An Applied Econometric Approach - S. Mullainathan  & J. Spiess](https://www.aeaweb.org/articles?id=10.1257/jep.31.2.87)
+* [Big Data: New Tricks for Econometrics - H. Varian](https://www.aeaweb.org/articles?id=10.1257/jep.28.2.3)
+* [Machine Learning Methods Economists Should Know About - S. Athey & G. Imbens](https://arxiv.org/abs/1903.10075)
+* []()
 
-3 Main Topics:
-* A.I. and Causal Inference
-* Evolution of Machine Learning
-* A.I. == Econometrics
+From looking at the methods that both fields use like multiple linear regression, logistic regression (GLMs), Monte-Carlo Markov Chain (MCMC), non-parametric regression, etc. it seems as though they might be the same thing... but an important distinction can be made to in that:
 
-- Relation between econometrics & machine learning! 
-- Economics == Inference vs. Machine Learning == Prediction
-- https://qiita.com/KanNishida/items/39bee9723c589e669b1e
-- Randomized Control Trials (RCTs)
--
-- Difference-In-Differences (DID)
+* Economics/Econometrics == Causal Inference
+* Machine Learning == Prediction
+
+[Frank Harrell]() in 
+
+as well as [Miguel Hernan]() in [](https://arxiv.org/abs/1804.10846) discuss this in length if you want to take a look. 
+
+`@ill_identified` then took us through a couple examples of causal inference from a variety of economics research focusing on the spread and popularity of Randomized Control Trials (RCTs) and Difference-In-Differences (DID) in the field.
+
+* []()
+* []()
+* []()
 
 There was a talk on DID at last year's [Japan.R Conference]() that you can find [here]()!
+
+From the side of machine learning, [Athey (2018)](https://www.nber.org/chapters/c14009.pdf) talked about how up to the present, economists have been trying to fit their model to the entirety of the data available to them, leading to potential problems of overfitting. To counteract this problem Athey notes how the field can learn from machine learning by using cross-validation techniques and penalized models.
+
+For causal inference from the machine learning side of the discussion, `@ill_identified` talked about Judea Pearl's answer of Quora to the question, "What are the differences between econometrics, statistics, and machine learning?". 
 
 - Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
 - [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
 -- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
 
-[Frank Harrell]()'s blog post on [](https://www.fharrell.com/post/stat-ml/)
+
 
 - Susan Athey, Guido Imbens, Viktor Chernozhukov
 - Double/de-biased machine learning (DML) - 2017
 - Susan Athey's [causal tree](https://t.co/OW8VFGtjRr) R package
+
 - Discrimination and fairness in AI 
 - Statistical discrimination in econometrics
 - causal discovery
