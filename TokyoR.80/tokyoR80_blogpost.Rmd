@@ -53,8 +53,8 @@ as well as [Miguel Hernan]() in [](https://arxiv.org/abs/1804.10846) discuss thi
 
 `@ill_identified` then took us through a couple examples of causal inference from a variety of economics research focusing on the spread and popularity of Randomized Control Trials (RCTs) and Difference-In-Differences (DID) in the field.
 
-* []()
-* []()
+* [Mostly Harmless Economics - Angrist & Pischke](https://www.mostlyharmlesseconometrics.com/)
+* [Empirical Analysis - Morita](https://www.nippyo.co.jp/shop/book/6554.html)
 * []()
 
 There was a talk on DID at last year's [Japan.R Conference]() that you can find [here]()!
@@ -64,6 +64,7 @@ From the side of machine learning, [Athey (2018)](https://www.nber.org/chapters/
 For causal inference from the machine learning side of the discussion, `@ill_identified` talked about Judea Pearl's answer of Quora to the question, "What are the differences between econometrics, statistics, and machine learning?". 
 
 - Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
+
 - [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
 -- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
 
@@ -78,7 +79,6 @@ For causal inference from the machine learning side of the discussion, `@ill_ide
 - causal discovery
 - AlphaGo == AI
 - DeepBlue
--
 
 ## [kilometer00](https://twitter.com/kilometer00): R interface to Python
 * [Slides](https://speakerdeck.com/kilometer/tokyo-dot-r-number-80-r-interface-to-python)
@@ -88,25 +88,28 @@ TokyoR organizer and frequent BeginneR session speaker `@kilometer00` talked abo
 To familiarize the audience with Python he went over quite a number of slides showing the similarities and differences in syntax between the two languages.
 
 <p float="left" align="center">
-<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata.JPG" width="49%" />
-<img src="../assets/2019-07-05-tokyoR-79-roundup_files/whatisdata2.JPG" width="49%" />
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-varnames.PNG" width="49%" />
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-pkgcall.PNG" width="49%" />
 </p>
 
 Next, `@kilometer00` talked about the {reticulate} package which allows you to call Python from R and can provide translation between R and Python objects (such as R and Pandas data frames or R matrices and NumPy arrays). Using {reticulate} he talked about the importance of having an isolated and independent environment, to keep Python in a "sandbox"-ed virtual environment for security and reproducibility. To do this `@kilometer00` likes to use [Pipenv](https://github.com/pypa/pipenv/).
 
-![]()
+<p float="left" align="center">
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-pipenv1.PNG" width="49%" />
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-pipenv2.PNG" width="49%" />
+</p>
 
 Once you're done with all the set-up, you can install {reticulate} from CRAN and attach your Python virtualenv with `reticulate::use_python()` and then you can finally start doing stuff! But be wary of type errors when you're coding:
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-typeerror.PNG" style="display: block; margin: auto;" width = "350" />
 
 You can also use Python in a R Markdown document by setting the code chunk to run it. With a recent development in RMD you can now also share objects from different languages by putting a prefix on front of the object name!
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-pytoR.PNG" style="display: block; margin: auto;" width = "350" />
 
 Funnily enough you can also run R in Python in R:
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/reticulate-pythonrpythonr.PNG" style="display: block; margin: auto;" width = "350" />
 
 Pythonception!
 
@@ -124,23 +127,22 @@ It's been a while since `@wkwk_soprano` used R (5 years!) but he's come back wit
 
 By counting up the times a character appeared in one panel of the manga with another he slowly built up a co-occurence matrix of all the characters from Volume 1 to Volume 23. It took him about one hour per volume to create this data set, now that's dedication!
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/onepiece-network-graph.PNG" style="display: block; margin: auto;" width = "350" />
 
 You can find the gum-gum fruits of his labour [here](https://drive.google.com/file/d/1y0uDbPLsMBoC5KpjT9CDDmQLAuOmZK2N/view).
 
 After creating the data `@wkwk_soprano` wanted to do some analysis on it like graph embedding via DeepWalk or Large-scale Information Network Embedding (LINE). There's actually a R package called [Rline](https://github.com/YosefLab/Rline) to implement this method but he found that it was difficult to install and it hadn't been updated in a while so he went with the original [C++ implementation](https://github.com/tangjianpku/LINE) from Jian Tang et al. The result was an output of the distributed representation of all the characters in the data.
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/onepiece-distrirep.PNG" style="display: block; margin: auto;" width = "350" />
 
 Lastly, `@wkwk_soprano` wanted to find similarities between One Piece characters so he used cosine similarity using [this code snippet](https://gist.github.com/wmichi/6b60b12543bfeb3205cff32d6adc3995) which allows you to extract top 'N' similar items from network embedding matrices. Taking a look at some popular characters he was somewhat disappointed in the results as from his extensive knowledge of the story he knew some of the character similarities just weren't right!
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/onepiece-luffy-cosine.PNG" style="display: block; margin: auto;" width = "350" />
 
 More resources on network analysis in R:
 
 * [Intro to Network Analysis with R - Jesse Sadler](https://www.jessesadler.com/post/network-analysis-with-r/)
 * [Network Centrality in R: An Introduction with {netrankr} - David Schoch](http://blog.schochastics.net/post/network-centrality-in-r-introduction/)
-
 
 ## [gepuro](https://twitter.com/gepuro): Translating `tidyverse.org` into Japanese!
 * [Slides](https://www.slideshare.net/gepuro/tidyverseorg)
@@ -157,7 +159,7 @@ In recent months there have been big changes in major `tidyverse` packages such 
 
 GitLocalize looks like this:
 
-![]()
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/gepuro-translate2.PNG" style="display: block; margin: auto;" width = "450" />
 
 Once you're done, you create a "Review Request" which is checked by the maintainer `@gepuro` for any errors. He'll receive the "Review Request" as a Pull Request on the `R Lang Document JA` repo and if everything is OK it'll be merged in!
 
