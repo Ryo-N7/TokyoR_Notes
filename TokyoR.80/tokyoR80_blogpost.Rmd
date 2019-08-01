@@ -54,31 +54,41 @@ as well as [Miguel Hernan]() in [](https://arxiv.org/abs/1804.10846) discuss thi
 `@ill_identified` then took us through a couple examples of causal inference from a variety of economics research focusing on the spread and popularity of Randomized Control Trials (RCTs) and Difference-In-Differences (DID) in the field.
 
 * [Mostly Harmless Economics - Angrist & Pischke](https://www.mostlyharmlesseconometrics.com/)
-* [Empirical Analysis - Morita](https://www.nippyo.co.jp/shop/book/6554.html)
-* []()
+* [Empirical Analysis - Morita (in Japanese)](https://www.nippyo.co.jp/shop/book/6554.html)
 
 There was a talk on DID at last year's [Japan.R Conference]() that you can find [here]()!
 
 From the side of machine learning, [Athey (2018)](https://www.nber.org/chapters/c14009.pdf) talked about how up to the present, economists have been trying to fit their model to the entirety of the data available to them, leading to potential problems of overfitting. To counteract this problem Athey notes how the field can learn from machine learning by using cross-validation techniques and penalized models.
 
-For causal inference from the machine learning side of the discussion, `@ill_identified` talked about Judea Pearl's answer of Quora to the question, "What are the differences between econometrics, statistics, and machine learning?". 
+For causal inference from the machine learning side of the discussion, `@ill_identified` talked about Judea Pearl's answer of Quora to the question, ["What are the differences between econometrics, statistics, and machine learning?"](https://www.quora.com/What-are-the-differences-between-econometrics-statistics-and-machine-learning). 
 
-- Judea Pearl (2019): 7 tools of causal inference wit hreflections on machine learning
+In the answer Judea Pearl makes the distinction between standard ML and advanced ML, namely that the former (while specifically including deep learning and neural networks in this category) "fits a function to a stream of data and plays the same role as statistical analysis, taking us from samples to properties of distribution functions." while the latter "goes beyond distributions onto the process that generates the data, and so, allows us to manage policy interventions and counterfactual reasoning". He then points to two of his works, [7 Tools of Causal Inference with Reflections on Machine Learning](http://ftp.cs.ucla.edu/pub/stat_ser/r481.pdf) and [The Book of Why (written with Dana MacKenzie)](http://bayes.cs.ucla.edu/WHY/) for further reading. It is in the former work that Judea Pearl talks about the three levels of the causal hierarchy:
 
-- [text](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext)
--- 3-level causal hierarchy: Association >>> Intervention >>> Counterfactuals
+* Level 1: Association
+* Levevl 2: Intervention
+* Level 3: Counterfactuals
 
+<img src="../assets/2019-08-02-tokyoR-80-roundup_files/illid-causalhier.PNG" style="display: block; margin: auto;" width = "350" />
 
+There is a lot of debate centered on "Potential Outcomes" theory posited by Neyman & Rubin versus Pearl's "Causal Graphs/SEM" approaches in the past decade or so while Andrew Gelman has also talked about the issue [here (2009)](https://statmodeling.stat.columbia.edu/2009/07/05/disputes_about/) and [here (2011)](https://statmodeling.stat.columbia.edu/2009/07/05/disputes_about/). Very recently, Guido Imbens submitted an article, [Potential Outcome and Directed Acyclic Graph Approaches to Causality: Relevance for Empirical Practice in Economics](https://arxiv.org/abs/1907.07271) that discusses this in length that is probably worth checking out as well!
 
-- Susan Athey, Guido Imbens, Viktor Chernozhukov
-- Double/de-biased machine learning (DML) - 2017
-- Susan Athey's [causal tree](https://t.co/OW8VFGtjRr) R package
+From the Rubin side of the debate Guido Imbens, Susan Athey, and VIktor Chernozhukov stand out as the primary researchers. 
 
-- Discrimination and fairness in AI 
-- Statistical discrimination in econometrics
-- causal discovery
-- AlphaGo == AI
-- DeepBlue
+Athey:
+* [Causal Tree/Causal Forest - Wager & Athey (2018)]()
+* [Generalized Random Forest - Athey et al. (2019)]()
+* [{causalTree} R package](https://github.com/susanathey/causalTree)
+
+Chernozhukov:
+* [Double/Debiased/Neyman Machine Learning of Treatment Effects - Chernozhukov et al. (2017)](https://arxiv.org/abs/1701.08687)
+* [Double/Debiased Machine Learning for Treatment and Causal Parameters - Chernozhukov et al. (2018)](https://arxiv.org/abs/1608.00060)
+* [Estimation and Confidence Regions for Parameter Sets in Econometric Models - Chernozhukov et al. (2007)](https://www.jstor.org/stable/4502031/)
+
+In the final section `@ill_identified` went over a few new methods in A.I. that provided some evidence to show that A.I./ML does indeed have similarities with econometrics.
+
+- [AlphaGo]()
+- [Bonanza]()
+- [DeepBlue]()
 
 ## [kilometer00](https://twitter.com/kilometer00): R interface to Python
 * [Slides](https://speakerdeck.com/kilometer/tokyo-dot-r-number-80-r-interface-to-python)
