@@ -72,8 +72,8 @@ There is a lot of debate centered on "Potential Outcomes" theory posited by Neym
 From the Rubin side of the debate Guido Imbens, Susan Athey, and Viktor Chernozhukov stand out as the primary researchers. 
 
 Athey:
-* [Causal Tree/Causal Forest - Wager & Athey (2018)]()
-* [Generalized Random Forest - Athey et al. (2019)]()
+* [Causal Tree/Causal Forest - Wager & Athey (2018)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839)
+* [Generalized Random Forest - Athey et al. (2019)](https://arxiv.org/abs/1610.01271)
 * [{causalTree} R package](https://github.com/susanathey/causalTree)
 
 Chernozhukov:
@@ -189,6 +189,6 @@ In other news, there was an announcement that this year's [Japan.R Conference](h
 
 # Food, Drinks, and Conclusion
 
-`TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. We're finally taking a break next month so the next meetup will be on September 28 and it will be a special session in __Shiny__!
+`TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. We're finally taking a break next month so the next meetup will be on September 28 and it will be a special session in __{Shiny}__!
 
 Talks in English are also welcome so if you’re ever in Tokyo come join us!
