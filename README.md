@@ -19,4 +19,5 @@
 - [Tokyo.R #76 (3/2/2019)](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
 - [Tokyo.R #77 (4/13/2019)](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)
 - [Tokyo.R #78 (5/25/2019)](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/)
-- [Tokyo.R #79 (6/29/2019)]()
+- [Tokyo.R #79 (6/29/2019)](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)
+- [Tokyo.R #80 (7/27/2019)](https://ryo-n7.github.io/2019-08-02-tokyoR-80-roundup/)
