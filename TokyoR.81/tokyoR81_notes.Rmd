@@ -1,0 +1,132 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+14:40 - 15:00 	@kilometer0101 	初心者セッション1 – R基礎 – 	[資料]
+15:00 - 15:20 	@kyyonko 	初心者セッション2 - はじめてのShiny - 	[資料]
+
+
+応用セッション1
+16:10 - 16:40 	@hoxo_m 	Shiny ユーザのための非同期プログラミング入門 	[資料]
+
+- Asynchronous programming with Shiny
+- Synchronous programming: run code one line at a time
+- R: single-threadded programming language
+- for most of time, single-threaded/single-user 
+- but now with SHINY APPS >>> necessity to cater to multiple users at the same time!
+- currently: chop up tasks into small components and trade between user A, B, C, etc. in tandem!
+- But what about LONG / resource-intensive tasks (getting data from APIs?), thsi means other users have to WAIT even for short/quick tasks 
+-- asynchronous: place these tasks in another process and free up time for other user's tasks, reduce responsiveness + waiting time
+- use {promises}, {future}: https://rstudio.github.io/promises/articles/shiny.html
+- use {promise} pipeline with `%...>%` pipe!
+- `future({ long_task }) %...>%`
+- {future} pkg
+- insert long-task code INTO `future()` function 
+- `plan()` 
+-- multisession:
+-- multicore:
+-- multiprosess:
+- how to grab the results from another process?
+- {promise}: `render_*()` can take promises
+-- promise: an object that takes a result from an asynchronous process that happens later/slightly later
+-- takes the result from {future} pkg code result
+-- "promise", until the result from "future" appears, it will WAIT until it appears/runs
+-- `future` is NOT a data frame so can not `filter()`, so must use the "promise pipe" `%...>%` and then code!!
+- Application to Shiny apps
+-- can't use reactives inside a `future()`, need to create as object BEFORE and pass that through!
+-- need to think about WHERE (which process?) the code is running 
+-- can't put `plot()`/`print()` code inside the `future()` process, must promise pipe!
+-- if reactive is in FUTURE >>> then subsequent code using that object must be promise-piped!
+-
+
+
+16:40 - 17:10 	@Np_Ur 	30分でそこそこ使えるShinyアプリを作ってみる 	[資料]
+- how to build a shiny app in 30 minutes!!
+- >> choose data set and visualize 
+- >> choose data set and run a regression
+- navbarpage (navigation bar)
+-- `navbarPage("title", tabPanel(), tabPanel(), navbarMenu(), etc. etc.)`
+- tabsetPanel (tabs)
+-- `tabsetPanel(tabPanel(), tabPanel(), etc.)`
+- built like 1000 different apps showing each step of creating  a shiny app (!)
+-
+
+17:10 - 17:40 	@kos59125 	Shiny ユーザーのためのアプリケーション設計入門 	[資料]
+- What IS an app?
+- How to PLAN for building a Shiny app?
+- Shiny app presentation via RMarkdown
+-- output: ioslides_Presentation + runtime: shiny
+- application: some input + output (data), result of some analysis via the inputs
+-- some program created to solve/analyze a problem
+-- Shiny: interactive data story telling with R
+- Shiny as a data source >>> input data via Shiny (surveys!!, experiments!, etc.)
+- With data gathered from a Shiny app >>> how to process that to create some output
+-- data base
+- things to note: # of users, process multiple requests at once
+- Shiny server >> Shiny server pro + RStudio Connect 
+- Shiny Proxy: deploy in enterprise context, LDAP authentication + authorization, create multiple docker containers
+- load balancer/scaler: nginx/AWS (ALB), etc.
+- Data input: read/write^
+- DynamoDB, Docker images, GCP Cloud Run
+-
+
+応用セッション2
+時間 	発表者 	タイトル 	資料
+17:50 - 18:00 	@kashitan 	{shiny}と{leaflet}による地図アプリ開発Tips 	[資料]
+- Tips for using {leaflet} with Shiny for map applications
+- Census viewer: Where are young "attractive" (?) females living?
+- `updateSelectInput()`: multiple choices
+- `leafletProxy()`
+- `fitBounds()`
+- `input${id}shape_click`
+
+18:00 - 18:10 	@okiyuki 	Shiny Appを支えるエンジニアリング 	[資料]
+- Software engineering for supporting shiny apps!
+- {memoise}: cache data when certain function is run for the first time (useful for dashboard shiny apps where similar use cases can be predicted)
+-- cache data in certain file/directory 
+- {pool}: insert/access SQL database connection info, close when app closes!
+- {ShinyProxy}
+- {Shinyloadtest}
+
+協賛枠
+時間 	発表者
+18:20 - 18:25 	@kubochi_ukyo (ディップ株式会社)
+- 
+
+LT
+@igjit 	Shinyで作る写真編集アプリ 	[資料]
+- Photo editing application with Shiny
+- From Adobe Lightroom >>> Shinyroom
+- RGB histogram
+- {golem}
+- {shinytest}
+- {shinyloadermessage}: LOADING
+
+@y_mattu 	推しの情報が知りたい 	[資料]
+- Music info with Shiny
+- create DB of favorite band discography
+- find live-house of the performance!
+- electron >>> photon package
+
+
+Ikeda 	Shinyで社内向け汎用統計アプリを作ってみた 	[資料]
+- Intra-company shiny app for simple calculations and easy data exploration
+- vs. SPSS or Excel VBA
+- dendrograms, trees, kMeans, text mining
+
+
+@flaty 	Shinyと再現可能性のすゝめ 	[資料]
+- Shiny app and reproducibility >>> {shinymeta}
+- 
+-
+
+@ao 		[資料]
+- open source medicine intake simulation with Shiny
+- 1 compartment model
+-
+
