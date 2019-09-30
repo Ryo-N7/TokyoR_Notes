@@ -1,0 +1,140 @@
+---
+title: "81st TokyoR Meetup Roundup: A Special Session in {Shiny}!"
+always_allow_html: yes
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As another sweltering summer ends, another TokyoR Meetup! With global warming in full swing and it still being around 30 degrees at the end of September, this month's meetup was held at [DIP Corporation](https://www.dip-net.co.jp/), an personnel/recruitment services company, in their headquarters in Roppongi, Tokyo.
+
+<img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
+
+In line with my previous round up posts:
+
+- [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
+- [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) 
+- [TokyoR #78](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/) 
+- [TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)
+- [TokyoR #80](https://ryo-n7.github.io/2019-08-02-tokyoR-80-roundup/)
+
+I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
+
+Anyways...
+
+Let's get started!
+
+# BeginneR Session
+
+As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set of beginner user focused talks:
+
+- [R Basics by kilometer0101](https://speakerdeck.com/kilometer/tokyo-dot-r-number-81-introduction-and-demonstration)
+- [Shiny for Beginners by kyyonko](https://speakerdeck.com/kyyonko/di-81hui-tokyor-chu-xin-zhe-setusiyon2-hazimetefalseshiny-80e4f56b-198d-4d7d-a4e0-df1097aa226d)
+
+# Main Talks
+
+## [hoxo_m](https://twitter.com/hoxo_m): Asynchronous Programming for Shiny!
+* [Slides](https://www.slideshare.net/hoxo_m/shiny-177170789)
+
+- Asynchronous programming with Shiny
+- Synchronous programming: run code one line at a time
+- R: single-threadded programming language
+- for most of time, single-threaded/single-user 
+- but now with SHINY APPS >>> necessity to cater to multiple users at the same time!
+- currently: chop up tasks into small components and trade between user A, B, C, etc. in tandem!
+- But what about LONG / resource-intensive tasks (getting data from APIs?), thsi means other users have to WAIT even for short/quick tasks 
+-- asynchronous: place these tasks in another process and free up time for other user's tasks, reduce responsiveness + waiting time
+- use {promises}, {future}: https://rstudio.github.io/promises/articles/shiny.html
+- use {promise} pipeline with `%...>%` pipe!
+- `future({ long_task }) %...>%`
+- {future} pkg
+- insert long-task code INTO `future()` function 
+- `plan()` 
+-- multisession:
+-- multicore:
+-- multiprosess:
+- how to grab the results from another process?
+- {promise}: `render_*()` can take promises
+-- promise: an object that takes a result from an asynchronous process that happens later/slightly later
+-- takes the result from {future} pkg code result
+-- "promise", until the result from "future" appears, it will WAIT until it appears/runs
+-- `future` is NOT a data frame so can not `filter()`, so must use the "promise pipe" `%...>%` and then code!!
+- Application to Shiny apps
+-- can't use reactives inside a `future()`, need to create as object BEFORE and pass that through!
+-- need to think about WHERE (which process?) the code is running 
+-- can't put `plot()`/`print()` code inside the `future()` process, must promise pipe!
+-- if reactive is in FUTURE >>> then subsequent code using that object must be promise-piped!
+-
+
+## [Np_Ur](https://twitter.com/Np_Ur_): A Simple Shiny App in 30 Minutes!
+* [Slides](https://github.com/chan-ume/tokyoR81)
+
+- how to build a shiny app in 30 minutes!!
+- >> choose data set and visualize 
+- >> choose data set and run a regression
+- navbarpage (navigation bar)
+-- `navbarPage("title", tabPanel(), tabPanel(), navbarMenu(), etc. etc.)`
+- tabsetPanel (tabs)
+-- `tabsetPanel(tabPanel(), tabPanel(), etc.)`
+- built like 1000 different apps showing each step of creating  a shiny app (!)
+-
+
+- [Code for all Shiny Apps](https://github.com/chan-ume/tokyoR81)
+
+## [kashitan](https://twitter.com/kashitan/): Making {shiny} Maps with {leaflet}!
+* [Slides](https://www.slideshare.net/kashitan/shinyleaflettips-177070514)
+
+- Tips for using {leaflet} with Shiny for map applications
+- Census viewer: Where are young "attractive" (?) females living?
+- `updateSelectInput()`: multiple choices
+- `leafletProxy()`
+- `fitBounds()`
+- `input${id}shape_click`
+
+- [RStudio's {leaflet} Guide](https://rstudio.github.io/leaflet/)
+
+## [okiyuki](https://twitter.com/okiyuki99): Software Engineering for Shiny!
+* [Slides](https://speakerdeck.com/okiyuki99/190928-tokyor81-shiny)
+
+- Software engineering for supporting shiny apps!
+- {memoise}: cache data when certain function is run for the first time (useful for dashboard shiny apps where similar use cases can be predicted)
+-- cache data in certain file/directory 
+- {pool}: insert/access SQL database connection info, close when app closes!
+- {ShinyProxy}
+- {Shinyloadtest}
+
+# LTs
+
+## [igjit](https://twitter.com/igjit): Edit Your Photos with {shinyroom}!
+* [Slides](https://igjit.github.io/slides/2019/09/shinyroom/#/)
+
+You might remember from a few months back, `@igjit` presented on "RAW image processing with R" ([TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)). Continuing where he left off he decided to create a photo-editing UI using the power of {shiny}. Motivated by comments following the previous presentation, `@igjit` decided to base it on "Adobe Lightroom", and call it the {shinyroom} package.
+
+
+- RGB histogram
+- {golem}
+- {shinytest}
+- {shinyloadermessage}: LOADING
+
+## [flaty13](https://twitter.com/flaty13): Reproducible Shiny with {shinymeta}!
+* [Slides](https://docs.google.com/presentation/d/1aHRVEE05L7HO90TsTTFNsJZsVH-oI2umYlNR3NuXbac/edit)
+
+- Shiny app and reproducibility >>> {shinymeta}
+- 
+-
+
+- [Summary of {shinymeta} from useR!2019 blog post](https://ryo-n7.github.io/2019-07-21-user2019-reflections/)
+- ["Shiny's Holy Grail: Interactivity with Reproducibility": Joe Cheng's useR!2019 Keynote](https://www.youtube.com/watch?v=mhDxTIz0-0M)
+
+
+
+
+# Food, Drinks, and Conclusion
+
+`TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. The next meetup will be on October 26 and I will also be one of the presenters!
+
+Talks in English are also welcome so if you’re ever in Tokyo come join us!
