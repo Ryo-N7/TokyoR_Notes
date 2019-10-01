@@ -88,14 +88,20 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [kashitan](https://twitter.com/kashitan/): Making {shiny} Maps with {leaflet}!
 * [Slides](https://www.slideshare.net/kashitan/shinyleaflettips-177070514)
 
-- Tips for using {leaflet} with Shiny for map applications
-- Census viewer: Where are young "attractive" (?) females living?
+`@kashitan` presented some tips (that you normally won't see in books/articles) for using {leaflet} with Shiny for map applications! He tooks us through four different functions that he found very useful for making {leaflet} maps with Japan census data. 
+
+- Census viewer
 - `updateSelectInput()`: multiple choices
+
 - `leafletProxy()`
+
 - `fitBounds()`
+
 - `input${id}shape_click`
 
+
 - [RStudio's {leaflet} Guide](https://rstudio.github.io/leaflet/)
+- [Leaflet in R: Tips & Tricks for Interactive Maps - Jindřich Lacko ](https://www.jla-data.net/eng/leaflet-in-r-tips-and-tricks/index.html)
 
 ## [okiyuki](https://twitter.com/okiyuki99): Software Engineering for Shiny!
 * [Slides](https://speakerdeck.com/okiyuki99/190928-tokyor81-shiny)
@@ -112,26 +118,29 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [igjit](https://twitter.com/igjit): Edit Your Photos with {shinyroom}!
 * [Slides](https://igjit.github.io/slides/2019/09/shinyroom/#/)
 
-You might remember from a few months back, `@igjit` presented on "RAW image processing with R" ([TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)). Continuing where he left off he decided to create a photo-editing UI using the power of {shiny}. Motivated by comments following the previous presentation, `@igjit` decided to base it on "Adobe Lightroom", and call it the {shinyroom} package.
+You might remember from a few months back, `@igjit` presented on "RAW image processing with R" ([TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)). Continuing where he left off he decided to create a photo-editing UI using the power of {shiny}. Motivated by comments following the previous presentation, `@igjit` decided to base it on "Adobe Lightroom", and call it the {shinyroom} package. You can take a look at it [here](https://shinyroom.herokuapp.com/). 
 
+![]()
 
-- RGB histogram
-- {golem}
-- {shinytest}
-- {shinyloadermessage}: LOADING
+In terms of actually building the Shiny app he used the {imager} package for the actual photo editing functionality while {golem} was used as the package framework for the app. For appearances `@igjit` used the {shinythemes} package
+
+During the course of building the app, `@igjit` came across a peculiar problem concerning the screen when the Shiny app was busy. By default, a particular panel becomes slightly opaque when the server is busy doing stuff in the background but this is annoying when you are working on editing images. To get around this problem, `@igjit` created another package called {shinyloadermessage} so that instead of the screen greying out a small message will appear instead.
+
+- [Building Big Shiny Apps - A Workflow (Colin Fay, Vincent Guyader, Cervan Girard, Sebastien Rochette)](https://thinkr-open.github.io/building-shiny-apps-workflow/)
+- [{shinyloadermessage}: Loader messages for Shiny outputs](https://github.com/igjit/shinyloadermessage)
+- [{shinybusy}: For minimal busy indicator in Shiny apps](https://github.com/dreamRs/shinybusy)
 
 ## [flaty13](https://twitter.com/flaty13): Reproducible Shiny with {shinymeta}!
 * [Slides](https://docs.google.com/presentation/d/1aHRVEE05L7HO90TsTTFNsJZsVH-oI2umYlNR3NuXbac/edit)
 
-- Shiny app and reproducibility >>> {shinymeta}
-- 
--
+`@flaty13` talked about the recently made public {shinymeta} package and reproducibility with Shiny apps. This is a topic that has taken a while to develop due to the complexity of the issue, where the end goal was to find a way to document and describe the actions of users who interacted with very dynamic Shiny apps with many different features. With the {shinymeta} package you can now download R scripts highlight the steps you took in interacting with the app. 
+![]()
 
+The next step that is currently in development is to output an `.RMD` report among a number of other features as the package is still in the experimental phase. See the resources below for more details, especially Joe Cheng's keynote for all the stuff under-the-hood that's making this exciting new development possible!
+
+- [{shinymeta} Github page](https://github.com/rstudio/shinymeta)
 - [Summary of {shinymeta} from useR!2019 blog post](https://ryo-n7.github.io/2019-07-21-user2019-reflections/)
 - ["Shiny's Holy Grail: Interactivity with Reproducibility": Joe Cheng's useR!2019 Keynote](https://www.youtube.com/watch?v=mhDxTIz0-0M)
-
-
-
 
 # Food, Drinks, and Conclusion
 
