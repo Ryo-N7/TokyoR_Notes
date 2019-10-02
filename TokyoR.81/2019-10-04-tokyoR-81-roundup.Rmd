@@ -40,11 +40,14 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [hoxo_m](https://twitter.com/hoxo_m): Asynchronous Programming for Shiny!
 * [Slides](https://www.slideshare.net/hoxo_m/shiny-177170789)
 
-- Asynchronous programming with Shiny
+`@hoxo_m` of HOXO-M Inc. talked about asynchronous programming with Shiny. Starting off with an introduction into the history of single and multi-threadding in both R and how the growing popularity of Shiny has lead to a demand for multithreaddedness to cater to the multitude of users using a Shiny app at once! 
+
+The main package that facilitates this in both R and Shiny is the {future} package which allows one to 
+
+
 - Synchronous programming: run code one line at a time
-- R: single-threadded programming language
-- for most of time, single-threaded/single-user 
-- but now with SHINY APPS >>> necessity to cater to multiple users at the same time!
+
+
 - currently: chop up tasks into small components and trade between user A, B, C, etc. in tandem!
 - But what about LONG / resource-intensive tasks (getting data from APIs?), thsi means other users have to WAIT even for short/quick tasks 
 -- asynchronous: place these tasks in another process and free up time for other user's tasks, reduce responsiveness + waiting time
@@ -73,15 +76,11 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [Np_Ur](https://twitter.com/Np_Ur_): A Simple Shiny App in 30 Minutes!
 * [Slides](https://github.com/chan-ume/tokyoR81)
 
-- how to build a shiny app in 30 minutes!!
-- >> choose data set and visualize 
-- >> choose data set and run a regression
-- navbarpage (navigation bar)
--- `navbarPage("title", tabPanel(), tabPanel(), navbarMenu(), etc. etc.)`
-- tabsetPanel (tabs)
--- `tabsetPanel(tabPanel(), tabPanel(), etc.)`
-- built like 1000 different apps showing each step of creating  a shiny app (!)
--
+`@Np_Ur` is known in the Japan community for his love of {shiny}, he even wrote a book on it called "Building Web Applications in R with Shiny". This presentation was largely a demonstration as `@Np_Ur` explained, from the ground up, a lot of the basic functions that can get you a working Shiny app in the space of 30 minutes! From creating a navigation bar via `navbarPage()` to creating different drop-down options for customizing a plot and talking about extra functionality from other packages such as {DT} and {shinycssloaders}, `@Np_Ur` took us through the code and showed us completed Shiny apps for each step of the way. 
+
+![]()
+
+I recommend going through his slides (also hosted on Shiny) as well as checking out the code for each of the Shiny apps he made for all different functionalities he talked about by clicking on the link below! 
 
 - [Code for all Shiny Apps](https://github.com/chan-ume/tokyoR81)
 
@@ -90,15 +89,21 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 `@kashitan` presented some tips (that you normally won't see in books/articles) for using {leaflet} with Shiny for map applications! He tooks us through four different functions that he found very useful for making {leaflet} maps with Japan census data. 
 
-- Census viewer
-- `updateSelectInput()`: multiple choices
+The first function: `updateSelectInput()` allows you to update a dropdown menu with new values after selecting a certain input. In `@kashitan`'s case using the Japan census Shiny app, he wanted to be able to update the choices of the city/district after choosing a different prefecture on the app. Using the `updateSelectInput()` function the list of choices from the drop down menu updates to the city/districts of the newly chosen prefecture!
 
-- `leafletProxy()`
+![]()
 
-- `fitBounds()`
+You can check out the documentation [here](https://shiny.rstudio.com/reference/shiny/1.2.0/updateSelectInput.html).
 
-- `input${id}shape_click`
+The second function: `leafletProxy()` allows you to customize a {leaflet} map even after it has been rendered by Shiny. For `@kashitan` this was necessary as he didn't want the map's active zoom level and center coordinates to change even after choosing a new prefecture to look at.
 
+![]()
+
+The third function: `fitBounds()` allows you to set the boundaries of the map. For `@kashitan` similar to the previous function shown, he wanted the bounds to the view, following a change in the city/district, to always be within a certain bounding box. 
+
+The last function: `input${id}shape_click` shows you information about the polygon shape of the map you just clicked. {leaflet}'s "click" event currently only shows you the coordinate and `id` values from this function.
+
+![]()
 
 - [RStudio's {leaflet} Guide](https://rstudio.github.io/leaflet/)
 - [Leaflet in R: Tips & Tricks for Interactive Maps - Jindřich Lacko ](https://www.jla-data.net/eng/leaflet-in-r-tips-and-tricks/index.html)
@@ -106,12 +111,30 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 ## [okiyuki](https://twitter.com/okiyuki99): Software Engineering for Shiny!
 * [Slides](https://speakerdeck.com/okiyuki99/190928-tokyor81-shiny)
 
-- Software engineering for supporting shiny apps!
+`@okiyuki` presented on the various R packages used for the software engineering that goes into supporting Shiny apps. 
+
+
 - {memoise}: cache data when certain function is run for the first time (useful for dashboard shiny apps where similar use cases can be predicted)
 -- cache data in certain file/directory 
 - {pool}: insert/access SQL database connection info, close when app closes!
-- {ShinyProxy}
-- {Shinyloadtest}
+- {ShinyProxy}:
+- {Shinyloadtest}:
+
+`@okiyuki` also talked about some of his personal struggles and pitfalls that he's come across when building Shiny apps at work. These include:
+
+-
+-
+-
+
+
+An extra section talked about various helpful packages for Shiny app aesthetics such as:
+
+- {shinycssloaders}: 
+- {shinyace}: 
+- [dreamRs]()' suite of Shiny packages such as {shinyWidgets}
+-- I introduced some of dreamRs' packages in my useR!2019 blog post [here](https://ryo-n7.github.io/2019-07-21-user2019-reflections/).
+- Various packages to create Shiny Templates: {bs4dash}, {shinymaterial}, {fullpage}, {shiny.semantic}
+
 
 # LTs
 
