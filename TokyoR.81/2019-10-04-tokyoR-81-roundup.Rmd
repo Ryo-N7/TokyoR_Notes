@@ -42,17 +42,13 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 `@hoxo_m` of HOXO-M Inc. talked about asynchronous programming with Shiny. Starting off with an introduction into the history of single and multi-threadding in both R and how the growing popularity of Shiny has lead to a demand for multithreaddedness to cater to the multitude of users using a Shiny app at once! 
 
-The main package that facilitates this in both R and Shiny is the {future} package which allows one to 
+The main package that facilitates this in both R and Shiny is the {future} package which allows one to be able to evaluate R expressions asynchronously (in parallel or concurrently on a cluster). By using {future} in a Shiny context you can shift resource-intensive tasks (ex. grabbing data from an API) activated by one user into another process and free up time for other users' tasks and reduce their waiting time.
 
+![]()
 
-- Synchronous programming: run code one line at a time
+Another important component of the asynchronous framework in R is the {promises} package. It's this package that allows for the actual abstractions within your R code for asynchronous programming such as the "promise pipe".
 
-
-- currently: chop up tasks into small components and trade between user A, B, C, etc. in tandem!
-- But what about LONG / resource-intensive tasks (getting data from APIs?), thsi means other users have to WAIT even for short/quick tasks 
--- asynchronous: place these tasks in another process and free up time for other user's tasks, reduce responsiveness + waiting time
-- use {promises}, {future}: https://rstudio.github.io/promises/articles/shiny.html
-- use {promise} pipeline with `%...>%` pipe!
+ - use {promise} pipeline with `%...>%` pipe!
 - `future({ long_task }) %...>%`
 - {future} pkg
 - insert long-task code INTO `future()` function 
@@ -72,6 +68,13 @@ The main package that facilitates this in both R and Shiny is the {future} packa
 -- can't put `plot()`/`print()` code inside the `future()` process, must promise pipe!
 -- if reactive is in FUTURE >>> then subsequent code using that object must be promise-piped!
 -
+
+- []()
+- [{promises} and Shiny](https://rstudio.github.io/promises/articles/shiny.html)
+- []()
+
+
+
 
 ## [Np_Ur](https://twitter.com/Np_Ur_): A Simple Shiny App in 30 Minutes!
 * [Slides](https://github.com/chan-ume/tokyoR81)
