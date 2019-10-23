@@ -36,13 +36,13 @@ Ryo Nakagawara
 </font>
 
 <font size = "14">
-- Education: Chapman University, University College London
-- Psychology, Economics
-- Work: Jr. Data Scientist @ [ACDI/VOCA](http://www.acdivoca.org/)
-- Also: Editor for [R Weekly]()
+- 学歴: Chapman University, University College London
+- 専攻：心理学と経済学
+- 仕事: Jr. Data Scientist @ [ACDI/VOCA](http://www.acdivoca.org/)
+- Also: Editor for [R Weekly](https://rweekly.org/)
 </font>
 
-Interests: Soccer/Football/Fútbol & {ggplot2}
+趣味: サッカー/Football/Fútbol & {ggplot2}
 ========================================================
 <font size = "8">
 - Ex. 
@@ -70,7 +70,8 @@ What IS a bullet chart?
 ========================================================
 
 - 作：[Stephen Few]() 
-- Use the `extrafont` package to use custom fonts in R!
+- Measure KPI vs. target and/or qualitative measures of performance
+  - Low-Medium-High, Poor-Satisfactory-Good, etc.
 
 <center>
 ![](https://i.imgur.com/hlKr6iLl.png)
@@ -81,11 +82,11 @@ Example with {bulletchartr}!
 
 <font size = "6">
 
-- `bulletchart(dataframe = data)`
+- `bulletchartr::bullet_chart(dataframe = data, ...)`
 - "Current" value in <b>black</b>
 - Target: <b>red</b> symbol
 - Legend for qualitative labels:
-  - "High", "Medium", "Low"
+  - "Low", "Medium", "High"
   
 </font>
 
@@ -98,7 +99,10 @@ ACDI/VOCA
 
 <font size = "6">
 
-- 農業開発・農村開発援助のNGO
+- Implement economic development projects around the world!
+- 国際開発・農業開発・農村開発援助のNGO
+- To ensure we implement them correctly and make an impact, we create indicators (KPIs) that have yearly targets 
+- Monitor progress of projects by tracking these indicators over time.
 
 </font>
 
@@ -129,7 +133,7 @@ Examples:
 - Based on output from harvest 
   - A lot of data gathered only <b>later</b> in the year
   - 収穫が10月＝その時にやっとデータを収集できる
-- Based on distribution of funds or supplies
+- Based on distribution of funds, supplies, loans
   - A lot of data gathered <b>early</b> in the year
   - 機械・設備投資のプロジェクト＝年明けに融資する
 
@@ -212,7 +216,7 @@ bullet_chart_wide()
 - Legend: `TRUE/FALSE`
 - Calendar type: Fiscal Year, Regular (start on January 1st), Custom
 - Show text labels: `TRUE/FALSE`
-  - "Last Week: -12", "Last Year: +15", etc.
+  - "+12 from Last Week", "-15 from Last Year", etc.
 
 
 
@@ -224,23 +228,23 @@ Further improvements and CRAN (?)
 ========================================================
 
 - Originally ONLY for company usage, difficulty generalizing package for the public!
-- Lots of function arguments, easy defaults necessary for usability! (work-in-progress!)
-- Different qualitative labels (not just "Low"-"Medium"-"High)
-  - "Bad"-"Okay"-"Good", "Unsatisfactory"-
+- Lots of function arguments, easy defaults necessary for usability! (work-in-progress, see package vignettes!)
+- Allow for different qualitative labels (not just "Low"-"Medium"-"High)
+  - "Bad"-"Okay"-"Good", "Unsatisfactory"-, etc.
 - 年末までにCRANリリースを目指します！
 
 <center>
-![](https://i.imgur.com/u6bv8Bo.jpg)
+![life cycle: experimental](https://i.imgur.com/u6bv8Bo.jpg)
 </center>
 
 Thank you!
 ========================================================
 
-- {bulletchartr} パッケージ: [Github]()
+- {bulletchartr} パッケージ: [Github: bulletchartr](https://github.com/ACDIVOCATech/bulletchartr)
 - サッカーの可視化・分析: [Github: soccer_ggplots](https://github.com/Ryo-N7/soccer_ggplots)
-- 有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes: [tvthemes]() パッケージ
-- Website: 
-<p>https://ryo-n7.github.io/</p>
+- 有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: [tvthemes](https://github.com/Ryo-N7/tvthemes)
+- Tokyo.Rのマトメ記事: [Github: TokyoR_Notes](https://github.com/Ryo-N7/TokyoR_Notes)
+
+- Website: [https://ryo-n7.github.io/](https://ryo-n7.github.io/)
+
 - Twitter: [@R_by_Ryo](https://twitter.com/R_by_Ryo)
-
-
