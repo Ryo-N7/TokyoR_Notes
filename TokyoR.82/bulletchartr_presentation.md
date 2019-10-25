@@ -1,4 +1,4 @@
-Introducing the new {bulletchartr} package!
+Tokyo.R #82
 ========================================================
 author: Ryo Nakagawara
 date: October 26th, 2019
@@ -42,15 +42,11 @@ Ryo Nakagawara
 - Also: Editor for [R Weekly](https://rweekly.org/)
 </font>
 
-趣味: サッカー/Football/Fútbol & {ggplot2}
+趣味: サッカー/Football & {ggplot2}
 ========================================================
-<font size = "8">
-- Ex. 
-- [Code](www.google.com)
-</font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/GRPfksN.png)
 </center>
 
 {bulletchartr} package
@@ -58,7 +54,7 @@ Ryo Nakagawara
 
 
 ```r
-# devtools::install_github("ACDIVOCATech/bulletchartr")
+install_github("ACDIVOCATech/bulletchartr")
 library(bulletchartr)
 ```
 
@@ -69,12 +65,13 @@ library(bulletchartr)
 What IS a bullet chart?
 ========================================================
 
-- 作：[Stephen Few]() 
+- 作：[Stephen Few](https://www.perceptualedge.com/) 
 - Measure KPI vs. target and/or qualitative measures of performance
   - Low-Medium-High, Poor-Satisfactory-Good, etc.
+- [Design spec](https://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf)
 
 <center>
-![](https://i.imgur.com/hlKr6iLl.png)
+![](https://i.imgur.com/64gbgaR.png)
 </center>
 
 Example with {bulletchartr}!
@@ -91,7 +88,7 @@ Example with {bulletchartr}!
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/I2kpDDv.png)
 </center>
 
 ACDI/VOCA
@@ -107,13 +104,13 @@ ACDI/VOCA
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/RUUo3nd.png)
 </center>
 
 Collecting data during a project
 ========================================================
 
-<font size = "6">
+<font size = "5">
 
 - Normally, gather data in a linear way throughout the course of the project
 - <b>BUT</b> some project activities are <b>NOT</b> linear
@@ -122,10 +119,10 @@ Collecting data during a project
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+<img src="https://i.imgur.com/z7YC3tU.png" />
 </center>
 
-Examples:
+Example 1:
 ========================================================
 
 <font size = "6">
@@ -133,6 +130,18 @@ Examples:
 - Based on output from harvest 
   - A lot of data gathered only <b>later</b> in the year
   - 収穫が10月＝その時にやっとデータを収集できる
+  
+</font>
+
+<center>
+<img src="https://i.imgur.com/z7YC3tU.png" />
+</center>
+
+Example 2:
+========================================================
+
+<font size = "6">
+
 - Based on distribution of funds, supplies, loans
   - A lot of data gathered <b>early</b> in the year
   - 機械・設備投資のプロジェクト＝年明けに融資する
@@ -140,38 +149,30 @@ Examples:
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+<img src="https://i.imgur.com/z7YC3tU.png" />
 </center>
 
-Time-constraint bullet chart
+
+Time-comparison bullet chart
 ========================================================
 
-<font size = "6">
+<font size = "4">
 
 - X-Axis scale:
   - Percent of <b>Yearly Target</b>
   - Percent of <b>Year</b>
-
-</font>
-
-<font size = "6">
-
-
-```r
-bullet_chart_symbol()
-bullet_chart_vline()
-```
+- Compare vs. "Last Week" and "Last Year"
 
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/UYlhJX8.png)
 </center>
 
 bullet_chart_*() variants!
 ========================================================
 
-<font size = "8">
+<font size = "6">
 
 
 ```r
@@ -181,9 +182,10 @@ bullet_chart_vline()
 
 </font>
 
-<center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
-</center>
+<p float="left" align="center">
+<img src="https://i.imgur.com/UYlhJX8.png" width="49%" />
+<img src="https://i.imgur.com/LISLVPg.png" width="49%" />
+</p>
 
 bullet_chart_*() variants! (cont.)
 ========================================================
@@ -195,54 +197,63 @@ bullet_chart_wide()
 </font>
 
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/c7IBZWV.png)
 </center>
 
-{bulletchartr} features: Static vs. Interactive type
+{bulletchartr} features: Static vs. Interactive
 ========================================================
+
+<font size = "6">
 
 - Static: Default, normal `ggplot`
 - Interactive: Powered by `ggiraph`
 
 
+```r
+bullet_chart_wide(dataframe = data, 
+                  chart_type = "interactive")
+```
+
+</font>
 
 <center>
-![](https://i.imgur.com/hlKr6iLl.png)
+![](https://i.imgur.com/oL4LKWZ.png)
 </center>
 
 {bulletchartr} features: Arguments
 ========================================================
+<font size = "6">
 
 - Legend: `TRUE/FALSE`
 - Calendar type: Fiscal Year, Regular (start on January 1st), Custom
 - Show text labels: `TRUE/FALSE`
-  - "+12 from Last Week", "-15 from Last Year", etc.
-
-
+  - Ind 38: "+4 from Last Week", "-16 from Last Year", etc.
+  
+</font>
 
 <center>
-![](https://i.imgur.com/hlKr6iLl.png)
+![](https://i.imgur.com/rjNRMTv.png)
 </center>
 
 Further improvements and CRAN (?)
 ========================================================
 
-- Originally ONLY for company usage, difficulty generalizing package for the public!
-- Lots of function arguments, easy defaults necessary for usability! (work-in-progress, see package vignettes!)
-- Allow for different qualitative labels (not just "Low"-"Medium"-"High)
-  - "Bad"-"Okay"-"Good", "Unsatisfactory"-, etc.
-- 年末までにCRANリリースを目指します！
-
 <center>
-![life cycle: experimental](https://i.imgur.com/u6bv8Bo.jpg)
+![life cycle: experimental](https://i.imgur.com/9JZs6Kd.png)
 </center>
+
+- Originally ONLY for company usage, difficulty generalizing package for the public
+- Lots of function arguments, easy defaults necessary for usability (work-in-progress, see package vignettes!)
+- Allow for different qualitative labels (not just "Low"-"Medium"-"High)
+  - "Bad"-"Okay"-"Good", "Unsatisfactory"-"Satisfactory"-"Excellent", etc.
+- 年末までにCRANリリースを目指します！
 
 Thank you!
 ========================================================
 
 - {bulletchartr} パッケージ: [Github: bulletchartr](https://github.com/ACDIVOCATech/bulletchartr)
 - サッカーの可視化・分析: [Github: soccer_ggplots](https://github.com/Ryo-N7/soccer_ggplots)
-- 有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: [tvthemes](https://github.com/Ryo-N7/tvthemes)
+- 有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: [Github: tvthemes](https://github.com/Ryo-N7/tvthemes)
 - Tokyo.Rのマトメ記事: [Github: TokyoR_Notes](https://github.com/Ryo-N7/TokyoR_Notes)
 
 - Website: [https://ryo-n7.github.io/](https://ryo-n7.github.io/)
