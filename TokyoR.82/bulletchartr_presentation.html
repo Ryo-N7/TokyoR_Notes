@@ -824,12 +824,18 @@ Ryo Nakagawara
 <p><font size = "14"></p>
 
 <ul>
-<li>学歴: Chapman University, University College London</li>
+<li>学歴: 
+
+<ul>
+<li>学士: Chapman University</li>
+<li>修士: University College London</li>
+</ul></li>
 <li>専攻：心理学と経済学</li>
 <li>仕事: Jr. Data Scientist @ <a href="http://www.acdivoca.org/">ACDI/VOCA</a></li>
-<li>Also: Editor for <a href="https://rweekly.org/">R Weekly</a>
-</font></li>
+<li>Also: Editor for <a href="https://rweekly.org/">R Weekly</a></li>
 </ul>
+
+<p></font></p>
 
 </div>
 
@@ -837,6 +843,10 @@ Ryo Nakagawara
 <section data-transition="linear" data-transition-speed="default">
 <h3>趣味: サッカー&#x2F;Football &amp; {ggplot2}</h3>
 <div class="slideContent" >
+<ul>
+<li>サッカーの可視化・分析: <a href="https://github.com/Ryo-N7/soccer_ggplots">Github: Ryo-N7/soccer_ggplots</a></li>
+</ul>
+
 <p><center>
 <img src="https://i.imgur.com/GRPfksN.png" alt=""/>
 </center></p>
@@ -847,12 +857,16 @@ Ryo Nakagawara
 <section data-transition="linear" data-transition-speed="default">
 <h3>{bulletchartr} package</h3>
 <div class="slideContent" >
+<p><font size = "6"></p>
+
 <pre><code class="r">install_github(&quot;ACDIVOCATech/bulletchartr&quot;)
 library(bulletchartr)
 </code></pre>
 
+<p></font></p>
+
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/OmaxMwf.png" alt=""/>
 </center></p>
 
 </div>
@@ -886,7 +900,7 @@ library(bulletchartr)
 <ul>
 <li><code>bulletchartr::bullet_chart(dataframe = data, ...)</code></li>
 <li>&ldquo;Current&rdquo; value in <b>black</b></li>
-<li>Target: <b>red</b> symbol</li>
+<li>Target: <b><font color="red">red</font></b> symbol</li>
 <li>Legend for qualitative labels:
 
 <ul>
@@ -930,9 +944,9 @@ library(bulletchartr)
 <p><font size = "5"></p>
 
 <ul>
-<li>Normally, gather data in a linear way throughout the course of the project</li>
+<li>Normally, gather data in a linear way throughout the course of the project (<font color="orange">orange line</font>)</li>
 <li><b>BUT</b> some project activities are <b>NOT</b> linear</li>
-<li>Data accumulates in a <b>non-linear</b> way!</li>
+<li>Data accumulates in a <b>non-linear</b> way! (<font color="purple">purple</font> and <font color="green">green</font> lines)</li>
 </ul>
 
 <p></font></p>
@@ -950,7 +964,7 @@ library(bulletchartr)
 <p><font size = "6"></p>
 
 <ul>
-<li>Based on output from harvest 
+<li>Based on output from harvest (<font color="purple">purple line</font>)
 
 <ul>
 <li>A lot of data gathered only <b>later</b> in the year</li>
@@ -973,7 +987,7 @@ library(bulletchartr)
 <p><font size = "6"></p>
 
 <ul>
-<li>Based on distribution of funds, supplies, loans
+<li>Based on distribution of funds, supplies, loans (<font color="green">green line</font>)
 
 <ul>
 <li>A lot of data gathered <b>early</b> in the year</li>
@@ -993,22 +1007,41 @@ library(bulletchartr)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Time-comparison bullet chart</h3>
 <div class="slideContent" >
-<p><font size = "4"></p>
+<p><font size = "6"></p>
 
 <ul>
 <li>X-Axis scale:
 
 <ul>
-<li>Percent of <b>Yearly Target</b></li>
+<li>Percent of <b>Target</b></li>
 <li>Percent of <b>Year</b></li>
 </ul></li>
-<li>Compare vs. &ldquo;Last Week&rdquo; and &ldquo;Last Year&rdquo;</li>
 </ul>
 
 <p></font></p>
 
 <p><center>
-<img src="https://i.imgur.com/UYlhJX8.png" alt=""/>
+<img src="https://i.imgur.com/xfy0xtV.png" alt=""/>
+</center></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Time-comparison bullet chart (cont.)</h3>
+<div class="slideContent" >
+<p><font size = "6"></p>
+
+<ul>
+<li>If &ldquo;TODAY&rdquo; = <b>September</b>, then at 75% of the year: 9/12 months</li>
+<li>&ldquo;Ind. 04&rdquo; is at 25% because CURRENT VALUE is <b>6</b> and TARGET is <b>24</b>: 6/24 units</li>
+<li>At &ldquo;TODAY&rdquo; &ldquo;Ind. 04&rdquo; <b>should</b> be at <b>18</b> or 75% of target: 18/24 units</li>
+</ul>
+
+<p></font></p>
+
+<p><center>
+<img src="https://i.imgur.com/QcyLPRS.png" alt=""/>
 </center></p>
 
 </div>
@@ -1017,7 +1050,7 @@ library(bulletchartr)
 <section data-transition="linear" data-transition-speed="default">
 <h3>bullet_chart_*() variants!</h3>
 <div class="slideContent" >
-<p><font size = "6"></p>
+<p><font size = "8"></p>
 
 <pre><code class="r">bullet_chart_symbol()
 bullet_chart_vline()
@@ -1056,12 +1089,11 @@ bullet_chart_vline()
 <p><font size = "6"></p>
 
 <ul>
-<li>Static: Default, normal <code>ggplot</code></li>
-<li>Interactive: Powered by <code>ggiraph</code></li>
+<li>&ldquo;Static&rdquo;: Default, normal <code>ggplot2</code></li>
+<li>&ldquo;Interactive&rdquo;: Powered by <code>ggiraph</code></li>
 </ul>
 
-<pre><code class="r">bullet_chart_wide(dataframe = data, 
-                  chart_type = &quot;interactive&quot;)
+<pre><code class="r">bullet_chart_wide(chart_type = &quot;interactive&quot;)
 </code></pre>
 
 <p></font></p>
@@ -1076,7 +1108,7 @@ bullet_chart_vline()
 <section data-transition="linear" data-transition-speed="default">
 <h3>{bulletchartr} features: Arguments</h3>
 <div class="slideContent" >
-<p><font size = "6"></p>
+<p><font size = "5"></p>
 
 <ul>
 <li>Legend: <code>TRUE/FALSE</code></li>
@@ -1091,7 +1123,7 @@ bullet_chart_vline()
 <p></font></p>
 
 <p><center>
-<img src="https://i.imgur.com/rjNRMTv.png" alt=""/>
+<img src="https://i.imgur.com/sullZ6y.png" alt=""/>
 </center></p>
 
 </div>
@@ -1107,10 +1139,10 @@ bullet_chart_vline()
 <ul>
 <li>Originally ONLY for company usage, difficulty generalizing package for the public</li>
 <li>Lots of function arguments, easy defaults necessary for usability (work-in-progress, see package vignettes!)</li>
-<li>Allow for different qualitative labels (not just &ldquo;Low&rdquo;-&ldquo;Medium&rdquo;-&ldquo;High)
+<li>Allow for different qualitative labels (not just &ldquo;Low&rdquo;-&ldquo;Medium&rdquo;-&ldquo;High&rdquo; or &ldquo;Last Week&rdquo;, &ldquo;Last Year&rdquo;)
 
 <ul>
-<li>&quot;Bad&rdquo;-&ldquo;Okay&rdquo;-&ldquo;Good&rdquo;, &ldquo;Unsatisfactory&rdquo;-&ldquo;Satisfactory&rdquo;-&ldquo;Excellent&rdquo;, etc.</li>
+<li>&ldquo;Bad&rdquo;-&ldquo;Okay&rdquo;-&ldquo;Good&rdquo;, &ldquo;Unsatisfactory&rdquo;-&ldquo;Satisfactory&rdquo;-&ldquo;Excellent&rdquo;, etc.</li>
 </ul></li>
 <li>年末までにCRANリリースを目指します！</li>
 </ul>

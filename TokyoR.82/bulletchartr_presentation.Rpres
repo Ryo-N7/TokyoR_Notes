@@ -36,14 +36,20 @@ Ryo Nakagawara
 </font>
 
 <font size = "14">
-- 学歴: Chapman University, University College London
+
+- 学歴: 
+  - 学士: Chapman University
+  - 修士: University College London
 - 専攻：心理学と経済学
 - 仕事: Jr. Data Scientist @ [ACDI/VOCA](http://www.acdivoca.org/)
 - Also: Editor for [R Weekly](https://rweekly.org/)
+
 </font>
 
 趣味: サッカー/Football & {ggplot2}
 ========================================================
+
+- サッカーの可視化・分析: [Github: Ryo-N7/soccer_ggplots](https://github.com/Ryo-N7/soccer_ggplots)
 
 <center>
 ![](https://i.imgur.com/GRPfksN.png)
@@ -52,13 +58,17 @@ Ryo Nakagawara
 {bulletchartr} package
 ========================================================
 
+<font size = "6">
+
 ```{r pkglib, eval=FALSE}
 install_github("ACDIVOCATech/bulletchartr")
 library(bulletchartr)
 ```
 
+</font>
+
 <center>
-![](http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg)
+![](https://i.imgur.com/OmaxMwf.png)
 </center>
 
 What IS a bullet chart?
@@ -80,7 +90,7 @@ Example with {bulletchartr}!
 
 - `bulletchartr::bullet_chart(dataframe = data, ...)`
 - "Current" value in <b>black</b>
-- Target: <b>red</b> symbol
+- Target: <b><font color="red">red</font></b> symbol
 - Legend for qualitative labels:
   - "Low", "Medium", "High"
   
@@ -111,9 +121,9 @@ Collecting data during a project
 
 <font size = "5">
 
-- Normally, gather data in a linear way throughout the course of the project
+- Normally, gather data in a linear way throughout the course of the project (<font color="orange">orange line</font>)
 - <b>BUT</b> some project activities are <b>NOT</b> linear
-- Data accumulates in a <b>non-linear</b> way!
+- Data accumulates in a <b>non-linear</b> way! (<font color="purple">purple</font> and <font color="green">green</font> lines)
 
 </font>
 
@@ -126,7 +136,7 @@ Example 1:
 
 <font size = "6">
 
-- Based on output from harvest 
+- Based on output from harvest (<font color="purple">purple line</font>)
   - A lot of data gathered only <b>later</b> in the year
   - 収穫が10月＝その時にやっとデータを収集できる
   
@@ -141,7 +151,7 @@ Example 2:
 
 <font size = "6">
 
-- Based on distribution of funds, supplies, loans
+- Based on distribution of funds, supplies, loans (<font color="green">green line</font>)
   - A lot of data gathered <b>early</b> in the year
   - 機械・設備投資のプロジェクト＝年明けに融資する
 
@@ -155,23 +165,37 @@ Example 2:
 Time-comparison bullet chart
 ========================================================
 
-<font size = "4">
+<font size = "6">
 
 - X-Axis scale:
-  - Percent of <b>Yearly Target</b>
+  - Percent of <b>Target</b>
   - Percent of <b>Year</b>
-- Compare vs. "Last Week" and "Last Year"
 
 </font>
 
 <center>
-![](https://i.imgur.com/UYlhJX8.png)
+![](https://i.imgur.com/xfy0xtV.png)
+</center>
+
+Time-comparison bullet chart (cont.)
+========================================================
+
+<font size = "6">
+
+- If "TODAY" = <b>September</b>, then at 75% of the year: 9/12 months
+- "Ind. 04" is at 25% because CURRENT VALUE is <b>6</b> and TARGET is <b>24</b>: 6/24 units
+- At "TODAY" "Ind. 04" <b>should</b> be at <b>18</b> or 75% of target: 18/24 units
+
+</font>
+
+<center>
+![](https://i.imgur.com/QcyLPRS.png)
 </center>
 
 bullet_chart_*() variants!
 ========================================================
 
-<font size = "6">
+<font size = "8">
 
 ```{r eval=FALSE}
 bullet_chart_symbol()
@@ -202,12 +226,11 @@ bullet_chart_wide()
 
 <font size = "6">
 
-- Static: Default, normal `ggplot`
-- Interactive: Powered by `ggiraph`
+- "Static": Default, normal `ggplot2`
+- "Interactive": Powered by `ggiraph`
 
 ```{r eval=FALSE}
-bullet_chart_wide(dataframe = data, 
-                  chart_type = "interactive")
+bullet_chart_wide(chart_type = "interactive")
 ```
 
 </font>
@@ -218,7 +241,7 @@ bullet_chart_wide(dataframe = data,
 
 {bulletchartr} features: Arguments
 ========================================================
-<font size = "6">
+<font size = "5">
 
 - Legend: `TRUE/FALSE`
 - Calendar type: Fiscal Year, Regular (start on January 1st), Custom
@@ -228,7 +251,7 @@ bullet_chart_wide(dataframe = data,
 </font>
 
 <center>
-![](https://i.imgur.com/rjNRMTv.png)
+![](https://i.imgur.com/sullZ6y.png)
 </center>
 
 Further improvements and CRAN (?)
@@ -240,7 +263,7 @@ Further improvements and CRAN (?)
 
 - Originally ONLY for company usage, difficulty generalizing package for the public
 - Lots of function arguments, easy defaults necessary for usability (work-in-progress, see package vignettes!)
-- Allow for different qualitative labels (not just "Low"-"Medium"-"High)
+- Allow for different qualitative labels (not just "Low"-"Medium"-"High" or "Last Week", "Last Year")
   - "Bad"-"Okay"-"Good", "Unsatisfactory"-"Satisfactory"-"Excellent", etc.
 - 年末までにCRANリリースを目指します！
 

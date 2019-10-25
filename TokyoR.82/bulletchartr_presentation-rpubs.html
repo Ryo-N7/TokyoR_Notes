@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Introducing the new {bulletchartr} package!</title>
+  <title>Tokyo.R #82</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -749,7 +749,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Introducing the new {bulletchartr} package!</h1><p>Ryo Nakagawara<br/>October 26th, 2019</p>
+<h1>Tokyo.R #82</h1><p>Ryo Nakagawara<br/>October 26th, 2019</p>
 
 <div class="slideContent" >
 <style>
@@ -789,29 +789,31 @@ Ryo Nakagawara
 <p><font size = "14"></p>
 
 <ul>
-<li>学歴: Chapman University, University College London</li>
+<li>学歴: 
+
+<ul>
+<li>学士: Chapman University</li>
+<li>修士: University College London</li>
+</ul></li>
 <li>専攻：心理学と経済学</li>
 <li>仕事: Jr. Data Scientist @ <a href="http://www.acdivoca.org/">ACDI/VOCA</a></li>
-<li>Also: Editor for <a href="https://rweekly.org/">R Weekly</a>
-</font></li>
+<li>Also: Editor for <a href="https://rweekly.org/">R Weekly</a></li>
 </ul>
+
+<p></font></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>趣味: サッカー&#x2F;Football&#x2F;Fútbol &amp; {ggplot2}</h3>
+<h3>趣味: サッカー&#x2F;Football &amp; {ggplot2}</h3>
 <div class="slideContent" >
-<p><font size = "8"></p>
-
 <ul>
-<li>Ex. </li>
-<li><a href="www.google.com">Code</a>
-</font></li>
+<li>サッカーの可視化・分析: <a href="https://github.com/Ryo-N7/soccer_ggplots">Github: Ryo-N7/soccer_ggplots</a></li>
 </ul>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/GRPfksN.png" alt=""/>
 </center></p>
 
 </div>
@@ -820,12 +822,16 @@ Ryo Nakagawara
 <section data-transition="linear" data-transition-speed="default">
 <h3>{bulletchartr} package</h3>
 <div class="slideContent" >
-<pre><code class="r"># devtools::install_github(&quot;ACDIVOCATech/bulletchartr&quot;)
+<p><font size = "6"></p>
+
+<pre><code class="r">install_github(&quot;ACDIVOCATech/bulletchartr&quot;)
 library(bulletchartr)
 </code></pre>
 
+<p></font></p>
+
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/OmaxMwf.png" alt=""/>
 </center></p>
 
 </div>
@@ -835,16 +841,17 @@ library(bulletchartr)
 <h3>What IS a bullet chart?</h3>
 <div class="slideContent" >
 <ul>
-<li>作：<a href="">Stephen Few</a> </li>
+<li>作：<a href="https://www.perceptualedge.com/">Stephen Few</a> </li>
 <li>Measure KPI vs. target and/or qualitative measures of performance
 
 <ul>
 <li>Low-Medium-High, Poor-Satisfactory-Good, etc.</li>
 </ul></li>
+<li><a href="https://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf">Design spec</a></li>
 </ul>
 
 <p><center>
-<img src="https://i.imgur.com/hlKr6iLl.png" alt=""/>
+<img src="https://i.imgur.com/64gbgaR.png" alt=""/>
 </center></p>
 
 </div>
@@ -858,7 +865,7 @@ library(bulletchartr)
 <ul>
 <li><code>bulletchartr::bullet_chart(dataframe = data, ...)</code></li>
 <li>&ldquo;Current&rdquo; value in <b>black</b></li>
-<li>Target: <b>red</b> symbol</li>
+<li>Target: <b><font color="red">red</font></b> symbol</li>
 <li>Legend for qualitative labels:
 
 <ul>
@@ -869,7 +876,7 @@ library(bulletchartr)
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/I2kpDDv.png" alt=""/>
 </center></p>
 
 </div>
@@ -890,7 +897,7 @@ library(bulletchartr)
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/RUUo3nd.png" alt=""/>
 </center></p>
 
 </div>
@@ -899,36 +906,53 @@ library(bulletchartr)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Collecting data during a project</h3>
 <div class="slideContent" >
-<p><font size = "6"></p>
+<p><font size = "5"></p>
 
 <ul>
-<li>Normally, gather data in a linear way throughout the course of the project</li>
+<li>Normally, gather data in a linear way throughout the course of the project (<font color="orange">orange line</font>)</li>
 <li><b>BUT</b> some project activities are <b>NOT</b> linear</li>
-<li>Data accumulates in a <b>non-linear</b> way!</li>
+<li>Data accumulates in a <b>non-linear</b> way! (<font color="purple">purple</font> and <font color="green">green</font> lines)</li>
 </ul>
 
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/z7YC3tU.png" />
 </center></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Examples:</h3>
+<h3>Example 1:</h3>
 <div class="slideContent" >
 <p><font size = "6"></p>
 
 <ul>
-<li>Based on output from harvest 
+<li>Based on output from harvest (<font color="purple">purple line</font>)
 
 <ul>
 <li>A lot of data gathered only <b>later</b> in the year</li>
 <li>収穫が10月＝その時にやっとデータを収集できる</li>
 </ul></li>
-<li>Based on distribution of funds, supplies, loans
+</ul>
+
+<p></font></p>
+
+<p><center>
+<img src="https://i.imgur.com/z7YC3tU.png" />
+</center></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Example 2:</h3>
+<div class="slideContent" >
+<p><font size = "6"></p>
+
+<ul>
+<li>Based on distribution of funds, supplies, loans (<font color="green">green line</font>)
 
 <ul>
 <li>A lot of data gathered <b>early</b> in the year</li>
@@ -939,14 +963,14 @@ library(bulletchartr)
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/z7YC3tU.png" />
 </center></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Time-constraint bullet chart</h3>
+<h3>Time-comparison bullet chart</h3>
 <div class="slideContent" >
 <p><font size = "6"></p>
 
@@ -954,23 +978,35 @@ library(bulletchartr)
 <li>X-Axis scale:
 
 <ul>
-<li>Percent of <b>Yearly Target</b></li>
+<li>Percent of <b>Target</b></li>
 <li>Percent of <b>Year</b></li>
 </ul></li>
 </ul>
 
 <p></font></p>
 
+<p><center>
+<img src="https://i.imgur.com/xfy0xtV.png" alt=""/>
+</center></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Time-comparison bullet chart (cont.)</h3>
+<div class="slideContent" >
 <p><font size = "6"></p>
 
-<pre><code class="r">bullet_chart_symbol()
-bullet_chart_vline()
-</code></pre>
+<ul>
+<li>If &ldquo;TODAY&rdquo; = <b>September</b>, then at 75% of the year: 9/12 months</li>
+<li>&ldquo;Ind. 04&rdquo; is at 25% because CURRENT VALUE is <b>6</b> and TARGET is <b>24</b>: 6/24 units</li>
+<li>At &ldquo;TODAY&rdquo; &ldquo;Ind. 04&rdquo; <b>should</b> be at <b>18</b> or 75% of target: 18/24 units</li>
+</ul>
 
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/QcyLPRS.png" alt=""/>
 </center></p>
 
 </div>
@@ -987,9 +1023,10 @@ bullet_chart_vline()
 
 <p></font></p>
 
-<p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
-</center></p>
+<p float="left" align="center">
+<img src="https://i.imgur.com/UYlhJX8.png" width="49%" />
+<img src="https://i.imgur.com/LISLVPg.png" width="49%" />
+</p>
 
 </div>
 
@@ -1005,22 +1042,29 @@ bullet_chart_vline()
 <p></font></p>
 
 <p><center>
-<img src="http://www.fotballblogg1.com/wp-content/uploads/2015/07/russia-2018.jpg" alt=""/>
+<img src="https://i.imgur.com/c7IBZWV.png" alt=""/>
 </center></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>{bulletchartr} features: Static vs. Interactive type</h3>
+<h3>{bulletchartr} features: Static vs. Interactive</h3>
 <div class="slideContent" >
+<p><font size = "6"></p>
+
 <ul>
-<li>Static: Default, normal <code>ggplot</code></li>
-<li>Interactive: Powered by <code>ggiraph</code></li>
+<li>&ldquo;Static&rdquo;: Default, normal <code>ggplot2</code></li>
+<li>&ldquo;Interactive&rdquo;: Powered by <code>ggiraph</code></li>
 </ul>
 
+<pre><code class="r">bullet_chart_wide(chart_type = &quot;interactive&quot;)
+</code></pre>
+
+<p></font></p>
+
 <p><center>
-<img src="https://i.imgur.com/hlKr6iLl.png" alt=""/>
+<img src="https://i.imgur.com/oL4LKWZ.png" alt=""/>
 </center></p>
 
 </div>
@@ -1029,18 +1073,22 @@ bullet_chart_vline()
 <section data-transition="linear" data-transition-speed="default">
 <h3>{bulletchartr} features: Arguments</h3>
 <div class="slideContent" >
+<p><font size = "5"></p>
+
 <ul>
 <li>Legend: <code>TRUE/FALSE</code></li>
 <li>Calendar type: Fiscal Year, Regular (start on January 1st), Custom</li>
 <li>Show text labels: <code>TRUE/FALSE</code>
 
 <ul>
-<li>&ldquo;+12 from Last Week&rdquo;, &ldquo;-15 from Last Year&rdquo;, etc.</li>
+<li>Ind 38: &ldquo;+4 from Last Week&rdquo;, &ldquo;-16 from Last Year&rdquo;, etc.</li>
 </ul></li>
 </ul>
 
+<p></font></p>
+
 <p><center>
-<img src="https://i.imgur.com/hlKr6iLl.png" alt=""/>
+<img src="https://i.imgur.com/sullZ6y.png" alt=""/>
 </center></p>
 
 </div>
@@ -1049,20 +1097,20 @@ bullet_chart_vline()
 <section data-transition="linear" data-transition-speed="default">
 <h3>Further improvements and CRAN (?)</h3>
 <div class="slideContent" >
-<ul>
-<li>Originally ONLY for company usage, difficulty generalizing package for the public!</li>
-<li>Lots of function arguments, easy defaults necessary for usability! (work-in-progress, see package vignettes!)</li>
-<li>Allow for different qualitative labels (not just &ldquo;Low&rdquo;-&ldquo;Medium&rdquo;-&ldquo;High)
+<p><center>
+<img src="https://i.imgur.com/9JZs6Kd.png" alt="life cycle: experimental"/>
+</center></p>
 
 <ul>
-<li>&quot;Bad&rdquo;-&ldquo;Okay&rdquo;-&ldquo;Good&rdquo;, &ldquo;Unsatisfactory&rdquo;-, etc.</li>
+<li>Originally ONLY for company usage, difficulty generalizing package for the public</li>
+<li>Lots of function arguments, easy defaults necessary for usability (work-in-progress, see package vignettes!)</li>
+<li>Allow for different qualitative labels (not just &ldquo;Low&rdquo;-&ldquo;Medium&rdquo;-&ldquo;High&rdquo; or &ldquo;Last Week&rdquo;, &ldquo;Last Year&rdquo;)
+
+<ul>
+<li>&ldquo;Bad&rdquo;-&ldquo;Okay&rdquo;-&ldquo;Good&rdquo;, &ldquo;Unsatisfactory&rdquo;-&ldquo;Satisfactory&rdquo;-&ldquo;Excellent&rdquo;, etc.</li>
 </ul></li>
 <li>年末までにCRANリリースを目指します！</li>
 </ul>
-
-<p><center>
-<img src="https://i.imgur.com/u6bv8Bo.jpg" alt="life cycle: experimental"/>
-</center></p>
 
 </div>
 
@@ -1073,7 +1121,7 @@ bullet_chart_vline()
 <ul>
 <li>{bulletchartr} パッケージ: <a href="https://github.com/ACDIVOCATech/bulletchartr">Github: bulletchartr</a></li>
 <li>サッカーの可視化・分析: <a href="https://github.com/Ryo-N7/soccer_ggplots">Github: soccer_ggplots</a></li>
-<li>有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: <a href="https://github.com/Ryo-N7/tvthemes">tvthemes</a></li>
+<li>有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: <a href="https://github.com/Ryo-N7/tvthemes">Github: tvthemes</a></li>
 <li><p>Tokyo.Rのマトメ記事: <a href="https://github.com/Ryo-N7/TokyoR_Notes">Github: TokyoR_Notes</a></p></li>
 <li><p>Website: <a href="https://ryo-n7.github.io/">https://ryo-n7.github.io/</a></p></li>
 <li><p>Twitter: <a href="https://twitter.com/R_by_Ryo">@R_by_Ryo</a></p></li>
