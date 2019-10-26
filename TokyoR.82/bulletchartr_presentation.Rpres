@@ -105,6 +105,7 @@ ACDI/VOCA
 
 <font size = "6">
 
+- [ACDI/VOCA website](http://www.acdivoca.org/)
 - Implement economic development projects around the world!
 - 国際開発・農業開発・農村開発援助のNGO
 - To ensure we implement them correctly and make an impact, we create indicators (KPIs) that have yearly targets 
@@ -270,7 +271,7 @@ Further improvements and CRAN (?)
 Thank you!
 ========================================================
 
-- {bulletchartr} パッケージ: [Github: bulletchartr](https://github.com/ACDIVOCATech/bulletchartr)
+- {bulletchartr} パッケージ: [Github: ACDIVOCATech/bulletchartr](https://github.com/ACDIVOCATech/bulletchartr)
 - サッカーの可視化・分析: [Github: soccer_ggplots](https://github.com/Ryo-N7/soccer_ggplots)
 - 有名なテレビシリーズをテーマしたcolor palettes/ggplot2 themes パッケージ: [Github: tvthemes](https://github.com/Ryo-N7/tvthemes)
 - Tokyo.Rのマトメ記事: [Github: TokyoR_Notes](https://github.com/Ryo-N7/TokyoR_Notes)

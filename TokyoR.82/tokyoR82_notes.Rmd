@@ -1,0 +1,99 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Main Talks
+
+@ill_identified 	アクチュアリーの技術をマーケティング (離脱予測) に応用してみる 	
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+@u_ribo 	データ分析者のためのRStudio活用術
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+@kazutan 	週次KPIレポートをconfluenceへUpするためにやったこと
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+## Lightning Talks
+
+saltcooky 	Selective inferenceの紹介(未定)
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+ymn753 	未定 	[資料]
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+@coo56bn4 	分析が大変なのでRmdとshellで自動化してみる
+
+-
+-
+-
+-
+-
+-
+
+@yutakanzawa 	ドイツのPyConでR（とPython）の話をしてきた話
+
+-
+-
+-
+-
+-
+-
+-
+-
+
+
