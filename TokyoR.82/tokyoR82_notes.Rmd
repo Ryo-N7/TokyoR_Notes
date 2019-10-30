@@ -10,56 +10,106 @@ knitr::opts_chunk$set(echo = TRUE)
 
 @ill_identified 	アクチュアリーの技術をマーケティング (離脱予測) に応用してみる 	
 
--
--
--
--
--
--
--
--
--
--
-
+- using actuarial science techniques for marketing 
+- Ex. Abema TV customer >>> churn prediction for viewers
+- necessary to calculate each customer's Lifetime value (LTV)
+- challenge: no user login, info recorded! 
+-- no idea WHEN start using, no idea WHEN left service (if they even did)
+- Lee & Carter (1992) method https://en.wikipedia.org/wiki/Lee%E2%80%93Carter_model
+-- cohort analysis using age/life-stage cohorts for mortality rates
+-- very flexible, used in fertility models as well!
+- {demography} pkg >>> `lca()` function to implement Lee-Carter model
+-- then forecast into 'x' amount future time periods
+- https://github.com/robjhyndman/demography
+- why not just use Poisson models? Yes We Can! + other variants...
+- Newton-Raphson method
+- use data from {rfm} package
 
 @u_ribo 	データ分析者のためのRStudio活用術
 
--
--
--
--
--
--
--
--
--
--
+- R and Python in the same environment
+-- using the RStudio IDE v.1.2.5 (as of July)
+- ability to use Python + SQL >>> matplotlib can be show in the "plots" panel
+- {reticulate} pkg
+- new panels: Connections, Terminal, Jobs >>> execute actions in the background
+- improved Japanese language input 
+- CRAN {renv} >>> v.0.8.0 release
+- within environment >>> packages installed within that environment only
+-- creates a symbolic link to the package from/to the opened project environment
+- "Use renv with this project" as new "Create new project" option 
+- `renv::init()`
+- Basically improve on old {packrat} pkg
+-- Isolated: 
+-- Portable: "lock" json file saves the pkg version 
+-- Reproducible: leaves history within git commit 
+- renv environment >>> global package cache >>> PJ private library (renv lock file)
+- `init()` >>> `install()` >>> `status()` >>> `snapshot()` (create lock file)
+- use `restore()` to create saved environment in a new place
+- gives warning that "installed but not recorded in lockfile" >> recommends use `snapshot()` to save pkg into the lock files!
+-- helpful messages!!
+- warning: sf/ js, new R version can lead to failure
+- no need to maintain a dockerfile >>> version in docker host and container are the same!
+- {pins}: reading in different web data sources
+-- `download.file()`? API ? Specific R pkgs? Mnay options
+-- how about usage OFFLINE? 
+- Not just tables but also OBJECTS?
+- both R package AND Python library, 
+- SHARE data locally, kaggle, github, rstudio connect
+- `board_register()` WHICH service to use
+- `pin()` create pin, `pin_get()` to get pinned data, `pin_find()` 
+- from Connections panel in RStudio 
+- can grab data from within other packages stored locally via pins
+- {reticulate}: use Python with R/RStudio
+-- `reticulate::repl_python()`
+-- R Markdown engine 
+-- RStudio terminal
+- can use with {renv} to store python libraries
+- use python spatial data >>> R for plotting + vice-versa
 
 @kazutan 	週次KPIレポートをconfluenceへUpするためにやったこと
+- https://speakerdeck.com/kazutan/zhou-ci-kpirepotowoconfluenceheupsurutameniyatutakoto
+- https://github.com/line/conflr
+- uploading weekly KPI reports using CONFLUENCE
+-- want to see more long term trends, want to examine outliers, want to see future forecasts
+- UU, visits, other data...
+-- calculate/collate, modeling, create report and place in nice secure space for stakeholders to easily access
+- all data is in DB >>> BIG DATA! inability to grab data in a single simple query
+-- SQL >>> tidy with R >>> then create nice tables 
+- modeling: use "prophet"
+- report creation: 
+-- ggplot2 + R markdown
+-- setting: confluence via the {conflr} pkg
+- get logs > calculate KPI > fit/predict >>> create report >> upload >> confluence wiki
+- {glue} + {purrr} for creating SQL queries (with different parameters)
+- `between {start_date} AND {end_date}` >>> define specific dates in `glue()` call
+-- use {purrr} `map()` to iterate over many dates/weeks/etc. 
+- in-company {line.r} package
+- `nest()` >>> prophet modeling
+- Creating reports with {conflr}
+- create custom ggplot 2 functions >>> use a lot == create your own pkg
+- Setting up a report RMD
+-- load data in "setup" chunk
+- WHERE to place reports?    CONFLUENCE
+- All documentation in one wiki!
+- `rmarkdown::render()` >>> upload + post directly to Confluence with {conflr} pkg
+- wrapper around the Confluence API >>> RStudio Addin
+- automate with Jenkins / drone
+-
+- why not shiny? server maintenance + slow with lots of data, authentication problems
 
+## CyberAgent Company talk
+
+- web advertisement and analysis 
 -
 -
--
--
--
--
--
--
--
--
--
+
 
 
 ## Lightning Talks
 
 saltcooky 	Selective inferenceの紹介(未定)
 
--
--
--
--
--
--
+- 
 -
 -
 -
@@ -68,31 +118,22 @@ ymn753 	未定 	[資料]
 
 -
 -
--
--
--
--
--
--
--
 
 @coo56bn4 	分析が大変なのでRmdとshellで自動化してみる
+https://github.com/sasakiK/ml_auto
 
--
--
--
--
--
+- automating with Rmarkdown and shell
+- reproducible reports with slightly different parameters
+-- different groups/cohorts
+- first just knitting each time... but takes too long! :(
+- .sh files!
 -
 
 @yutakanzawa 	ドイツのPyConでR（とPython）の話をしてきた話
 
--
--
--
--
--
--
+- Python and R >>> presented at `PyCon` in Germany
+- Using Python and R together
+- The advantages of going to conferences overseas!
 -
 -
 
