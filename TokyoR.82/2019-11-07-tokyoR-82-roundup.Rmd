@@ -66,6 +66,8 @@ introduction to a number of packages that help with controlling your data analys
 -- helpful messages!!
 - warning: sf/ js, new R version can lead to failure
 - no need to maintain a dockerfile >>> version in docker host and container are the same!
+
+
 - {pins}: reading in different web data sources
 -- `download.file()`? API ? Specific R pkgs? Mnay options
 -- how about usage OFFLINE? 
@@ -76,6 +78,8 @@ introduction to a number of packages that help with controlling your data analys
 - `pin()` create pin, `pin_get()` to get pinned data, `pin_find()` 
 - from Connections panel in RStudio 
 - can grab data from within other packages stored locally via pins
+
+
 - {reticulate}: use Python with R/RStudio
 -- `reticulate::repl_python()`
 -- R Markdown engine 
