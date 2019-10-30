@@ -1,0 +1,160 @@
+---
+title: "82nd TokyoR Meetup Roundup: A Special Session in {Shiny}!"
+always_allow_html: yes
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As autumn leaves fall, another TokyoR Meetup! This month's meetup was held at [CyberAgent](https://www.cyberagent.co.jp/), an internet advertising/online media company, in their headquarters in Shibuya, Tokyo. 
+
+<img src="https://i.imgur.com/UlstyyS.png" style="display: block; margin: auto;" width = "350" />
+
+In line with my previous round up posts:
+
+- [TokyoR #76](https://ryo-n7.github.io/2019-03-07-tokyoR-76-roundup/)
+- [TokyoR #77](https://ryo-n7.github.io/2019-04-24-tokyoR-77/)) 
+- [TokyoR #78](https://ryo-n7.github.io/2019-05-31-tokyoR-78-roundup/) 
+- [TokyoR #79](https://ryo-n7.github.io/2019-07-05-tokyoR-79-roundup/)
+- [TokyoR #80](https://ryo-n7.github.io/2019-08-02-tokyoR-80-roundup/)
+
+I will be going over around half of all the talks. Hopefully, my efforts will help spread the vast knowledge of Japanese R users to the wider R community. Throughout I will also post helpful blog posts and links from other sources if you are interested in learning more about the topic of a certain talk. You can follow __Tokyo.R__ by searching for the [#TokyoR](https://twitter.com/hashtag/TokyoR) hashtag on Twitter.
+
+Anyways...
+
+Let's get started!
+
+# BeginneR Session
+
+As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set of beginner user focused talks:
+
+- [Importing Data by kotatyamtema]()
+- [Data tidying by y__mattu](https://ymattu.github.io/TokyoR82/slide.html#/)
+- [Data visualization by kilometer](https://speakerdeck.com/kilometer/tokyo-dot-r-number-82-data-visualization)
+
+
+# Main Talks
+
+## [u_ribo](https://twitter.com/u_ribo): RStudio environment for data analysis!
+* [Slides](https://www.slideshare.net/hoxo_m/shiny-177170789)
+
+introduction to a number of packages that help with controlling your data analysis environment 
+
+- R and Python in the same environment
+-- using the RStudio IDE v.1.2.5 (as of July)
+- ability to use Python + SQL >>> matplotlib can be show in the "plots" panel
+- {reticulate} pkg
+- new panels: Connections, Terminal, Jobs >>> execute actions in the background
+- improved Japanese language input 
+- CRAN {renv} >>> v.0.8.0 release
+- within environment >>> packages installed within that environment only
+-- creates a symbolic link to the package from/to the opened project environment
+- "Use renv with this project" as new "Create new project" option 
+- `renv::init()`
+- Basically improve on old {packrat} pkg
+-- Isolated: 
+-- Portable: "lock" json file saves the pkg version 
+-- Reproducible: leaves history within git commit 
+- renv environment >>> global package cache >>> PJ private library (renv lock file)
+- `init()` >>> `install()` >>> `status()` >>> `snapshot()` (create lock file)
+- use `restore()` to create saved environment in a new place
+- gives warning that "installed but not recorded in lockfile" >> recommends use `snapshot()` to save pkg into the lock files!
+-- helpful messages!!
+- warning: sf/ js, new R version can lead to failure
+- no need to maintain a dockerfile >>> version in docker host and container are the same!
+- {pins}: reading in different web data sources
+-- `download.file()`? API ? Specific R pkgs? Mnay options
+-- how about usage OFFLINE? 
+- Not just tables but also OBJECTS?
+- both R package AND Python library, 
+- SHARE data locally, kaggle, github, rstudio connect
+- `board_register()` WHICH service to use
+- `pin()` create pin, `pin_get()` to get pinned data, `pin_find()` 
+- from Connections panel in RStudio 
+- can grab data from within other packages stored locally via pins
+- {reticulate}: use Python with R/RStudio
+-- `reticulate::repl_python()`
+-- R Markdown engine 
+-- RStudio terminal
+- can use with {renv} to store python libraries
+- use python spatial data >>> R for plotting + vice-versa
+
+
+## [kazutan](https://twitter.com/kazutan): Weekly KPI reports with confluence and R!
+* [Slides](https://speakerdeck.com/kazutan/zhou-ci-kpirepotowoconfluenceheupsurutameniyatutakoto)
+
+- https://github.com/line/conflr
+- uploading weekly KPI reports using CONFLUENCE
+-- want to see more long term trends, want to examine outliers, want to see future forecasts
+- UU, visits, other data...
+-- calculate/collate, modeling, create report and place in nice secure space for stakeholders to easily access
+- all data is in DB >>> BIG DATA! inability to grab data in a single simple query
+-- SQL >>> tidy with R >>> then create nice tables 
+- modeling: use "prophet"
+- report creation: 
+-- ggplot2 + R markdown
+-- setting: confluence via the {conflr} pkg
+- get logs > calculate KPI > fit/predict >>> create report >> upload >> confluence wiki
+- {glue} + {purrr} for creating SQL queries (with different parameters)
+- `between {start_date} AND {end_date}` >>> define specific dates in `glue()` call
+-- use {purrr} `map()` to iterate over many dates/weeks/etc. 
+- in-company {line.r} package
+- `nest()` >>> prophet modeling
+- Creating reports with {conflr}
+- create custom ggplot 2 functions >>> use a lot == create your own pkg
+- Setting up a report RMD
+-- load data in "setup" chunk
+- WHERE to place reports?    CONFLUENCE
+- All documentation in one wiki!
+- `rmarkdown::render()` >>> upload + post directly to Confluence with {conflr} pkg
+- wrapper around the Confluence API >>> RStudio Addin
+- automate with Jenkins / drone
+-
+- why not shiny? server maintenance + slow with lots of data, authentication problems
+
+
+# LTs
+
+## [saltcooky](https://twitter.com/saltcooky): Selective inference with R!
+* [Slides](https://speakerdeck.com/saltcooky12/detadoribunnajia-shuo-jian-zheng-falsetamefalseselective-inference)
+
+- 
+-
+-
+-
+
+
+## [R_by_Ryo](https://twitter.com/R_by_Ryo): Introducing the {bulletchartr} package!
+* [Slides](https://igjit.github.io/slides/2019/09/shinyroom/#/)
+
+-
+-
+-
+
+
+
+## [coo56bn4](https://twitter.com/coo56bn4): 分析が大変なのでRmdとshellで自動化してみる
+* [Slides](https://github.com/sasakiK/ml_auto)
+
+- automating with Rmarkdown and shell
+- reproducible reports with slightly different parameters
+-- different groups/cohorts
+- first just knitting each time... but takes too long! :(
+- .sh files!
+-
+
+# Other talks
+
+- [ill_identified](https://twitter.com/ill_identified/): [Using actuarial science techniques for marketing data analysis](https://speakerdeck.com/ktgrstsh/applying-actuarial-method-to-marketing-science)
+- [ymn753](): [A collection of package recommendations!]()
+- [yutakanzawa](https://twitter.com/yutakanzawa/): [Presenting about R and Python at PyCon Germany!](https://ytknzw.github.io/TokyoR/%E3%83%89%E3%82%A4%E3%83%84%E3%81%AEPyCon%E3%81%A7R%EF%BC%88%E3%81%A8Python%EF%BC%89%E3%81%AE%E8%A9%B1%E3%82%92%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F%E8%A9%B1_TokyoR_82_20191026.pdf)
+
+# Food, Drinks, and Conclusion
+
+`TokyoR` happens almost monthly and it’s a great way to mingle with Japanese R users as it's the largest regular meetup here in Japan. The next meetup will be in [January](https://tokyor.connpass.com/) as on December 7th, there will be the [Japan.R meetup](https://japanr.connpass.com/)! You can check out what happened at last year's edition [here](https://ryo-n7.github.io/2018-12-06-japanr-conference-roundup-blog-post/).
+
+Talks in English are also welcome so if you’re ever in Tokyo come join us!
