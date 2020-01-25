@@ -1,0 +1,166 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "1/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+14:35 - 14:45 	@kilometer 	Landscape with R 	[資料]
+
+-
+-
+-
+-
+-
+-
+-
+-
+
+15:15 - 15:45 	@doradora09 	祝10周年！年号も変わったので今一度自由な視点でコミュニティを考えてみる 	[資料]
+
+- 1.27.2010: 10 years since the first TokyoR >>> what are those people doing now?
+- Yakitori R, Okayama R, Fukuoka R, R Ladies Osaka
+- College seminar vs. community event
+- The advantages/value that a community brings
+- New ideas to grow the community?
+- In next 10-20-30 years more members of the community will be in positions of influence/power
+- What can we learn from other communities? (useR or RStudio::Conf in Japan?)
+- Growth of R/tech in rural communities
+- business knowledge/organizing knowledge community?
+- consulting/job change information exchange?
+-
+-
+
+
+
+15:50 - 16:20 	@u_ribo 	R 10年の歩み、そしてこれから 	[Slides](https://t.co/hEDipOyGaK?amp=1)
+
+- April 22, 2010: 2.11 >>> APril 3, 2013: 3.0.0 >>> Dec. 12, 2019: 3.6.2
+- RStudio v.0.92 (first public beta, Feb. 2011)
+- RStudio v1.0 (Nov. 2016)
+- R Consortium (June 2015)
+- r-wakalang (June, 2015)
+- Tokyo.R #50 (September 2015)
+- v2.14.0 (10/31/2011) first time version release had a code name ("Great Pumpkin")
+- Logo change: R foundation (2016)
+- CRAN pacakages (2000 in Oct. 4 2009) >>> 20000
+- CRAN vs. C-RAN
+- Top downloaded packages in past month: 1. magrittr >> 2. aws.s3 >>> 3. aws.ec2metadata >> 4. rsconnect >> 5. rlang
+- R related books: before 2010 (R Graphics Cookbook) vs. after 2010 (R4DS, R Packages, Advanced R)
+- Styleguide: Google >>> Tidyverse
+- R Packages: Writing R Extensions >>> R Packages + {devtools}, {usethis}, {testthat}
+- (free!) R news and feeds: personal, roundups, participatory 
+- R community: rOpenSci, R-Ladies, tidyverse, r-wakalang, R Weekly, R Consortium, Japan.R, R Views, etc.
+- OOS: S3, S4 (based on predecessor S language) >>> R6 (Winston Chang, v2.12, 2014 onwards)
+- non-standard evaluation in R: {lazyeval} >> {rlang}
+- growth of R visualization/data cleaning packages
+- Emergence of RStudio (2011)
+- IDEs: RStudio, ESS, radian, Exploratory, Visual Studio Code, etc.
+- Writing and coding simultaneously for reporting/publication: {knitr}, {rmarkdown}, {bookdown}, {xaringan}
+- Version control/environment management: Docker, {renv}
+- Synergy with other languages: {reticulate}, usage of Python/SQL/etc. in RStudio, Apache Arrow collaboration, Spark, TensorFlow, etc.
+- R v1.0.0 >>> 20th Anniversary (2.28/2.29)!
+- useR! @Japan ??
+- Wishlist-for-R (Henrik Bengtsson) >> improvement of Japanese language input
+- OSS: breaking change and quick developments (life cycle stages)
+
+
+16:30 - 17:00 	@ill_identified 	経済学と反事実分析: 接触篇 	[slides](https://speakerdeck.com/ktgrstsh/economics-and-counterfactual-analysis-a-contact)
+
+Economics & counterfactual analysis
+- 構造推定: create models based on economic theories
+- Difference between causal inference vs. counterfactual analysis
+-- causal inference: intervention, program evaluation
+-- counterfactual: trying to measure the opposite of what happened
+- Cobb-Douglas production function
+- GLMM
+
+
+17:00 - 17:30 	@dropout009 	tidymodels+DALEXによる解釈可能な機械学習 	[slides](https://speakerdeck.com/dropout009/tokyo-dot-r83)
+
+- model interpretability 
+- global vs. local: PFI > PD > ICE, Shapley values
+- model debugging, model variable importance + impact on model
+- {tidymodels} + {dalex}
+- parsnip >>> create model object >>> DALEX::explain() for interpretation
+- permutation feature importance (PFI)
+-- model debugging
+-- causal inference (marketing: focus on things that give you the most impact for sales/profits/audience retention, etc.)
+-- shuffle values of variables >> LARGE change == must be important to model!
+-- measure "dropout loss"
+-- problems and solutions:
+- Partial dependence: model debugging, causal inference (find KPIs that are valuable)
+-- variable importance that does not rely on other factors/variabls in play
+-- problems and solutions:
+- Individual Conditional Explanation (ICE): for each instance how are predictions and variables related (not on average)?
+-- PD AND ICE at same time >>> aggregated profiles
+-- use for WHAT IF questions: "If temperature 0 in summertime, how much ice cream would be sold?" etc. 
+-- ICE < PD for reliability as interpreting for a certain instance only
+- Shapley additive explanations
+-- WHY: "Why is Mr. A's loan return score is so low?"
+-- 
+- Conclusion:
+- If you can use linear regression >> more practical
+- use blackbox models + model interpretability packages for EDA?
+- PFI/PD/ICE is easy to compare but SHAP values can be difficult to interpret
+
+- Interpretable Machine Learning
+- Limitations of Interpretable Machine Learning
+- Explanatory Model analysis
+
+apc 	R in Visual Studio Code (in English) 	[資料]
+
+- Visual Studio Code >>> R, Python, Typescript, Rust >>> Vim extensions
+- vscode-R extension >>> vscode-R (Renkun), {languageserver}, {radian} console
+- DEMO
+- w.i.p.: RMarkdown 
+
+
+soupcurry049 	未定 	[資料]
+
+- Creating a R community in the "countryside"
+- >>> move to Sendai, help with Sendai.R
+- May 18, 2019: FIRST meetup! 
+- same format as Tokyo.R
+- #2: Sept. 28, 2019 >>> visitors from Tokyo.R community
+- many students + beginners! 
+
+
+@hirahira2835 	Rで始める心理学Web実験 	[資料]
+
+- psychology web experiments with R
+- Rmarkdown + jspsych (JS library for psych experiments) + firebase
+- `firebase deploy` send html RMD psych experiment program to the database
+- one project one directory!
+- firebase >>>> low web experiment cost!
+-
+-
+-
+-
+
+@0_u0 	本当はコワい線形回帰 	[資料]
+
+- Linear regression
+- IKIGAI score: what is most important in your life? >>> survey
+- 
+
+
+419kfj 	FactoMinR, factoextra のggplot 描画で日本語font を使う 	[資料]
+
+- correspondence analysis
+- Japanese point labels turn out ugly >>> use {showtext} package!
+- base_family for plot/axis titles but point labels still ugly
+- set `showtext_auto(TRUE)` in chunk options
+- 
+
+
+igjit 	未定 	[slides](https://igjit.github.io/slides/2020/01/knitscm/#/)
+
+- knit a scheme
+- Advanced R >>> SICP (Structure and Interpretation of Computer Progams)
+- `The Little Schemer` 
+- {knitscm} package: knitr engine for scheme

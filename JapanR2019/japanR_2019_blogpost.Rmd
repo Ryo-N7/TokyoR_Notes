@@ -1,0 +1,164 @@
+---
+title: "JapanR 2019 Conference Roundup"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As the 2010s come to a close, the __10th JapanR Conference__ was hosted at [DeNA Corporation](https://dena.com/intl/company/overview.html) in Tokyo, Japan! This was another great opportunity to learn about R and its wide variety of uses by Japanese practitioners and academics. Besides the near-monthly meetup of [TokyoR](https://tokyor.connpass.com/) there are smaller gatherings spread throughout Japan such as [FukuokaR](https://fukuoka-r.connpass.com/) and [TsukubaR](https://tsukubar.org/) but the meeting that gathers the biggest crowd is the [JapanR Conference](http://japanr.net/) held every December since 2010.
+
+- Want to learn more about __TokyoR__ and when the next meeting is? Check this [link](https://tokyor.connpass.com/)! (Next meeting is January 19th, 2019)
+- Want to learn more about __JapanR__? Check this [link](http://japanr.net/)!
+
+You can watch most of the presentations on the [JapanR YouTube channel](https://www.youtube.com/watch?v=_rU-M1GlTTE). Although the talks are in __Japanese__ maybe you'll still find something useful in their slides... or you can read on as I give a summary on around 8 (out of over 20) presentations that I found interesting!
+
+Let's get started!
+
+# R for Beginners: An Overview!
+[タナカケンタ](https://twitter.com/tanakafreelance)
+[Slides](https://mana.bi/wiki.cgi?page=JapanR2019%5F%BD%E9%BF%B4%BC%D4%A5%BB%A5%C3%A5%B7%A5%E7%A5%F3%5F%BA%A3%C6%FC%A4%AB%A4%E9%A4%CF%A4%B8%A4%E1%A4%EBR)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=4002)
+
+Tanaka Kenta gave an introductory talk for beginners. He took everybody through the 
+
+
+# First Time Lightning Talks
+
+This section was reserved for those R users who were presenting for the first time!
+
+## Sports Analytics
+スポーツ番狂わせの統計学
+発表者: 窪田誠
+[Slides](https://www.slideshare.net/MakotoKubota/japan-r2019-upsetanalysis)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=5735)
+
+- Ranking differences: When the league-leader loses against a relegation battler, etc.
+- Probability of upsets based on team rankings
+- Webscrape the data from Rugby World Rankings, Sumo, soccer, etc.
+- Which sports have the most UPSETS??
+
+
+# Main Talks
+
+-- SUMMARY
+
+- Analyzing Romance of the Three Kingdoms online game
+
+
+- Meta-analysis of Tokyo University exam results
+
+
+# Lightning Talks
+
+## Using RStudio for Kaggle Competitions
+KaggleとRStudioコンペの紹介
+発表者: u++
+[Slides](https://speakerdeck.com/upura/kaggle-r-competition)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=13011)
+
+- slack: kaggler-ja
+- R competition on kaggle!
+- machine learning modelling competition >> EDA + modeling >> refine model >> prize
+- supervised/unsupervised learning >>> train + test data
+- RStudio organizes a competition! >>> GA customer revenue prediction
+-- https://www.kaggle.com/c/ga-customer-revenue-prediction/discussion/82614
+-- https://www.kaggle.com/kostoglot/winning-solution#L144
+- Google analytics data: user ID, session ID, device info, etc.
+- ^ of analytics means simple analytics/modeling can be done by companies instead of sending to kaggle for solutions!
+- Now more emphasis on looking deeper at the data where auto ML methods are weaker
+
+## Visualizing the M-1 Grand Prix 
+M-1グランプリ直前!?（直後!?）漫才の可視化に挑戦してみた
+発表者: fujitako
+[Slides](https://docs.google.com/presentation/d/1MS92cdYhjBChtZI2PdSkFfApmNVO4-WDrmB7OghPyQQ/edit#slide=id.p)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=13386)
+
+- transcript of comedy shows
+- MANUALLY gathered boke, tsukkomi, movement flags for own data set
+- gganimate: movements of characters, boke/tsukkomi frequency bars 
+- analyze HOW their jokes/stories unfold!
+- see differences between different comedy groups!
+
+## The Tidyverse (Re)Explained
+tidyverse（再）入門
+発表者: 神沢雄大
+
+- growth of the tidyverse, from introdcution of {dplyr} in 2014 + intro of {tidyverse} pkg in late 2016
+- Base R native >>> tidyverse native
+- ex. rewrite old code into the tidyverse
+
+## Using {tidymodels} for tidy machine learning!
+tidymodelsによるtidyな機械学習
+発表者: morishita(@dropout0009)
+[Slides](https://speakerdeck.com/dropout009/tidymodelsniyorutidynaji-jie-xue-xi)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=14472)
+
+- {rsample}, {recipe}, {parsnip}, {tune}, {yardstic}
+- Example: use {AmesHousing} data set
+- train/test >>>> cross validation `vfold_cv()`
+- `recipe()` >> `step_log()`
+- `parsnip::rand_forest()`, `set_engine()` to set WHICH RF pkg to use
+- {tune}: tuning hyperparameters
+- `prep()`, `juice()`, `bake()`
+- check test data accuracy/precision with {yardstic}
+
+## Database Queries with R
+データサイエンティストに同じクエリは二度も通じぬ
+発表者: Takahiro Yoshinaga
+[Slides](https://speakerdeck.com/yoshinaga0106/detasaienteisutonitong-zikuerihaer-du-motong-zinu)
+
+- advertisement data
+- copy-paste `summarize()` code
+- {mmetrics} data analysis
+- aggregates/disaggregates
+- set/define metrics via `define()`
+
+## Using Apache Arrow with R
+Apache Arrowについて（仮）
+発表者: yutannihilation
+[Slides](https://speakerdeck.com/yutannihilation/why-dont-you-arrow-now)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=15352)
+
+- on-memory big data handling platform
+- define a data format for on-memory 
+- need Apache Arrow: LESSEN need for copy-convert data
+- {Parquet}, {Feather} >>> {arrow }
+- {sparklyr} >>> Spark 
+- Apache Parquet >>> data format
+- FAST data import!
+- dplyr backend?
+
+## Using Java with R
+Rで書くJava仮想マシン (R上でJavaを動かしてみた)
+発表者: @igjit
+[Slides](https://igjit.github.io/slides/2019/12/jvmrr/#/)
+
+- Java virtual machine, can use Java ANYWHERE 
+- create Java VM with R >>> {jvmrr}
+- compile Java code >>> then import into R and execute!
+- {purrr}: list of lists for functions
+
+## Baseball analytics with R
+野球ネタで何か
+発表者: @flaty13
+[Slides](https://docs.google.com/presentation/d/1E3Sop2VK1-F4T2dVBMgxJgMRPyNXz1XJfAkpX7UfN-0/edit)
+[Presentation](https://youtu.be/_rU-M1GlTTE?t=17527)
+
+- Analyzing Baseball data with R (M. Marchi, J. Albert)
+- how would title race look if every team were of equal strength/ability 
+-- 0.546/0.564 win % == highly possible?
+- a win for one team == loss for another, NOT independent
+-
+
+## Rのコミュニティを始めた話
+発表者: @tachyon7776
+
+- Building an R Community!
+- no R community in Tohoku region!! 
+- suggestion? why not create one?
+- help from social media >> twitter
+- finding a place to host... difficult!
+- guest speakers from other regions
+

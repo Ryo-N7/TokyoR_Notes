@@ -7,25 +7,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This _________  was the __10th JapanR Conference__ hosted at [DeNA Corporation](https://dena.com/intl/company/overview.html) in Tokyo, Japan! 
 
-This is another great opportunity to learn about R and its wide variety of uses by Japanese practitioners and academics. Besides the near-monthly meetup of [TokyoR](https://tokyor.connpass.com/) there are smaller gatherings spread throughout Japan such as [FukuokaR](https://fukuoka-r.connpass.com/) and [TsukubaR](https://tsukubar.org/) but the meeting that gathers the biggest crowd is the [JapanR Conference](http://japanr.net/) held every December since 2010. 
-
-- Want to learn more about __TokyoR__ and when the next meeting is? Check this [link](https://tokyor.connpass.com/)! (Next meeting is January 19th, 2019)
-- Want to learn more about __JapanR__? Check this [link](http://japanr.net/)!
-
-You can watch most of the presentations on the [JapanR YouTube channel](https://www.youtube.com/channel/UCXKQBlJczU7YTyVu_wW7yHA). Although the talks are in __Japanese__ maybe you'll still find something useful in their slides... or you can read on as I give a summary on around ___ (out of ___) presentations that I found interesting!
-
-Let's get started!
-
-
-R for Beginners: An Overview!
+# R for Beginners: An Overview!
 [タナカケンタ](https://twitter.com/tanakafreelance)
 
 # 始めてのLT 14:25~15:00
 
 
-Making life more convenient with R & Shiny!
+## Making life more convenient with R & Shiny!
 自分が便利に生きるためにRとShinyを使う
 発表者: kubota
 
@@ -37,7 +26,7 @@ Making life more convenient with R & Shiny!
 - Still work-in-progress!
 
 
-Sports Analytics
+## Sports Analytics
 スポーツ番狂わせの統計学
 発表者: 窪田誠
 
@@ -48,7 +37,7 @@ Sports Analytics
 -
 -
 
-Using R for audio analytics
+## Using R for audio analytics
 Rで音声解析をしてみる
 発表者: 松本涼
 
@@ -60,7 +49,7 @@ Rで音声解析をしてみる
 
 # Long Talk - 20分枠 15:20~16:10
 
-Learning Data analysis with The Romance of the Three Kingdoms
+## Learning Data analysis with The Romance of the Three Kingdoms
 三国志で学ぶデータ分析
 発表者: ill-identified
 [Slides](https://t.co/aDVHxpf5CS?amp=1)
@@ -87,7 +76,7 @@ Learning Data analysis with The Romance of the Three Kingdoms
 -
 
 
-Using meta-analysis to take a fair entrance exam
+## Using meta-analysis to take a fair entrance exam
 メタアナリシスっぽいので公平な入試を受けたい
 発表者: med_ku
 [Slides](https://t.co/S5UeBFZaLa?amp=1)
@@ -102,7 +91,7 @@ Using meta-analysis to take a fair entrance exam
 
 # Lightning Talk 16:30~18:20
 
-Visualizing JapanR Conference attendees
+## Visualizing JapanR Conference attendees
 イベント参加者を可視化したい
 発表者: doradora09
 
@@ -115,7 +104,7 @@ Visualizing JapanR Conference attendees
 -- not just R but other languages (Pycon/PyDaa, Php)
 
 
-Using RStudio for Kaggle Competitions
+## Using RStudio for Kaggle Competitions
 KaggleとRStudioコンペの紹介
 発表者: u++
 [Slides](https://speakerdeck.com/upura/kaggle-r-competition)
@@ -131,7 +120,7 @@ KaggleとRStudioコンペの紹介
 - ^ of analytics means simple analytics/modeling can be done by companies instead of sending to kaggle for solutions!
 - Now more emphasis on looking deeper at the data where auto ML methods are weaker
 
-Visualizing the M-1 Grand Prix 
+## Visualizing the M-1 Grand Prix 
 M-1グランプリ直前!?（直後!?）漫才の可視化に挑戦してみた
 発表者: fujitako
 
@@ -145,14 +134,14 @@ M-1グランプリ直前!?（直後!?）漫才の可視化に挑戦してみた
 -
 
 ---
-細菌叢のリアルワールドデータをビジネス活用するためのWebAPI作成
+## 細菌叢のリアルワールドデータをビジネス活用するためのWebAPI作成
 発表者: watanabe_st
 
 - Why use Shiny?
 - Synchronize with existing workflows
 -
 
-The Tidyverse (Re)Explained
+## The Tidyverse (Re)Explained
 tidyverse（再）入門
 発表者: 神沢雄大
 
@@ -161,7 +150,7 @@ tidyverse（再）入門
 - ex. rewrite old code into the tidyverse
 
 
-Using {tidymodels} for tidy machine learning!
+## Using {tidymodels} for tidy machine learning!
 tidymodelsによるtidyな機械学習
 発表者: morishita(@dropout0009)
 
@@ -174,7 +163,7 @@ tidymodelsによるtidyな機械学習
 - `prep()`, `juice()`, `bake()`
 - check test data accuracy/precision with {yardstic}
 
-Database Queries with R
+## Database Queries with R
 データサイエンティストに同じクエリは二度も通じぬ
 発表者: Takahiro Yoshinaga
 [Slides](https://speakerdeck.com/yoshinaga0106/detasaienteisutonitong-zikuerihaer-du-motong-zinu)
@@ -186,7 +175,7 @@ Database Queries with R
 - set/define metrics via `define()`
 
 
-Using Java with R
+## Using Java with R
 Rで書くJava仮想マシン (R上でJavaを動かしてみた)
 発表者: @igjit
 [Slides](https://igjit.github.io/slides/2019/12/jvmrr/#/)
@@ -197,7 +186,7 @@ Rで書くJava仮想マシン (R上でJavaを動かしてみた)
 - {purrr}: list of lists for functions
 
 
-Using Apache Arrow with R
+## Using Apache Arrow with R
 Apache Arrowについて（仮）
 発表者: yutannihilation
 
@@ -212,7 +201,7 @@ Apache Arrowについて（仮）
 
 
 ----
-未定
+## 未定
 発表者: ymn753
 
 - "We would like the data in EXCEL :D XD" ...
@@ -222,14 +211,14 @@ Apache Arrowについて（仮）
 -
 
 
-Regression analysis using R
+## Regression analysis using R
 発表者: はしもん
 
 - 
 -
 
 
-Causal Inference with R
+## Causal Inference with R
 今再びのRによる因果推論
 発表者: nino_pira
 
@@ -237,7 +226,7 @@ Causal Inference with R
 -
 -
 
-MCMC with R
+## MCMC with R
 グレブナー基底でMCMC
 発表者: kyusque
 [repo](https://github.com/kyusque/japanr2019)
@@ -246,7 +235,7 @@ MCMC with R
 -
 -
 
-Baseball analytics with R
+## Baseball analytics with R
 野球ネタで何か
 発表者: @flaty13
 [Slides](https://docs.google.com/presentation/d/1E3Sop2VK1-F4T2dVBMgxJgMRPyNXz1XJfAkpX7UfN-0/edit)
@@ -258,14 +247,14 @@ Baseball analytics with R
 -
 
 
-身近なものをデータにしてサイエンスする
+## 身近なものをデータにしてサイエンスする
 発表者: 市川太祐
 
 - noh flute sound >>> spectrogram
 - comparison of sound quality-
 -
 
-Rのコミュニティを始めた話
+## Rのコミュニティを始めた話
 発表者: @tachyon7776
 
 - Building an R Community!
@@ -276,7 +265,7 @@ Rのコミュニティを始めた話
 - guest speakers from other regions
 
 
-このIRのグラフがすごい！上場企業2019
+## このIRのグラフがすごい！上場企業2019
 発表者: ito_yan
 
 - bad visualization techniques from company revenue reports
