@@ -1,0 +1,145 @@
+---
+title: "Untitled"
+author: "RN7"
+date: "8/1/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As the monsoon season (finally) ends, another TokyoR meetup! 
+
+
+
+@Y_mattu: https://ymattu.github.io/TokyoR87/slide.html#/
+
+@Yuta_Kanzawa: https://ytknzw.github.io/TokyoR/%E5%88%9D%E5%BF%83%E8%80%85%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3_%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%AF%E8%A6%96%E5%8C%96_TokyoR_20200801.pdf
+
+
+
+@ill_identified 	人工知能とシュミレーション(とR)
+
+- {rmdja}: R Markdown slides with Japanese language >>> PDF/LaTeX output
+- SAO: AI that can break rules under extreme conditions >>> human-like decision making
+- Recreate simulation of simulations
+- Logic of assumptions >> conclusions check out?
+- NetLogo (from Logo, StarLogo) >>> {nlrx} package
+- spaDES: geo-spatial simulation package
+- Setting: 16 AI raised >>> 300 years to 80,000 population
+- hypothesis: # of AI break rules R(t)
+- run simulation 100 times
+- Population growth N(t) >>> {deSolve} package
+- simulate AI break rules >>> R(t)
+- .... even without simulation the results are self-evident
+- AI: anything within the rules is fair game (selfish) vs. there are things worth protecting/doing outside of the rules (altruistic)
+- calculate {deSolve}
+- Lotka–Volterra equations
+-
+
+@ill_identified talked about running population growth simulations with R. The subject came out from his interest in the latest season of the popular anime, Sword Art Online wherein in a virtual game environment, researcher sought to grow a population of A.I. to see if they could break away from their programming and make more human-like decisions within the virtual environment. Following an intro of different software and R packages used for running simulations (such as {nlrx}) he continued on to setting the different parameters and the hypotheses he used for building his models. 
+
+
+
+@u_ribo 	今こそ、data.table パッケージ を学ぼう！
+
+- advantages of data.table
+- how to use?
+- library(data.table): 1.13 2020-07-24
+- extension of data.frame >>> expand and extend from data.frames 
+- data.table class >>> use `[` for manipulation
+- h20.ai benchmarks: FAST >>> group_by + join!! using 5 GB data
+- same as datatable from Python
+- data ingestion: `fread()`, `fread() with colClass`, `fst::read_fst()`, `readr::read_csv()`
+- comparison with dplyr:
+-- lower # of dependenceies: "methods" vs. ~20
+-- difference in memory usage: dplyr better at summarize by group
+--- memory copy: deep-copy (dplyr) vs. shallow-copy (data.table): memory address doesn't change even after new function applied
+-- conservative development: not many large breaking changes
+- C rather than C++ for execution
+-
+- DT[i (filter, arrange), j (select, mutate), by (group_by, summarize)]
+- use `.()` within `[`
+- `.SDcols`: subset of the data.table >>> `lapply(.SD, sum)`
+- `.()` >>> shortcut for `list()` ex. `list(id)` == `.(id)`
+- `:=` for mutate() with functions
+- `keyby` order groups by alphabet or other conditions
+- join/merge: `all.x` vs. `all.y` for left or right joins
+- `tidyfast` >>> dcast + melt not really great...
+- `fcase` >>> `case_when()`    |  `fifelse` >>> `if_else()`
+- `fcoalesce`  | `nafill()`
+- {dtplyr}: dplyr but with data.table underneath
+- {tidytable}: tidyr but with data.table
+- {tidyfast}
+- {tidyfst}
+
+
+
+@soupcurry049 	入門 ggspatial 	
+
+- ggplot-like function styles for spatial data plotting
+- annotation styles: Open Street Map, North compass arrow, etc.
+- {sf} and spatial objects as ggplot layers >> `layer_()`
+- Ex. Onsen locations in Hokkaido
+
+
+
+@wonder_zone 	データ菜園ティストもできるドッカーンとdocker入門
+
+- {tictoc}: measure R code exectuion time
+- Moving >>> need to find house amidst COVID...
+- dont want to bring PC with R into realtors...
+- How to get R and analyses along with looking at houses?
+- Use DOCKER!
+-- Like borrowing a room in a apartment >>> 
+-
+
+
+@andrew_cb2 	(x) => x + 1
+
+- NEW SYNTAX
+- `function(x) x + 1`
+- function is LONG , 8 letters UGH!
+- Future R: shorter anonymous function syntax
+- haskell style (easy), matlab style (easy), javascript style (difficult)
+- position of the special character can be hard in R
+- How to add new syntax to R?
+- `src` R source code >>> C files 
+- `gram.y` grammar file
+- assign new syntax to source file
+- `gram.c` >>> bison  >>> compile with make
+- Create new version of R with new syntax
+- Change R: program in R AND program R
+
+
+
+@kur0cky _y 	データで「モテ」をハックせよディナー編
+
+- one-to-one >>> movie date >>> after conversation
+- R + elasticsearch
+- elasticsearch: sentence search system
+- {elastic}: index data frames >>> query + request via {jsonlite} to JSON
+- Shiny app for elasticsearch + restaurant recommendations
+
+
+@flaty13 	データサイエンス100本ノック(構造化データ加工編)のR問題を解いてみる
+
+- Japan Data Scientist Society: 100 Knocks Preprocessing beginner problems
+- Jupyter notebooks >>> Docker: Try challenges in R, Python, SQL
+
+
+@kozo2 	Bioconductorとそのコミュニティの紹介
+
+- Bioinformatics packge repository
+- Can not have both in CRAN AND Bioconductor
+- `BiocManager::install()`
+- Bioconductor style vignette
+- Merits: Search bioconductor, 
+- Review process: differences between CRAN, strong code review
+- `Bio-Pack-aton`: Japan >>> help people with ideas/workflows 
+- Increase Bioconductor developers in Japan, host Bioc Asia 2021 in Tokyo??
+- Community Advisory Board (CAB): training, outreach, users <> developers
+
+
+
