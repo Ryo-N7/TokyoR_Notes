@@ -35,7 +35,6 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 - [Data tidying by @y__mattu](https://ymattu.github.io/TokyoR87/slide.html#/)
 - [Data visualization by @yuta_kanzawa](https://ytknzw.github.io/TokyoR/%E5%88%9D%E5%BF%83%E8%80%85%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3_%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%AF%E8%A6%96%E5%8C%96_TokyoR_20200801.pdf)
 
-
 # Main Talks
 
 ## [u_ribo](https://twitter.com/u_ribo): Let's learn {data.table}!
@@ -43,16 +42,18 @@ As with every [TokyoR](http://tokyor.connpass.com/) meetup, we began with a set 
 
 @u_ribo gave an introduction to the {data.table} package. The {data.table} package is a package that extends `data.frame`s and allows you to do data manipulation very fast. @u_ribo's slides were very easy to understand and is probably a very good intro to {data.table} for tidyverse users as the walkthrough included side-by-side comparisons with similar dplyr and tidyr syntax (shown in detail below).
 
-![]()
-
-![]()
+![]() <> ![]()
 
 The 3 main differences he made to contrast with {dplyr} were:
 * Lower # of dependencies: {data.table} only uses {methods}
 * Lower memory usage: deep-copy {dplyr} vs. shallow-copy {data.table}
-* "Conservative" development: Tries to minimize the amount of breaking changes in the code
+* "Conservative" development: Try to minimize the amount of breaking changes in new code
 
-![]()
+Other {data.table} resources:
+
+* [data.table package Wiki](https://github.com/Rdatatable/data.table/wiki)
+* [Why I love data.table](https://eliocamp.github.io/codigo-r/en/2019/07/why-i-love-data-table/)
+* [Data cleaning and exploration with data.table - Megan Stodel](https://www.meganstodel.com/posts/using-data-table/)
 
 # Lightning Talks
 
@@ -62,6 +63,8 @@ The 3 main differences he made to contrast with {dplyr} were:
 @soupcurry049 gave a introduction to the {ggspatial} package which provides the user with ggplot-like style for plotting spatial data. It supports `sf`, `sp`, and `raster` objects and you have a lot of cool options for annotations (spatial lines, a NORTH arrow, etc.), layers, spatial geometries (in `ggplot2::geom_*()` style). @soupcurry049 finished off the LT with a quick demonstration of a map showing Onsen locations in Hokkaido prefecture.
 
 ![]()
+
+* [{ggspatial} website](https://paleolimbot.github.io/ggspatial/)
 
 ## [andrew_cb2](https://twitter.com/andrew_cb2/): (x) => x + 1
 * [Slides](https://speakerdeck.com/andycraig/x-equals-x-plus-1)
@@ -76,7 +79,6 @@ The reason why some implementations are harder than others is due to the locatio
 
 `@andrew_cb2` has made the entire tutorial available on Github [here](https://github.com/andycraig/r-anonymous-functions).
 
-
 ## [flaty13](https://twitter.com/flaty13/): Data Science 100 Knocks!
 * [Slides](https://docs.google.com/presentation/d/12ldjAA1IOWkbOhUtOmLL__IK1ANYFj4Z9_gJMYu7Z0Q/edit#slide=id.g8de40d2099_0_159)
 
@@ -89,7 +91,7 @@ The reason why some implementations are harder than others is due to the locatio
 ## [kozo2](https://twitter.com/kozo2/): Introduction to BioConductor!
 * [Slides](https://docs.google.com/presentation/d/1sISzZurAxCYYJbsgHzVPiYgVYbv8HoBVLq7E-b3huAg/edit#slide=id.p)
 
-@kozo2 introduced Bioconductor and its community. Bioconductor is a package repository for bioinfomatics much like CRAN for most R users. @kozo2 talked about a number of differences with CRAN including: 
+`@kozo2` introduced Bioconductor and its community. Bioconductor is a package repository for bioinfomatics much like CRAN for most R users. `@kozo2` talked about a number of differences with CRAN including: 
 
 * Rigid code review
 * Bioconductor coding style
@@ -99,14 +101,19 @@ To develop the local Japanese community, the [Bio-Pack-athon](https://biopackath
 
 ![]()
 
-Earlier this year, a Community Advisor Board was created which aims to support training, outreach, and promote cooperation between users and developers. 
+Earlier this year, a Community Advisor Board was also created which aims to support training, outreach, and promote cooperation between users and developers. 
 
+Other Bioconductor materials:
+
+* [Bioconductor Training Courses](https://bioconductor.org/help/course-materials/)
+* [Bioconductor 2020 Workshops](http://bioc2020.bioconductor.org/workshops)
+* [BioPackathon Website](https://biopackathon.connpass.com/)
 
 # Other talks
 
 - [ill_identified](https://twitter.com/ill_identified/): [Artificial Intelligence, Simulations, & R](https://speakerdeck.com/ktgrstsh/applying-actuarial-method-to-marketing-science)
-- [kur0cky_y](): [A Shiny app to improve your luck on (romantic) dates!](https://speakerdeck.com/kur0cky/motemote-data-science-2)
-- [wonder_zone](https://twitter.com/yutakanzawa/): [Docker & R](https://www.slideshare.net/cancolle/docker-tokyor87)
+- [kur0cky_y](https://twitter.com/kur0cky_y/): [A Shiny app to improve your luck on (romantic) dates!](https://speakerdeck.com/kur0cky/motemote-data-science-2)
+- [wonder_zone](https://twitter.com/wonder_zone/): [Docker & R](https://www.slideshare.net/cancolle/docker-tokyor87)
 
 # Conclusion
 
