@@ -1,0 +1,295 @@
+---
+title: "Untitled"
+output: html_document
+date: '2022-09-17'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Beginner talks
+
+## Intro to R
+
+
+
+## Data cleaning
+
+
+
+## Data visualization
+
+
+
+
+# Main talks
+
+## パーマーステーションの ペンギンたち #2 データクリーニング編 (Data cleaning with Palmer penguins) - @bob3bob3
+
+```{r}
+install.packages("palmerpenguins")
+```
+
+Data of 3 species of penguin
+
+weight, wingspan, beak length, etc.
+
+
+- penguins_raw: raw data set gathered from study
+
+
+- penguins: cleaned version
+
+- Goal: start with `penguins_raw` and get to `penguins`
+
+```{r}
+library(palmerpenguins)
+library(summarytools)
+
+penguins_raw |>
+  dfSummary() |>
+  View()
+```
+
+
+explore output from `dfSummary()`
+
+- steps:
+
+remove rows
+
+clean values
+
+recode factors into japanese
+
+
+
+
+### Resources
+
+* [{palmerpenguins} R package](https://github.com/allisonhorst/palmerpenguins)
+* [Intro to Palmer Penguins dataset: Twitter thread (Allison Horst)](https://twitter.com/allison_horst/status/1270046399418138625)
+
+
+## Regression Analysis with R - @kilometer00
+
+Data visualization- Kieran Healy >>> Japanese translation
+
+
+```{r}
+library(tidyverse)
+library(magrittr)
+set.seed(1)
+
+N <- 10
+a <- 0.1
+
+dat <- tibble(x = c(1:N),
+              y = a * x + rnorm(N))
+
+```
+
+
+```{r}
+dat %>% 
+  ggplot() +
+  aes(x, y) + 
+  geom_point() +
+  geom_smooth(methods = "lm", se = FALSE)
+```
+
+
+```{r}
+fit_lm <- dat %>% lm(y ~ x, data = .)
+
+summary(fit_lm)
+```
+
+```{r}
+names(fit_lm)
+```
+
+Residuals: 
+
+```{r}
+res <- fit_lm$residuals
+
+median(res)
+
+res
+```
+
+
+
+```{r}
+dat_fit <- dat %>% 
+  group_nest() %>% 
+  mutate(fit = map(data, ~ lm(y ~ x, data = .)))
+```
+
+
+```{r}
+dat_res <- dat_fit %>% 
+  mutate(y_hat = map(fit, predict)) %>% 
+  select(-fit) %>% 
+  unnest(everything()) %>% 
+  mutate(res = y - y_hat)
+
+dat_res
+```
+
+
+```{r}
+ggplot(dat_res) + 
+  aes(x, y) + 
+  geom_path(aes(y = y_hat)) +
+  geom_segment(aes(xend = x, yend = y_hat)) +
+  geom_point()
+```
+
+
+Standard error: -- should be residual standard deviation!! 
+
+```{r}
+dat_res %>% 
+  summarize_at("res", 
+               ~ sd(.) / sqrt(N))
+
+## residual std
+dat_res %>% 
+  summarize_at("res", 
+               ~ ())
+```
+
+
+R-Squared:
+
+```{r}
+dat_dev <- dat_res %>% 
+  mutate(yhat_mean = mean(y_hat),
+         RSS = y - y_hat,
+         ESS = y_hat - yhat_mean,
+         TSS = y - yhat_mean) %>% 
+  summarise_at(c("RSS", "ESS", "TSS"),
+               ~ sum(.^2))
+
+glimpse(dat_dev)
+```
+
+```{r}
+dat_dev %$% {ESS/TSS} ## multiple R-squared
+```
+
+
+degrees of freedom, f-statistic
+
+```{r}
+df1 <- 1
+df2 <- N-df1-1
+
+f <- dat_dev %$% {ESS * df2 / RSS/ df1}
+
+## P-value
+pf(f, df1, df2, lower.tail = FALSE)
+```
+
+
+```{r}
+## F-statistic
+dat_f <- tibble(x = seq(0,5, by = 0.01),
+                y = df(x, df1, df2))
+
+dat_f %>% 
+  ggplot(aes(x, y)) +
+  geom_path() +
+  geom_vline(xintercept = f)
+```
+
+
+```{r}
+dat_g <- dat_res %>% mutate(x_bar = mean(x),
+                            y_bar = mean(y))
+
+dat_g %>% 
+  ggplot(aes(x, y)) +
+  geom_path(aes(y = y_hat)) + 
+  geom_point()
+```
+
+
+# Lightning Talks
+
+## - @mtkw
+
+
+
+## R and Snowflake - @y__mattu
+
+R and RStudio author
+
+
+
+snowflake: data cloud service
+
+"modern data stack": cloud data warehouse emergence
+
+
+no R + Snowflake package
+
+
+Connect via {odbc} and {DBI} R packages
+
+
+install `unixodbc`  >>> snowflake driver 
+
+connect via `dbiconnect()`
+
+then send query
+
+https://hevodata.com/learn/snowflake-r/
+
+
+https://community.snowflake.com/s/article/How-To-Connect-Snowflake-with-R-RStudio-using-RODBC-driver-on-Windows-MacOS-Linux
+
+## Buying art with R - @saltcooky
+
+- Jackson Pollock artwork
+
+fractal analysis of paintings
+
+box-counting algorithm
+
+
+{VoxR} R package: https://cran.r-project.org/package=VoxR
+
+`box_counting()`
+
+
+## Graphs - @bob3bob3
+
+R comes from S
+
+
+old artifacts from S
+
+- sunflower plots, face graph, stem-and-leaf plot
+
+`sunflowerplot()` function in base R!: https://statisticaloddsandends.wordpress.com/2021/02/05/what-is-a-sunflower-plot/
+
+`stem()` function in base R graphics
+
+
+Chernoff face graph: {aplpack}::`faces()`
+
+- https://flowingdata.com/2010/08/31/how-to-visualize-data-with-cartoonish-faces/
+
+
+
+
+
+
+
+
+
+
