@@ -72,6 +72,8 @@ clean values
 recode factors into japanese
 
 
+Next time he'll continueu this series as he plans on doing another talk on EDA and visualization, and then more planned talks on doing various statistical analysis on this data set.
+
 
 
 ### Resources
@@ -84,165 +86,21 @@ recode factors into japanese
 
 - [Slides](https://speakerdeck.com/kilometer/tokyor-number-101-regressionanalysis)
 
-TokyoR organizer, `@kilometer00` gave a very thorough overview of regression analysis using R.
+TokyoR organizer, `@kilometer00` gave a very thorough overview of regression analysis using R. From using the base `lm()` function, to going step-by-step to calculating the various statistical outputs (residuals, standard errors, F-statistic, etc.) manually, and concise explanations of all of the formulas behind them, this was a helpful intro for anybody trying to understand linear regression using R.
 
-From 
-
-
-
-
-Data visualization- Kieran Healy >>> Japanese translation
-
-
-```{r}
-library(tidyverse)
-library(magrittr)
-set.seed(1)
-
-N <- 10
-a <- 0.1
-
-dat <- tibble(x = c(1:N),
-              y = a * x + rnorm(N))
-
-```
-
-
-```{r}
-dat %>% 
-  ggplot() +
-  aes(x, y) + 
-  geom_point() +
-  geom_smooth(methods = "lm", se = FALSE)
-```
-
-
-```{r}
-fit_lm <- dat %>% lm(y ~ x, data = .)
-
-summary(fit_lm)
-```
-
-```{r}
-names(fit_lm)
-```
-
-Residuals: 
-
-```{r}
-res <- fit_lm$residuals
-
-median(res)
-
-res
-```
-
-
-```{r}
-dat_fit <- dat %>% 
-  group_nest() %>% 
-  mutate(fit = map(data, ~ lm(y ~ x, data = .)))
-
-dat_res <- dat_fit %>% 
-  mutate(y_hat = map(fit, predict)) %>% 
-  select(-fit) %>% 
-  unnest(everything()) %>% 
-  mutate(res = y - y_hat)
-
-dat_res
-
-ggplot(dat_res) + 
-  aes(x, y) + 
-  geom_path(aes(y = y_hat)) +
-  geom_segment(aes(xend = x, yend = y_hat)) +
-  geom_point()
-```
-
-
-Standard error: -- should be residual standard deviation!! 
-
-```{r}
-dat_res %>% 
-  summarize_at("res", 
-               ~ sd(.) / sqrt(N))
-
-## residual std
-dat_res %>% 
-  summarize_at("res", 
-               ~ ())
-```
-
-
-R-Squared:
-
-```{r}
-dat_dev <- dat_res %>% 
-  mutate(yhat_mean = mean(y_hat),
-         RSS = y - y_hat,
-         ESS = y_hat - yhat_mean,
-         TSS = y - yhat_mean) %>% 
-  summarise_at(c("RSS", "ESS", "TSS"),
-               ~ sum(.^2))
-
-glimpse(dat_dev)
-```
-
-```{r}
-dat_dev %$% {ESS/TSS} ## multiple R-squared
-```
-
-
-degrees of freedom, f-statistic
-
-```{r}
-df1 <- 1
-df2 <- N-df1-1
-
-f <- dat_dev %$% {ESS * df2 / RSS/ df1}
-
-## P-value
-pf(f, df1, df2, lower.tail = FALSE)
-```
-
-
-```{r}
-## F-statistic
-dat_f <- tibble(x = seq(0,5, by = 0.01),
-                y = df(x, df1, df2))
-
-dat_f %>% 
-  ggplot(aes(x, y)) +
-  geom_path() +
-  geom_vline(xintercept = f)
-```
-
-
-```{r}
-dat_g <- dat_res %>% mutate(x_bar = mean(x),
-                            y_bar = mean(y))
-
-dat_g %>% 
-  ggplot(aes(x, y)) +
-  geom_path(aes(y = y_hat)) + 
-  geom_point()
-```
-
-
+![]()
 
 ## Resources
 
 - [Linear Models with R - Julian J. Faraway](https://www.utstat.toronto.edu/~brunner/books/LinearModelsWithR.pdf)
 - [Extending the Linear Model with R - Julian J. Faraway](https://julianfaraway.github.io/faraway/ELM/)
+- [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse - Chester Ismay & Albert Y. Kim](https://moderndive.com/)
 
 # Lightning Talks
 
-## - @mtkw
+## R and Snowflake - `@y__mattu`
 
-
-
-## R and Snowflake - @y__mattu
-
-R and RStudio author
+R and RStudio author   `@y__mattu`
 
 
 
@@ -263,12 +121,12 @@ connect via `dbiconnect()`
 
 then send query
 
-https://hevodata.com/learn/snowflake-r/
+## Resources
 
+- [](https://hevodata.com/learn/snowflake-r/)
+- [](https://community.snowflake.com/s/article/How-To-Connect-Snowflake-with-R-RStudio-using-RODBC-driver-on-Windows-MacOS-Linux)
 
-https://community.snowflake.com/s/article/How-To-Connect-Snowflake-with-R-RStudio-using-RODBC-driver-on-Windows-MacOS-Linux
-
-## Buying art with R - @saltcooky
+## Buying art with R - `@saltcooky`
 
 - [Slides](https://speakerdeck.com/saltcooky12/rdeyou-ming-hui-hua-woan-quan-nimai-itai)
 
@@ -276,33 +134,49 @@ https://community.snowflake.com/s/article/How-To-Connect-Snowflake-with-R-RStudi
 
 fractal analysis of paintings
 
-box-counting algorithm
+box-counting algorithm: `box_counting()`
+
+## Resources
+
+[{VoxR}: Trees Geometry and Morphology from Unstructured TLS Data - Bastien Lecigne](https://cran.r-project.org/package=VoxR)
 
 
-{VoxR} R package: https://cran.r-project.org/package=VoxR
+## Graphs - `@bob3bob3`
 
-`box_counting()`
+In his 2nd presentation of the day, `@bob3bob3` talked about graphs, specifically some visualization functions that are included in base R. 
+
+Why does R have these functions? ... [For compatibility with S](https://twitter.com/whydoesr).
+
+For those that might not get the joke/adage/whatever, these visualization functions continued to exist in R due to its origins in its predecessor language, S.
 
 
-## Graphs - @bob3bob3
 
-R comes from S
-
-
-old artifacts from S
-
-- sunflower plots, face graph, stem-and-leaf plot
+- sunflower plots, face graph, 
 
 `sunflowerplot()` function in base R!: https://statisticaloddsandends.wordpress.com/2021/02/05/what-is-a-sunflower-plot/
 
-`stem()` function in base R graphics
+stem-and-leaf plot: `stem()` function in base R graphics
 
 
 Chernoff face graph: {aplpack}::`faces()`
 
 - https://flowingdata.com/2010/08/31/how-to-visualize-data-with-cartoonish-faces/
 
+and provided an example using the Palmer penguins dataset that he used in his previous presentation.
 
+![]()
+
+Nowadays, for similar visualizations, people can make radar plots or parallel coordinate plots.
+
+## Resources
+
+- Schilling, M. F. and Watkins, A. E. (1994). A suggestion for sunflower plots. The American Statistician, 48, 303–305. doi: 10.2307/2684839.
+
+- Hermann Chernoff (1973). The use of faces to represent points in k-dimensional space graphically. Journal of the American Statistical Association, 68(342), 361–368.
+
+- [{aplpack}: 'Bagplots', 'Iconplots', 'Summaryplots', Slider Functions and Others - Hans Peter Wolf](https://cran.r-project.org/package=aplpack)
+
+- [{ggChernoff}: Chernoff face geom for {ggplot2} - David Selby](https://cran.r-project.org/package=ggChernoff)
 
 
 
